@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import '../styles/tailwind.css';
 
 export const metadata = {
 	title: 'Create Next App',
