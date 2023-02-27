@@ -5,8 +5,11 @@ module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
+			colors: {
+				primary: '#A034FA',
+			},
 			backgroundImage: {
-				primary: "url('/background.jpg')",
+				'img-primary': "url('/background.jpg')",
 			},
 			fontFamily: {
 				sans: ['var(--font-open_sans)'],

@@ -19,7 +19,7 @@ export const NavItem = ({ href, children }: NavItemProps) => {
 		<Link
 			href={href}
 			className={clsx(
-				'text-xl font-medium transition-opacity',
+				'text-xl font-medium transition-opacity md:text-lg lg:text-xl',
 				isActive ? 'text-white' : 'text-white/75 hover:text-white'
 			)}
 		>
