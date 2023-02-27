@@ -10,7 +10,7 @@ ArtList.pl is a web application that allows players to share and discover Minecr
 
 ## Getting Started
 
-To get started with ArtList.pl, simply navigate to the website at [https://artlist.pl](https://artlist.pl). From there, you can browse through the list of servers, filter them by criteria that are important to you, and even submit your own server to be added to the list.
+To get started with ArtList.pl, simply navigate to the website at [ArtList.pl](https://artlist-opal.vercel.app/). From there, you can browse through the list of servers, filter them by criteria that are important to you, and even submit your own server to be added to the list.
 
 ## Contributing
 
