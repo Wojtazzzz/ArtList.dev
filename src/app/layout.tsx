@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import '../styles/tailwind.css';
-import { Navigation } from '@/components/atoms/Navigation';
+import { Navigation } from '@/components/molecules/Navigation';
 import { Open_Sans } from 'next/font/google';
 
 export const metadata = {
@@ -23,6 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		<html lang="pl" className={`${opensans.variable}`}>
 			<body className="bg-primary bg-cover bg-fixed bg-no-repeat">
 				<Navigation />
+
 				<main className="relative z-10"></main>
 				{children}
 			</body>
