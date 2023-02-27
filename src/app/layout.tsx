@@ -24,8 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			<body className="bg-img-primary bg-cover bg-fixed bg-no-repeat">
 				<Navigation />
 
-				<main className="relative z-10"></main>
-				{children}
+				<main className="container relative z-10 mx-auto">{children}</main>
 			</body>
 		</html>
 	);
