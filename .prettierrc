@@ -1,1 +1,9 @@
-{ "semi": true, "useTabs": true, "tabWidth": 4, "printWidth": 100, "singleQuote": true }
+{
+	"semi": true,
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 100,
+	"singleQuote": true,
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"tailwindConfig": "./tailwind.config.js"
+}
