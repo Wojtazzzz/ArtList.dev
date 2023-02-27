@@ -23,3 +23,7 @@ ArtList.pl is licensed under the MIT License. See [LICENSE](LICENSE) for more in
 ## Credits
 
 ArtList.pl was created by Wojtazz. Special thanks to the Minecraft community for contributing servers to the list.
+
+## Readme
+
+Readme was created by [OpenAI](https://chat.openai.com/).
