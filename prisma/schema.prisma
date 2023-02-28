@@ -6,19 +6,19 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Server {
   id        Int      @id @default(autoincrement())
   ip        String
-  motd      String?
-  icon      String?
+  motd      String[]
+  icon      String
   version   String
   slots     Int
   online    Int
-  tags      Json
+  tags      String[]
   createdBy String?
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
