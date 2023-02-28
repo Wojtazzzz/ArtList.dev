@@ -1,0 +1,16 @@
+-- CreateTable
+CREATE TABLE `Server` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `ip` VARCHAR(191) NOT NULL,
+    `motd` VARCHAR(191) NULL,
+    `icon` VARCHAR(191) NULL,
+    `version` VARCHAR(191) NOT NULL,
+    `slots` INTEGER NOT NULL,
+    `online` INTEGER NOT NULL,
+    `tags` JSON NOT NULL,
+    `createdBy` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

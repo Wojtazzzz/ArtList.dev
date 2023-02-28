@@ -9,3 +9,17 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Server {
+  id        Int      @id @default(autoincrement())
+  ip        String
+  motd      String?
+  icon      String?
+  version   String
+  slots     Int
+  online    Int
+  tags      Json
+  createdBy String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
