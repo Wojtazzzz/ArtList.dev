@@ -1,17 +1,20 @@
 import { Server } from '@/components/atoms/Server';
+import { prisma } from '@/utils/prisma';
 
-const servers = [{ id: 1 }, { id: 2 }, { id: 3 }] as const;
+const fetchServers = async () => {
+	return await prisma.server.findMany();
+};
 
-export default function Home() {
+export default async function Home() {
+	const servers = await fetchServers();
+
 	return (
-		<div className="">
-			<ul role="list" className="space-y-3">
-				{servers.map((server) => (
-					<li key={server.id}>
-						<Server />
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul role="list" className="space-y-3">
+			{servers.map((server) => (
+				<li key={server.id}>
+					<Server {...server} />
+				</li>
+			))}
+		</ul>
 	);
 }

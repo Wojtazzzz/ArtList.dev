@@ -1,34 +1,37 @@
+import type { Server as ServerType } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
-const tags = ['pvp', 'survival', 'anarchia', 'skyblock'] as const;
+type ServerProps = Pick<
+	ServerType,
+	'id' | 'icon' | 'ip' | 'motd' | 'online' | 'slots' | 'tags' | 'version'
+>;
 
-export const Server = () => {
+export const Server = ({ id, icon, ip, motd, online, slots, tags, version }: ServerProps) => {
 	return (
-		<Link href="/serwer/1">
+		<Link href={`/serwer/${id}`}>
 			<article className="flex w-full items-center justify-between rounded-xl bg-black/60 p-5 text-white shadow-md">
-				<header className="flex gap-3">
-					<div>
-						<Image
-							width="64"
-							height="64"
-							src="/grass.webp"
-							className="rounded-md"
-							alt=""
-						/>
+				<header className="flex items-center gap-3">
+					<div className="relative h-16 w-16">
+						<Image fill src={icon} className="rounded-md" alt="" />
 					</div>
 
 					<hgroup className="">
-						<h2 className="font-bold">ArtMc.pl</h2>
-						<p>Najlepszy serwer Minecraft pod słońcem!</p>
+						<h2 className="font-bold">{ip}</h2>
+						<p className="flex flex-col">
+							{motd.map((line, index) => (
+								<span key={index} dangerouslySetInnerHTML={{ __html: line }}></span>
+							))}
+						</p>
 					</hgroup>
 				</header>
 
 				<footer className="flex flex-col gap-1.5 text-right text-sm">
-					<span>1.19.2</span>
-					<span>99999/99999</span>
-					<ul role="list" className="flex gap-2">
+					<span>{version}</span>
+					<span>
+						{online}/{slots}
+					</span>
+					<ul role="list" className="flex justify-end gap-2">
 						{tags.map((tag, index) => (
 							<li
 								key={index}
