@@ -49,7 +49,6 @@ const servers = [
 	'ekipa.pro',
 	'minecrafter.pl',
 	'przygodacraft.pl',
-	'dcrft.pl',
 	'legacymc.pl',
 	'unitedingeo.pl',
 ];
@@ -70,7 +69,7 @@ async function main() {
 				online: server.players.online,
 				slots: server.players.max,
 				tags: ['pvp', 'minigame'],
-				version: server.version,
+				version: server.version.replace(/[^0-9x., /-]/g, ''),
 				icon: server.icon,
 				motd: server.motd?.html,
 			},
