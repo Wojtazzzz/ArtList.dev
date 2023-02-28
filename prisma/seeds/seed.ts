@@ -1,6 +1,22 @@
-import { serverSchema } from '@/utils/schema';
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
+import { z } from 'zod';
+
+const prisma = new PrismaClient();
+
+const serverSchema = z.object({
+	ip: z.string(),
+	motd: z.object({
+		html: z.array(z.string()),
+	}),
+	players: z.object({
+		online: z.number(),
+		max: z.number(),
+	}),
+	version: z.string(),
+	hostname: z.string(),
+	icon: z.string(),
+});
 
 const fetchServer = async () => {
 	const response = await axios
@@ -9,8 +25,6 @@ const fetchServer = async () => {
 
 	return serverSchema.parse(response);
 };
-
-const prisma = new PrismaClient();
 
 async function main() {
 	await prisma.server.deleteMany({});
