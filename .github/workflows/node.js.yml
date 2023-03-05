@@ -3,6 +3,8 @@
 
 name: Node.js CI
 
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 on:
   push:
     branches: [ "main" ]
@@ -19,9 +21,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Set up environment variables
-      run: |
-          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
