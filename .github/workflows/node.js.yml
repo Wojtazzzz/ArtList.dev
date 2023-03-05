@@ -3,6 +3,9 @@
 
 name: Node.js CI
 
+env:
+  DATABASE_URL: postgres://postgres:t3ostmMnv6oH4ZlBI60k%CS7@db.jcxusaggkisazskwszrk.supabase.co:6543/postgres
+
 on:
   push:
     branches: [ "main" ]
