@@ -3,8 +3,6 @@
 
 name: Node.js CI
 
-env:
-  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 on:
   push:
     branches: [ "main" ]
@@ -23,6 +21,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
