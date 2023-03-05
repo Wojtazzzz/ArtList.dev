@@ -3,9 +3,6 @@
 
 name: Node.js CI
 
-env:
-  DATABASE_URL: ${{secrets.DATABASE_URL}}
-
 on:
   push:
     branches: [ "main" ]
@@ -14,6 +11,8 @@ on:
 
 jobs:
   build:
+    env:
+      DATABASE_URL: ${{secrets.DATABASE_URL}}
 
     runs-on: ubuntu-latest
 
