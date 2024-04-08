@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const Navigation = () => {
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="border-gray-200 bg-white dark:bg-gray-900">
+      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Link href="/" className="flex items-center space-x-1.5">
           <svg
-            className="w-6 h-6 text-gray-800 dark:text-white"
+            className="h-6 w-6 text-gray-800 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -24,13 +24,13 @@ export const Navigation = () => {
             />
           </svg>
 
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
+          <span className="self-center whitespace-nowrap text-2xl font-semibold">
             ArtList
           </span>
         </Link>
 
         <div className="w-auto">
-          <ul className="font-medium flex border-gray-100 rounded-lg space-x-8 mt-0 bg-white">
+          <ul className="mt-0 flex space-x-8 rounded-lg border-gray-100 bg-white font-medium">
             <li>
               <Button variant="default" asChild>
                 <Link href="/dodaj-serwer">Dodaj serwer</Link>
