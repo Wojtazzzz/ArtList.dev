@@ -1,0 +1,22 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Server {
+  id             Int      @id @default(autoincrement())
+  name           String   @unique
+  ip             String?
+  version        String?
+  maxPlayers     Int
+  currentPlayers Int
+  online         Boolean
+  motd           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^14.1.4",
+    "@prisma/client": "^5.12.1",
     "@radix-ui/react-slot": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
@@ -38,6 +39,7 @@
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
+    "prisma": "^5.12.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.4.4",
     "typescript-eslint": "^7.5.0"
