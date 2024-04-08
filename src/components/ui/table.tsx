@@ -4,9 +4,8 @@ import { cn } from "@/lib/utils";
 
 const Table = React.forwardRef<
   HTMLTableElement,
-  React.HTMLAttributes<HTMLTableElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <div className="relative w-full overflow-auto">
     <table
@@ -20,9 +19,8 @@ Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableSectionElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
 ));
@@ -30,9 +28,8 @@ TableHeader.displayName = "TableHeader";
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableSectionElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
@@ -44,9 +41,8 @@ TableBody.displayName = "TableBody";
 
 const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableSectionElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
@@ -61,9 +57,8 @@ TableFooter.displayName = "TableFooter";
 
 const TableRow = React.forwardRef<
   HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableRowElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <tr
     ref={ref}
@@ -78,9 +73,8 @@ TableRow.displayName = "TableRow";
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
-  React.ThHTMLAttributes<HTMLTableCellElement> & {
-    className: string;
-  }
+  React.ThHTMLAttributes<HTMLTableCellElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <th
     ref={ref}
@@ -95,9 +89,8 @@ TableHead.displayName = "TableHead";
 
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
-  React.TdHTMLAttributes<HTMLTableCellElement> & {
-    className: string;
-  }
+  React.TdHTMLAttributes<HTMLTableCellElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
@@ -109,9 +102,8 @@ TableCell.displayName = "TableCell";
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
-  React.HTMLAttributes<HTMLTableCaptionElement> & {
-    className: string;
-  }
+  React.HTMLAttributes<HTMLTableCaptionElement>
+  // eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
