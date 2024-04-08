@@ -1,14 +1,11 @@
-import Image from "next/image";
-import { Navigation } from '@/components/navigation/Navigation';
+import { Navigation } from "@/components/navigation/Navigation";
 
 export default function Home() {
   return (
     <>
-      <Navigation/>
+      <Navigation />
 
-      <main>
-        Main content
-      </main>
+      <main>Main content</main>
     </>
   );
 }
