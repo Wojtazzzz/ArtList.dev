@@ -1,8 +1,17 @@
 import prisma from "@/prisma";
+import { NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic"; // defaults to auto
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  if (
+    request.headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`
+  ) {
+    return Response.json({
+      status: "unauthorized",
+    });
+  }
+
   const servers = await prisma.server.findMany({
     select: {
       name: true,
@@ -53,5 +62,7 @@ export async function GET() {
     });
   }
 
-  return Response.json({ status: "ok" });
+  return Response.json({
+    status: "ok",
+  });
 }
