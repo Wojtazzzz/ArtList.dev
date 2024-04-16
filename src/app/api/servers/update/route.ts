@@ -6,19 +6,18 @@ export async function GET() {
   const servers = await prisma.server.findMany({
     select: {
       name: true,
+      ip: true,
     },
   });
 
   for (const server of servers) {
-    const res = await fetch(`https://api.mcsrvstat.us/3/${server.name}`);
+    const res = await fetch(`https://api.mcsrvstat.us/3/${server.ip}`);
 
     if (!res.ok) {
       continue;
     }
 
     const data = await res.json();
-
-    console.log(data);
 
     if (!data.online) {
       await prisma.server.update({
