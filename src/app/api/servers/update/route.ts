@@ -1,7 +1,7 @@
 import prisma from "@/prisma";
 import { NextRequest } from "next/server";
 
-export const dynamic = "force-dynamic"; // defaults to auto
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   if (
