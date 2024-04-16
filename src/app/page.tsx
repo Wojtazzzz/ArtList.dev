@@ -12,7 +12,13 @@ import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 export default async function Home() {
-  const SERVERS = Array.from({ length: 10 }).map(() => RESPONSE);
+  const response = await fetch("http://localhost:3000/api/servers/index");
+
+  if (!response.ok) {
+    return <span>Fetch error</span>;
+  }
+
+  const servers = await response.json();
 
   return (
     <>
@@ -31,7 +37,7 @@ export default async function Home() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {SERVERS.map((server, index) => (
+              {servers.map((server, index) => (
                 <TableRow
                   key={server.ip}
                   className={cn("whitespace-nowrap", {
@@ -40,14 +46,13 @@ export default async function Home() {
                 >
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>
-                    <p>Jakaś statyczna nazwa</p>
-                    <p
-                      className="hidden"
-                      dangerouslySetInnerHTML={{ __html: server.motd.html }}
-                    ></p>
+                    <p>{server.name}</p>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: server.motd }}
+                    ></div>
                   </TableCell>
                   <TableCell>
-                    {server.players.online} / {server.players.max}
+                    {server.currentPlayers} / {server.maxPlayers}
                   </TableCell>
                   <TableCell className="text-right">{server.version}</TableCell>
                 </TableRow>
