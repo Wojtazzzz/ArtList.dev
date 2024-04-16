@@ -12,7 +12,11 @@ import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 export default async function Home() {
-  const response = await fetch(`${process.env.API_URL}/api/servers/index`);
+  const response = await fetch(`${process.env.API_URL}/api/servers/index`, {
+    next: {
+      revalidate: 60,
+    },
+  });
 
   if (!response.ok) {
     return <span>Fetch error</span>;
