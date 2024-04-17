@@ -12,6 +12,8 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^14.1.4",
     "@prisma/client": "^5.12.1",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",

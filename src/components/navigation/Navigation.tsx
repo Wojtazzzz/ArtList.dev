@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { AddServerDialog } from "@/components/navigation/AddServerDialog";
 
 export const Navigation = () => {
   return (
@@ -32,9 +32,7 @@ export const Navigation = () => {
         <div className="w-auto">
           <ul className="mt-0 flex space-x-8 rounded-lg border-gray-100 bg-white font-medium">
             <li>
-              <Button variant="default" asChild>
-                <Link href="/dodaj-serwer">Dodaj serwer</Link>
-              </Button>
+              <AddServerDialog />
             </li>
           </ul>
         </div>
