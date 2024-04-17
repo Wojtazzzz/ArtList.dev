@@ -8,8 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui-library/dialog";
-import { Button } from "@/components/ui/Button";
+} from "@/components/ui/Dialog";
 import { addServer, initialState } from "@/actions/addServer";
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
@@ -21,11 +20,9 @@ export const AddServerDialog = () => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="default">Dodaj serwer</Button>
-      </DialogTrigger>
+      <DialogTrigger>Dodaj serwer</DialogTrigger>
 
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent>
         <form action={formAction}>
           <DialogHeader>
             <DialogTitle>Dodaj serwer</DialogTitle>
