@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
-import { Container } from "@/components/ui-library/Container";
+import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 export default async function Home() {
