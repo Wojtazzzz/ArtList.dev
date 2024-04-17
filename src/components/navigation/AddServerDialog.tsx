@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui-library/dialog";
-import { Button } from "@/components/ui-library/button";
+import { Button } from "@/components/ui/Button";
 import { addServer, initialState } from "@/actions/addServer";
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
