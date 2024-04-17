@@ -8,23 +8,21 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui-library/dialog";
-import { Button } from "@/components/ui-library/button";
+} from "@/components/ui/Dialog";
 import { addServer, initialState } from "@/actions/addServer";
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
 import { useFormState } from "react-dom";
+import { FormStatusButton } from "@/components/ui/FormStatusButton";
 
 export const AddServerDialog = () => {
   const [state, formAction] = useFormState(addServer, initialState);
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="default">Dodaj serwer</Button>
-      </DialogTrigger>
+      <DialogTrigger>Dodaj serwer</DialogTrigger>
 
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent>
         <form action={formAction}>
           <DialogHeader>
             <DialogTitle>Dodaj serwer</DialogTitle>
@@ -51,7 +49,7 @@ export const AddServerDialog = () => {
           {state.status === "ok" ? <div>Serwer został dodany</div> : null}
 
           <DialogFooter>
-            <Button type="submit">Dodaj</Button>
+            <FormStatusButton type="submit">Dodaj</FormStatusButton>
           </DialogFooter>
         </form>
       </DialogContent>
