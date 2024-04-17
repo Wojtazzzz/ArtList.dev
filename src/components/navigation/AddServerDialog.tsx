@@ -14,6 +14,7 @@ import { addServer, initialState } from "@/actions/addServer";
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
 import { useFormState } from "react-dom";
+import { FormStatusButton } from "@/components/ui/FormStatusButton";
 
 export const AddServerDialog = () => {
   const [state, formAction] = useFormState(addServer, initialState);
@@ -51,7 +52,7 @@ export const AddServerDialog = () => {
           {state.status === "ok" ? <div>Serwer został dodany</div> : null}
 
           <DialogFooter>
-            <Button type="submit">Dodaj</Button>
+            <FormStatusButton type="submit">Dodaj</FormStatusButton>
           </DialogFooter>
         </form>
       </DialogContent>
