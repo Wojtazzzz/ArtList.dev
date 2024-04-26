@@ -1,6 +1,10 @@
 const parseEnv = (value: unknown, name: string) => {
   if (!value || typeof value !== "string") {
-    throw new Error(`Unknown value of environment variable called "${name}"`);
+    throw new Error(`Missing env variable called "${name}"`);
+  }
+
+  if (!value || typeof value !== "string") {
+    throw new Error(`Unknown value of env variable called "${name}"`);
   }
 
   return String(value);
