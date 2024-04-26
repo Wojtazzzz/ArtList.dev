@@ -10,9 +10,10 @@ import {
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
+import { API_URL } from "@/utils/env";
 
 export default async function Home() {
-  const response = await fetch(`${process.env.API_URL}/api/servers/index`, {
+  const response = await fetch(`${API_URL}/servers/index`, {
     next: {
       revalidate: 60,
     },
