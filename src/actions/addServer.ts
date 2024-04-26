@@ -1,3 +1,5 @@
+import { API_URL } from "@/utils/env";
+
 type AddServerState =
   | {
       status: "idle";
@@ -15,7 +17,7 @@ export const initialState: AddServerState = {
 };
 
 export async function addServer(prevState: any, formData: FormData) {
-  const response = await fetch(`http://localhost:3000/api/servers/add`, {
+  const response = await fetch(`${API_URL}/servers/add`, {
     method: "POST",
     body: JSON.stringify({
       name: formData.get("name"),
