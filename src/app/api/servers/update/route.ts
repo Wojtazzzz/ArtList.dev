@@ -35,6 +35,7 @@ export async function GET(request: NextRequest) {
         },
         data: {
           online: false,
+          currentPlayers: 0,
         },
       });
 
@@ -49,13 +50,8 @@ export async function GET(request: NextRequest) {
         ip: data.ip,
         currentPlayers: data.players.online,
         maxPlayers: data.players.max,
-        motd:
-          "<div>" +
-          data.motd.html[0] +
-          "</div>" +
-          "<div>" +
-          data.motd.html[1] +
-          "</div>",
+        motdFirstLine: data.motd.clean[0] ?? null,
+        motdSecondLine: data.motd.clean[1] ?? null,
         online: true,
         version: data.version,
       },

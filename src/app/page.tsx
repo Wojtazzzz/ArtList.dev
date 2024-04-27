@@ -51,15 +51,28 @@ export default async function Home() {
                 >
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>
-                    <p>{server.name}</p>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: server.motd }}
-                    ></div>
+                    <p className="mb-1 text-base font-medium">{server.name}</p>
+                    <div>
+                      {server.motdFirstLine && (
+                        <div>{server.motdFirstLine}</div>
+                      )}
+                      {server.motdSecondLine && (
+                        <div>{server.motdSecondLine}</div>
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell>
                     {server.currentPlayers} / {server.maxPlayers}
                   </TableCell>
-                  <TableCell className="text-right">{server.version}</TableCell>
+                  <TableCell className="text-right">
+                    <p
+                      className="ml-auto w-40 overflow-hidden overflow-ellipsis whitespace-nowrap"
+                      title={server.version}
+                    >
+                      {/*Czy to zgodne z a11y*/}
+                      {server.version}
+                    </p>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

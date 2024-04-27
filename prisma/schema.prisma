@@ -16,7 +16,8 @@ model Server {
   maxPlayers     Int
   currentPlayers Int
   online         Boolean
-  motd           String
+  motdFirstLine  String?
+  motdSecondLine String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
