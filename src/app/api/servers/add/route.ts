@@ -53,13 +53,8 @@ export async function POST(request: Request) {
       ip: data.ip,
       currentPlayers: data.players.online,
       maxPlayers: data.players.max,
-      motd:
-        "<div>" +
-        data.motd.html[0] +
-        "</div>" +
-        "<div>" +
-        data.motd.html[1] +
-        "</div>",
+      motdFirstLine: data.motd.html.length > 0 ? data.motd.html[0] : null,
+      motdSecondLine: data.motd.html.length > 1 ? data.motd.html[1] : null,
       online: true,
       version: data.version,
     },
