@@ -3,14 +3,13 @@ import {
   Table,
   TableBody,
   TableCaption,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { cn } from "@/lib/utils";
 import { API_URL } from "@/utils/env";
+import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
 
 export default async function Home() {
   const response = await fetch(`${API_URL}/servers/index`, {
@@ -43,37 +42,7 @@ export default async function Home() {
             </TableHeader>
             <TableBody>
               {servers.map((server, index) => (
-                <TableRow
-                  key={server.ip}
-                  className={cn("whitespace-nowrap", {
-                    "bg-muted": index % 2 === 0,
-                  })}
-                >
-                  <TableCell className="font-medium">{index + 1}</TableCell>
-                  <TableCell>
-                    <p className="mb-1 text-base font-medium">{server.name}</p>
-                    <div>
-                      {server.motdFirstLine && (
-                        <div>{server.motdFirstLine}</div>
-                      )}
-                      {server.motdSecondLine && (
-                        <div>{server.motdSecondLine}</div>
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    {server.currentPlayers} / {server.maxPlayers}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <p
-                      className="ml-auto w-40 overflow-hidden overflow-ellipsis whitespace-nowrap"
-                      title={server.version}
-                    >
-                      {/*Czy to zgodne z a11y*/}
-                      {server.version}
-                    </p>
-                  </TableCell>
-                </TableRow>
+                <ServerTableRow server={server} index={index} key={server.id} />
               ))}
             </TableBody>
           </Table>

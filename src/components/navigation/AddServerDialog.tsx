@@ -9,21 +9,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/Dialog";
-import { addServer, initialState } from "@/actions/addServer";
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
-import { useFormState } from "react-dom";
 import { FormStatusButton } from "@/components/ui/FormStatusButton";
+import { useAddServerDialog } from "@/components/navigation/useAddServerDialog";
 
 export const AddServerDialog = () => {
-  const [state, formAction] = useFormState(addServer, initialState);
+  const { state, addServerAction } = useAddServerDialog();
 
   return (
     <Dialog>
       <DialogTrigger>Dodaj serwer</DialogTrigger>
 
       <DialogContent>
-        <form action={formAction}>
+        <form action={addServerAction}>
           <DialogHeader>
             <DialogTitle>Dodaj serwer</DialogTitle>
             <DialogDescription>

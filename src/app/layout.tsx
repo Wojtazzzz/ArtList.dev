@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { type ReactNode } from "react";
+import { Toaster } from "@/components/ui-library/toaster";
+import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +16,13 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <div>{children}</div>
+        </Providers>
+
+        <Toaster />
+      </body>
     </html>
   );
 }
