@@ -5,7 +5,7 @@ import { TableCell, TableRow } from "@/components/ui-library/table";
 import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
 import { capitalize } from "@/utils/capitalize";
 import { type Server } from "@/app/page";
-import Image from "next/image";
+// import Image from "next/image";
 
 type ServerTableRowProps = {
   server: Server;
