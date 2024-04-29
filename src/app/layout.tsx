@@ -3,6 +3,7 @@ import "./globals.css";
 import { type ReactNode } from "react";
 import { Toaster } from "@/components/ui-library/toaster";
 import { Providers } from "@/components/Providers";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +18,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pl">
       <body>
-        <Providers>
-          <div>{children}</div>
-        </Providers>
+        <Providers>{children}</Providers>
+
+        <Footer />
 
         <Toaster />
       </body>
