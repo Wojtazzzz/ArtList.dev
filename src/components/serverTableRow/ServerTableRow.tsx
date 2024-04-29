@@ -5,7 +5,7 @@ import { TableCell, TableRow } from "@/components/ui-library/table";
 import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
 import { capitalize } from "@/utils/capitalize";
 import { type Server } from "@/app/page";
-// import Image from "next/image";
+import Image from "next/image";
 
 type ServerTableRowProps = {
   server: Server;
@@ -28,14 +28,14 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
           className="flex w-full py-2 text-left"
         >
           <div className="my-auto mr-3.5 h-full w-[58px]">
-            {/*{server.icon && (*/}
-            {/*  <Image*/}
-            {/*    src={server.icon}*/}
-            {/*    alt="Logo serwera"*/}
-            {/*    width={58}*/}
-            {/*    height={58}*/}
-            {/*  />*/}
-            {/*)}*/}
+            {server.icon && (
+              <Image
+                src={server.icon}
+                alt="Logo serwera"
+                width={58}
+                height={58}
+              />
+            )}
           </div>
 
           <div>
