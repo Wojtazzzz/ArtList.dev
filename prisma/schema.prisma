@@ -18,6 +18,7 @@ model Server {
   online         Boolean
   motdFirstLine  String?
   motdSecondLine String?
+  icon           String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }

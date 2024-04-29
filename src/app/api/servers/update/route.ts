@@ -54,6 +54,7 @@ export async function GET(request: NextRequest) {
         motdSecondLine: data.motd.clean.length > 1 ? data.motd.clean[1] : null,
         online: true,
         version: data.version,
+        icon: data.icon,
       },
     });
   }

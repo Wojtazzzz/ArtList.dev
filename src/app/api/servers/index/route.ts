@@ -24,6 +24,7 @@ export async function GET() {
       online: true,
       motdFirstLine: true,
       motdSecondLine: true,
+      icon: true,
     },
   });
 

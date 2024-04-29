@@ -54,6 +54,7 @@ export const addServer = async ({ name }: z.input<typeof schema>) => {
       motdSecondLine: data.motd.clean.length > 1 ? data.motd.clean[1] : null,
       online: true,
       version: data.version,
+      icon: data.icon,
     },
   });
 };

@@ -23,6 +23,7 @@ const serversSchema = z.array(
     currentPlayers: z.number(),
     maxPlayers: z.number(),
     online: z.boolean(),
+    icon: z.string().nullable(),
   }),
 );
 
@@ -41,7 +42,7 @@ export default async function Home() {
             <TableCaption>Lista serwerów Minecraft.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">#</TableHead>
+                <TableHead className="w-[64px]">#</TableHead>
                 <TableHead>Nazwa</TableHead>
                 <TableHead>Graczy</TableHead>
                 <TableHead className="text-right">Wersja</TableHead>
