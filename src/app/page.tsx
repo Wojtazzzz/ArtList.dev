@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
+import { parseData } from "@/utils/parseData";
 
 const serversSchema = z.array(
   z.object({
@@ -29,9 +30,9 @@ const serversSchema = z.array(
 export type Server = z.infer<typeof serversSchema>[0];
 
 export default async function Home() {
-  // const servers = parseData(await serverFetch("/servers/index"), serversSchema);
-  const servers = await serverFetch("/servers/index");
-  console.log(servers);
+  const servers = parseData(await serverFetch("/servers/index"), serversSchema);
+  // const servers = await serverFetch("/servers/index");
+  // console.log(servers);
 
   return (
     <>
