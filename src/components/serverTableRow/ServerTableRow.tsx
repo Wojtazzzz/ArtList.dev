@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 import { TableCell, TableRow } from "@/components/ui-library/table";
 import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
 import { capitalize } from "@/utils/capitalize";
+import { type Server } from "@/app/page";
 
 type ServerTableRowProps = {
-  server: any;
+  server: Server;
   index: number;
 };
 
@@ -35,7 +36,9 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
         </button>
       </TableCell>
       <TableCell>
-        {server.currentPlayers} / {server.maxPlayers}
+        <span className={cn({ "text-red-600": !server.online })}>
+          {server.currentPlayers} / {server.maxPlayers}
+        </span>
       </TableCell>
       <TableCell className="text-right">
         <p

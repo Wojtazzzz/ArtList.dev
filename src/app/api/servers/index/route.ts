@@ -15,6 +15,16 @@ export async function GET() {
         maxPlayers: "desc",
       },
     ],
+    select: {
+      id: true,
+      name: true,
+      version: true,
+      maxPlayers: true,
+      currentPlayers: true,
+      online: true,
+      motdFirstLine: true,
+      motdSecondLine: true,
+    },
   });
 
   return Response.json(servers);

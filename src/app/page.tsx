@@ -22,8 +22,11 @@ const serversSchema = z.array(
     motdSecondLine: z.string().nullable(),
     currentPlayers: z.number(),
     maxPlayers: z.number(),
+    online: z.boolean(),
   }),
 );
+
+export type Server = z.infer<typeof serversSchema>[0];
 
 export default async function Home() {
   const servers = parseData(await serverFetch("/servers/index"), serversSchema);
