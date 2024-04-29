@@ -8,7 +8,7 @@ import type { VariantProps } from "class-variance-authority";
 type ButtonProps = {
   children: ReactNode;
 } & VariantProps<typeof buttonVariants> &
-  Pick<ButtonHTMLAttributes<HTMLButtonElement>, "type">;
+  Pick<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "onClick">;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant, children, ...props }: ButtonProps, ref) => {

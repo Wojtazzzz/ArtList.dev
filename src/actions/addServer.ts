@@ -1,41 +1,59 @@
-import { API_URL } from "@/utils/env";
+"use server";
 
-type AddServerState =
-  | {
-      status: "idle";
-    }
-  | {
-      status: "ok";
-    }
-  | {
-      status: "error";
-      error: string;
-    };
+import prisma from "@/prisma";
+import { z } from "zod";
 
-export const initialState: AddServerState = {
-  status: "idle",
-};
+const schema = z.object({
+  name: z.string(),
+});
 
-export async function addServer(prevState: any, formData: FormData) {
-  const response = await fetch(`${API_URL}/servers/add`, {
-    method: "POST",
-    body: JSON.stringify({
-      name: formData.get("name"),
-    }),
-    headers: {
-      "Content-Type": "application/json",
+export const addServer = async ({ name }: z.input<typeof schema>) => {
+  if (!name) {
+    throw new Error("Podano nieprawidłową nazwę serwera");
+  }
+
+  const server = await prisma.server.findFirst({
+    where: {
+      OR: [
+        {
+          name: {
+            equals: name,
+            mode: "insensitive",
+          },
+        },
+        {
+          ip: name,
+        },
+      ],
     },
   });
 
-  if (!response.ok) {
-    return {
-      status: "error",
-      error:
-        "Dodawanie serwera się nie powiodło. Proszę spróbować ponownie później.",
-    };
+  if (server) {
+    throw new Error("Podany serwer już istnieje");
   }
 
-  return {
-    status: "ok",
-  };
-}
+  const response = await fetch(`https://api.mcsrvstat.us/3/${name}`);
+
+  if (!response.ok) {
+    throw new Error("Wczytywanie danych nie powiodło się");
+  }
+
+  const data = await response.json();
+
+  if (!data.online) {
+    throw new Error("Serwer nie istnieje lub jest offline");
+  }
+
+  await prisma.server.create({
+    data: {
+      name,
+      ip: data.ip,
+      currentPlayers: data.players.online,
+      maxPlayers: data.players.max,
+      motdFirstLine: data.motd.clean.length > 0 ? data.motd.clean[0] : null,
+      motdSecondLine: data.motd.clean.length > 1 ? data.motd.clean[1] : null,
+      online: true,
+      version: data.version,
+    },
+  });
+};

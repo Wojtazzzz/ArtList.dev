@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { TableCell, TableRow } from "@/components/ui-library/table";
 import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
+import { capitalize } from "@/utils/capitalize";
 
 type ServerTableRowProps = {
   server: any;
@@ -24,7 +25,9 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
           onClick={() => copyIp(server.name)}
           className="w-full py-2 text-left"
         >
-          <p className="mb-1 text-base font-medium">{server.name}</p>
+          <p className="mb-1 text-base font-medium">
+            {capitalize(server.name)}
+          </p>
           <div>
             {server.motdFirstLine && <div>{server.motdFirstLine}</div>}
             {server.motdSecondLine && <div>{server.motdSecondLine}</div>}

@@ -8,21 +8,25 @@ import {
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { API_URL } from "@/utils/env";
 import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
+import { serverFetch } from "@/utils/serverFetch";
+import { z } from "zod";
+import { parseData } from "@/utils/parseData";
+
+const serversSchema = z.array(
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    version: z.string(),
+    motdFirstLine: z.string().nullable(),
+    motdSecondLine: z.string().nullable(),
+    currentPlayers: z.number(),
+    maxPlayers: z.number(),
+  }),
+);
 
 export default async function Home() {
-  const response = await fetch(`${API_URL}/servers/index`, {
-    next: {
-      revalidate: 60,
-    },
-  });
-
-  if (!response.ok) {
-    return <span>Fetch error</span>;
-  }
-
-  const servers = (await response.json()) as any[];
+  const servers = parseData(await serverFetch("/servers/index"), serversSchema);
 
   return (
     <>

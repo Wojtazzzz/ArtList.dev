@@ -11,11 +11,30 @@ import { type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 
 type DialogProps = {
+  open: boolean;
+  // eslint-disable-next-line no-unused-vars
+  setOpen: (isOpen: boolean) => void;
+  onOpenChangeCallback: () => void;
   children: ReactNode;
 };
 
-export const Dialog = ({ children }: DialogProps) => {
-  return <UIDialog>{children}</UIDialog>;
+export const Dialog = ({
+  open,
+  setOpen,
+  onOpenChangeCallback,
+  children,
+}: DialogProps) => {
+  return (
+    <UIDialog
+      open={open}
+      onOpenChange={(open) => {
+        setOpen(open);
+        onOpenChangeCallback();
+      }}
+    >
+      {children}
+    </UIDialog>
+  );
 };
 
 type DialogTriggerProps = {

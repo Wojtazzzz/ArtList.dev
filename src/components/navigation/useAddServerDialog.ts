@@ -1,11 +1,24 @@
-import { useFormState } from "react-dom";
-import { addServer, initialState } from "@/actions/addServer";
+import { useBoolean } from "@/hooks/useBoolean";
 
 export const useAddServerDialog = () => {
-  const [state, addServerAction] = useFormState(addServer, initialState);
+  const { state, setTrue, setFalse, setOwn } = useBoolean();
+
+  const openDialog = () => {
+    setTrue();
+  };
+
+  const closeDialog = () => {
+    setFalse();
+  };
+
+  const setDialogOpen = (isOpen: boolean) => {
+    setOwn(isOpen);
+  };
 
   return {
-    state,
-    addServerAction,
+    open: state,
+    openDialog,
+    closeDialog,
+    setDialogOpen,
   };
 };

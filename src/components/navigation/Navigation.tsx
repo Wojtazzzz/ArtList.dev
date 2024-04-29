@@ -30,7 +30,11 @@ export const Navigation = () => {
         </Link>
 
         <div className="w-auto">
-          <ul className="mt-0 flex space-x-8 rounded-lg border-gray-100 bg-white font-medium">
+          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+          <ul
+            role="list"
+            className="mt-0 flex space-x-8 rounded-lg border-gray-100 bg-white font-medium"
+          >
             <li>
               <AddServerDialog />
             </li>

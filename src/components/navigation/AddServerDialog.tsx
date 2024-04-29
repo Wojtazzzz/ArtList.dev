@@ -12,17 +12,23 @@ import {
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
 import { FormStatusButton } from "@/components/ui/FormStatusButton";
+import { useAddServer } from "@/components/navigation/useAddServer";
 import { useAddServerDialog } from "@/components/navigation/useAddServerDialog";
 
 export const AddServerDialog = () => {
-  const { state, addServerAction } = useAddServerDialog();
+  const { open, closeDialog, setDialogOpen } = useAddServerDialog();
+  const { addServer, isError, resetRequestState } = useAddServer(closeDialog);
 
   return (
-    <Dialog>
+    <Dialog
+      open={open}
+      setOpen={setDialogOpen}
+      onOpenChangeCallback={resetRequestState}
+    >
       <DialogTrigger>Dodaj serwer</DialogTrigger>
 
       <DialogContent>
-        <form action={addServerAction}>
+        <form action={addServer}>
           <DialogHeader>
             <DialogTitle>Dodaj serwer</DialogTitle>
             <DialogDescription>
@@ -30,26 +36,23 @@ export const AddServerDialog = () => {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Nazwa
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                defaultValue=""
-                className="col-span-3"
-              />
-            </div>
+          <div className="mt-5 flex items-center gap-4">
+            <Label htmlFor="server-name" className="text-right">
+              Nazwa
+            </Label>
+            <Input
+              id="server-name"
+              name="name"
+              className="col-span-3"
+              aria-invalid={isError}
+            />
           </div>
 
-          {state.status === "error" ? <div>{state.error}</div> : null}
-          {state.status === "ok" ? <div>Serwer został dodany</div> : null}
-
-          <DialogFooter>
-            <FormStatusButton type="submit">Dodaj</FormStatusButton>
-          </DialogFooter>
+          <div className="mt-5">
+            <DialogFooter>
+              <FormStatusButton type="submit">Dodaj</FormStatusButton>
+            </DialogFooter>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
