@@ -43,6 +43,11 @@ export const Footer = () => {
                 Strona główna
               </Link>
             </p>
+            <p className="mb-4">
+              <Link href="/regulamin" className="hover:underline">
+                Regulamin serwisu
+              </Link>
+            </p>
           </div>
 
           <div>
