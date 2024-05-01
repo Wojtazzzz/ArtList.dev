@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   });
 
   for (const server of servers) {
-    const res = await fetch(`https://api.mcsrvstat.us/3/${server.ip}`);
+    const res = await fetch(`https://api.mcsrvstat.us/3/${server.name}`);
 
     if (!res.ok) {
       continue;
