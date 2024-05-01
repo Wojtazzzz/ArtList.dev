@@ -27,8 +27,8 @@ export const Footer = () => {
               ArtList
             </h6>
             <p>
-              Aplikacja umożliwiająca graczom udostępnianie i odkrywanie
-              serwerów Minecraft.
+              Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub
+              zareklamuj własny.
             </p>
           </div>
 
