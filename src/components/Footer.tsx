@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Footer = () => {
   return (
     <footer className="mt-12 w-full text-center text-sm lg:text-left">
@@ -37,7 +39,9 @@ export const Footer = () => {
               Linki
             </h6>
             <p className="mb-4">
-              <a href="#!">Strona główna</a>
+              <Link href="/" className="hover:underline">
+                Strona główna
+              </Link>
             </p>
           </div>
 
