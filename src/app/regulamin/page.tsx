@@ -12,7 +12,7 @@ export default async function StatutePage() {
   return (
     <main>
       <Container>
-        <article className="prose mx-auto min-w-[500px]">
+        <article className="prose mx-auto !max-w-[100ch]">
           <h2>Regulamin Serwisu</h2>
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
           <ol role="list" className="list-decimal">
