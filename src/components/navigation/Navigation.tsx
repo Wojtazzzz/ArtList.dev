@@ -27,6 +27,8 @@ export const Navigation = () => {
           <h1 className="self-center whitespace-nowrap text-2xl font-semibold">
             ArtList
           </h1>
+
+          <span>(beta)</span>
         </Link>
 
         <div className="w-auto">
