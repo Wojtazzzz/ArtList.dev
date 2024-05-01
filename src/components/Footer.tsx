@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="mx-auto max-w-screen-xl p-4 py-10 text-center md:text-left">
         <div className="grid-1 grid gap-5 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <div>
-            <h6 className="mb-4 flex items-center justify-center font-semibold md:justify-start">
+            <p className="mb-4 flex items-center justify-center font-semibold md:justify-start">
               <svg
                 className="mr-1 h-4 w-4 text-gray-800 dark:text-white md:mr-1.5"
                 aria-hidden="true"
@@ -25,7 +25,7 @@ export const Footer = () => {
                 />
               </svg>
               ArtList
-            </h6>
+            </p>
             <p>
               Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub
               zareklamuj własny.
@@ -35,9 +35,9 @@ export const Footer = () => {
           <div></div>
 
           <div>
-            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+            <p className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Linki
-            </h6>
+            </p>
             <p className="mb-4">
               <Link href="/" className="hover:underline">
                 Strona główna
@@ -46,9 +46,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+            <p className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Kontakt
-            </h6>
+            </p>
             <p className="mb-4 flex items-center justify-center md:justify-start">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
