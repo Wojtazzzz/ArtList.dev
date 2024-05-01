@@ -24,9 +24,9 @@ export const Navigation = () => {
             />
           </svg>
 
-          <span className="self-center whitespace-nowrap text-2xl font-semibold">
+          <h1 className="self-center whitespace-nowrap text-2xl font-semibold">
             ArtList
-          </span>
+          </h1>
         </Link>
 
         <div className="w-auto">
