@@ -11,13 +11,6 @@ import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Lista serwerów Minecraft - ArtList.pl",
-  description:
-    "Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub zareklamuj własny.",
-};
 
 const serversSchema = z.array(
   z.object({

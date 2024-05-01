@@ -4,8 +4,6 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Regulamin serwisu - ArtList.pl",
-  description:
-    "Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub zareklamuj własny.",
 };
 
 export default async function StatutePage() {
