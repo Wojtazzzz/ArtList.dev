@@ -25,6 +25,9 @@ export async function GET() {
       motdFirstLine: true,
       motdSecondLine: true,
       icon: true,
+      // For debuging purposes:
+      createdAt: true,
+      updatedAt: true,
     },
   });
 
