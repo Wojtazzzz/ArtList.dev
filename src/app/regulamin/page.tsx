@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Regulamin - ArtList.pl",
+  title: "Regulamin serwisu - ArtList.pl",
   description:
     "Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub zareklamuj własny.",
 };
