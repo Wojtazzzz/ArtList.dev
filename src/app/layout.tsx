@@ -4,6 +4,7 @@ import { type ReactNode } from "react";
 import { Toaster } from "@/components/ui-library/toaster";
 import { Providers } from "@/components/Providers";
 import { Footer } from "@/components/Footer";
+import { Navigation } from "@/components/navigation/Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +19,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pl">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navigation />
 
-        <Footer />
+          {children}
 
-        <Toaster />
+          <Footer />
+
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

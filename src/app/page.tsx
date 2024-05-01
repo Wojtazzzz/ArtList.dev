@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/navigation/Navigation";
 import {
   Table,
   TableBody,
@@ -43,8 +42,6 @@ export default async function Home() {
 
   return (
     <>
-      <Navigation />
-
       <main>
         <Container>
           <Table>
