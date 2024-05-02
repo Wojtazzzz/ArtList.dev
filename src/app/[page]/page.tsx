@@ -45,8 +45,6 @@ const serversSchema = z.object({
 
 export type Server = z.infer<typeof serversSchema>["data"][0];
 
-export const revalidate = 3600;
-
 export async function generateStaticParams() {
   const pagesCount = Math.ceil(
     (await prisma.server.count()) / SERVERS_LIMIT_PER_PAGE,
