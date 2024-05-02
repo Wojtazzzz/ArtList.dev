@@ -48,8 +48,9 @@ export type Server = z.infer<typeof serversSchema>["data"][0];
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const allServersCount = await prisma.server.count();
-  const pagesCount = Math.ceil(allServersCount / SERVERS_LIMIT_PER_PAGE);
+  const pagesCount = Math.ceil(
+    (await prisma.server.count()) / SERVERS_LIMIT_PER_PAGE,
+  );
 
   return Array.from({ length: pagesCount }).map((value, index) => ({
     page: String(index + 1),
@@ -69,6 +70,8 @@ export default async function HomePage({ params }: HomePageParams) {
     await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`),
     serversSchema,
   );
+
+  console.log("RESPONSE: ", response);
 
   return (
     <main>
