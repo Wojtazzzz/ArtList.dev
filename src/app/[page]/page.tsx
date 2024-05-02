@@ -7,9 +7,7 @@ import {
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
-import { parseData } from "@/utils/parseData";
 import prisma from "@/prisma";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 
@@ -53,12 +51,13 @@ type HomePageParams = {
 };
 
 export default async function HomePage({ params }: HomePageParams) {
-  const pageParam = isNaN(Number(params.page)) ? 0 : Number(params.page);
+  console.log(params);
+  // const pageParam = isNaN(Number(params.page)) ? 0 : Number(params.page);
 
-  const response = parseData(
-    await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`),
-    serversSchema,
-  );
+  // const response = parseData(
+  //   await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`),
+  //   serversSchema,
+  // );
 
   return (
     <main>
