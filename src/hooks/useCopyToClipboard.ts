@@ -1,7 +1,7 @@
 import { useToast } from "@/components/ui-library/use-toast";
 import { capitalize } from "@/utils/capitalize";
 
-export const useCopyIp = () => {
+export const useCopyToClipboard = () => {
   const { toast } = useToast();
 
   const copyIp = async (ip: string) => {

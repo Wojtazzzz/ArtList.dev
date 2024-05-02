@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { TableCell, TableRow } from "@/components/ui-library/table";
-import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { capitalize } from "@/utils/capitalize";
 import { type Server } from "@/app/[page]/page";
 import Image from "next/image";
@@ -13,7 +13,7 @@ type ServerTableRowProps = {
 };
 
 export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
-  const { copyIp } = useCopyIp();
+  const { copyIp } = useCopyToClipboard();
 
   return (
     <TableRow

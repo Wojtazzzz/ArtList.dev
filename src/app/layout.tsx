@@ -22,13 +22,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <Providers>
           <Navigation />
+
+          {children}
+
+          <Footer />
+
+          <Toaster />
         </Providers>
-
-        {children}
-
-        <Footer />
-
-        <Toaster />
       </body>
     </html>
   );

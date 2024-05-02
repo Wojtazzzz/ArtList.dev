@@ -2,12 +2,12 @@ import {
   Table,
   TableBody,
   TableCaption,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
@@ -22,6 +22,9 @@ import {
   PaginationPrevious,
 } from "@/components/ui-library/pagination";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { capitalize } from "@/utils/capitalize";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -84,11 +87,56 @@ export default async function HomePage({ params }: HomePageParams) {
           </TableHeader>
           <TableBody>
             {response.data.map((server, index) => (
-              <ServerTableRow
-                server={server}
-                index={((pageParam === 0 ? 1 : pageParam) - 1) * 2 + index + 1}
+              <TableRow
                 key={server.id}
-              />
+                className={cn("whitespace-nowrap", {
+                  "bg-muted": (index + 1) % 2 === 0,
+                })}
+              >
+                <TableCell className="font-medium">
+                  {((pageParam === 0 ? 1 : pageParam) - 1) * 2 + index + 1}
+                </TableCell>
+                <TableCell className="py-2">
+                  {/*<button*/}
+                  {/*  onClick={() => copyIp(server.name)}*/}
+                  {/*  className="flex w-full py-2 text-left"*/}
+                  {/*>*/}
+                  <div className="my-auto mr-3.5 h-full w-[58px]">
+                    {server.icon && (
+                      <Image
+                        src={server.icon}
+                        alt="Logo serwera"
+                        width="58"
+                        height="58"
+                      />
+                    )}
+                  </div>
+
+                  <div>
+                    <p className="mb-1 text-base font-medium">
+                      {capitalize(server.name)}
+                    </p>
+                    <div>
+                      {server.motdFirstLine && <p>{server.motdFirstLine}</p>}
+                      {server.motdSecondLine && <p>{server.motdSecondLine}</p>}
+                    </div>
+                  </div>
+                  {/*</button>*/}
+                </TableCell>
+                <TableCell>
+                  <span className={cn({ "text-red-600": !server.online })}>
+                    {server.currentPlayers} / {server.maxPlayers}
+                  </span>
+                </TableCell>
+                <TableCell className="text-right">
+                  <p
+                    className="ml-auto w-40 overflow-hidden overflow-ellipsis whitespace-nowrap"
+                    title={server.version}
+                  >
+                    {server.version}
+                  </p>
+                </TableCell>
+              </TableRow>
             ))}
           </TableBody>
         </Table>
