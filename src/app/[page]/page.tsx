@@ -66,12 +66,15 @@ type HomePageParams = {
 export default async function HomePage({ params }: HomePageParams) {
   const pageParam = isNaN(Number(params.page)) ? 0 : Number(params.page);
 
+  console.log(
+    "RESPONSE: ",
+    await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`),
+  );
+
   const response = parseData(
     await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`),
     serversSchema,
   );
-
-  console.log("RESPONSE: ", response);
 
   return (
     <main>
