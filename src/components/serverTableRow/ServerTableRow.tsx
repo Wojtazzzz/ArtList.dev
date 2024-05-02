@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { TableCell, TableRow } from "@/components/ui-library/table";
 import { useCopyIp } from "@/components/serverTableRow/useCopyIp";
 import { capitalize } from "@/utils/capitalize";
-import { type Server } from "@/app/page";
+import { type Server } from "@/app/[page]/page";
 import Image from "next/image";
 
 type ServerTableRowProps = {
@@ -21,7 +21,7 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
         "bg-muted": index % 2 === 0,
       })}
     >
-      <TableCell className="font-medium">{index + 1}</TableCell>
+      <TableCell className="font-medium">{index}</TableCell>
       <TableCell className="py-2">
         <button
           onClick={() => copyIp(server.name)}
@@ -32,8 +32,8 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
               <Image
                 src={server.icon}
                 alt="Logo serwera"
-                width={58}
-                height={58}
+                width="58"
+                height="58"
               />
             )}
           </div>
@@ -43,8 +43,8 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
               {capitalize(server.name)}
             </p>
             <div>
-              {server.motdFirstLine && <div>{server.motdFirstLine}</div>}
-              {server.motdSecondLine && <div>{server.motdSecondLine}</div>}
+              {server.motdFirstLine && <p>{server.motdFirstLine}</p>}
+              {server.motdSecondLine && <p>{server.motdSecondLine}</p>}
             </div>
           </div>
         </button>

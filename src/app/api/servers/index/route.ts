@@ -1,9 +1,18 @@
 import prisma from "@/prisma";
+import { NextRequest } from "next/server";
+import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const page = isNaN(Number(request.nextUrl.searchParams.get("page")))
+    ? 0
+    : Number(request.nextUrl.searchParams.get("page"));
+  const limit = SERVERS_LIMIT_PER_PAGE;
+
   const servers = await prisma.server.findMany({
+    skip: limit * Math.max(0, page - 1),
+    take: limit,
     orderBy: [
       {
         online: "desc",
@@ -25,11 +34,20 @@ export async function GET() {
       motdFirstLine: true,
       motdSecondLine: true,
       icon: true,
-      // For debuging purposes:
-      createdAt: true,
-      updatedAt: true,
     },
   });
 
-  return Response.json(servers);
+  const pagesCount = Math.ceil(
+    (await prisma.server.count()) / SERVERS_LIMIT_PER_PAGE,
+  );
+
+  const currentPage = page === 0 ? 1 : page;
+
+  return Response.json({
+    page: currentPage,
+    nextPage: currentPage >= pagesCount ? null : currentPage + 1,
+    prevPage: currentPage > 1 ? currentPage - 1 : null,
+    lastPage: pagesCount,
+    data: servers,
+  });
 }
