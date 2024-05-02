@@ -5,11 +5,9 @@ import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const page = isNaN(Number(searchParams.get("page")))
+  const page = isNaN(Number(request.nextUrl.searchParams.get("page")))
     ? 0
-    : Number(searchParams.get("page"));
-
+    : Number(request.nextUrl.searchParams.get("page"));
   const limit = SERVERS_LIMIT_PER_PAGE;
 
   const servers = await prisma.server.findMany({
