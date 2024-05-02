@@ -1,10 +1,12 @@
 import prisma from "@/prisma";
 import { NextRequest } from "next/server";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
+  cookies();
   const page = isNaN(Number(request.nextUrl.searchParams.get("page")))
     ? 0
     : Number(request.nextUrl.searchParams.get("page"));
