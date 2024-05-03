@@ -1,5 +1,23 @@
 import Link from "next/link";
 
+const links = [
+  {
+    name: "Strona główna",
+    href: "/",
+    external: false,
+  },
+  {
+    name: "Regulamin serwisu",
+    href: "/regulamin",
+    external: false,
+  },
+  {
+    name: "Shadcn (ui)",
+    href: "https://ui.shadcn.com/",
+    external: true,
+  },
+] as const;
+
 export const Footer = () => {
   return (
     <footer className="mt-12 w-full text-center text-sm lg:text-left">
@@ -34,20 +52,23 @@ export const Footer = () => {
 
           <div></div>
 
-          <div>
-            <p className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+          <div className="space-y-4">
+            <p className="flex justify-center font-semibold uppercase md:justify-start">
               Linki
             </p>
-            <p className="mb-4">
-              <Link href="/" className="hover:underline">
-                Strona główna
-              </Link>
-            </p>
-            <p className="mb-4">
-              <Link href="/regulamin" className="hover:underline">
-                Regulamin serwisu
-              </Link>
-            </p>
+
+            {links.map(({ name, href, external }, index) => (
+              <p key={index}>
+                <Link
+                  href={href}
+                  className="hover:underline"
+                  rel={external ? "noopener noreferrer" : undefined}
+                  target={external ? "_blank" : "_self"}
+                >
+                  {name}
+                </Link>
+              </p>
+            ))}
           </div>
 
           <div>
