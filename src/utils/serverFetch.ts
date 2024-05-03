@@ -3,7 +3,7 @@ import { API_URL } from "@/utils/env";
 export const serverFetch = async (path: string) => {
   const response = await fetch(API_URL + path, {
     next: {
-      revalidate: 6000,
+      revalidate: 60000,
     },
     credentials: "same-origin",
   });
