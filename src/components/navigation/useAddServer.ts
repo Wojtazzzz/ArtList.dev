@@ -1,12 +1,18 @@
 import { useToast } from "@/components/ui-library/use-toast";
-import { addServer } from "@/actions/addServer";
+import { addServer, AddServerPayload } from "@/actions/addServer";
 import { useMutation } from "@tanstack/react-query";
 
 export const useAddServer = (onSuccess: () => void) => {
   const { toast } = useToast();
 
   const { mutate, isError, reset } = useMutation({
-    mutationFn: addServer,
+    mutationFn: async (data: AddServerPayload) => {
+      const response = await addServer(data);
+
+      if (response.error) {
+        throw new Error(response.error);
+      }
+    },
     onSuccess: () => {
       toast({
         title: "Serwer został dodany",

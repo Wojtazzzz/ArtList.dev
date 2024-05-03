@@ -7,9 +7,13 @@ const schema = z.object({
   name: z.string(),
 });
 
-export const addServer = async ({ name }: z.input<typeof schema>) => {
+export type AddServerPayload = z.input<typeof schema>;
+
+export const addServer = async ({ name }: AddServerPayload) => {
   if (!name) {
-    throw new Error("Podano nieprawidłową nazwę serwera");
+    return {
+      error: "Podano nieprawidłową nazwę serwera",
+    };
   }
 
   const server = await prisma.server.findFirst({
@@ -29,19 +33,25 @@ export const addServer = async ({ name }: z.input<typeof schema>) => {
   });
 
   if (server) {
-    throw new Error("Podany serwer już istnieje");
+    return {
+      error: "Podany serwer już istnieje",
+    };
   }
 
   const response = await fetch(`https://api.mcsrvstat.us/3/${name}`);
 
   if (!response.ok) {
-    throw new Error("Wczytywanie danych nie powiodło się");
+    return {
+      error: "Wczytywanie danych nie powiodło się",
+    };
   }
 
   const data = await response.json();
 
   if (!data.online) {
-    throw new Error("Serwer nie istnieje lub jest offline");
+    return {
+      error: "Serwer nie istnieje lub jest offline",
+    };
   }
 
   await prisma.server.create({
@@ -57,4 +67,6 @@ export const addServer = async ({ name }: z.input<typeof schema>) => {
       icon: data.icon,
     },
   });
+
+  return {};
 };
