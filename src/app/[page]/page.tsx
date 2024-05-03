@@ -72,6 +72,9 @@ export default async function HomePage({ params }: HomePageParams) {
   return (
     <main>
       <Container>
+        <p className="mb-6 mt-3 text-sm font-medium">
+          Kliknij w nazwę serwera, aby skopiować jego adres.
+        </p>
         <Table>
           <TableCaption>Lista serwerów Minecraft.</TableCaption>
           <TableHeader>
