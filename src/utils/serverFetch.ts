@@ -5,6 +5,7 @@ export const serverFetch = async (path: string) => {
     next: {
       revalidate: 6000,
     },
+    credentials: "same-origin",
   });
 
   if (!response.ok) {
