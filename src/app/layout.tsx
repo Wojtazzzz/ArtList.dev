@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/globals.css";
 import { type ReactNode } from "react";
 import { Toaster } from "@/components/ui-library/toaster";
 import { Providers } from "@/components/Providers";
