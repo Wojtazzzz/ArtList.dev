@@ -122,7 +122,7 @@ export default async function HomePage({ params }: HomePageParams) {
               )}
 
               <PaginationItem>
-                <PaginationLink href={`/${response.page}`}>
+                <PaginationLink isActive href={`/${response.page}`}>
                   {response.page}
                 </PaginationLink>
               </PaginationItem>
