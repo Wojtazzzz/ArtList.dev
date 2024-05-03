@@ -16,7 +16,7 @@ export const useAddServer = (onSuccess: () => void) => {
     onSuccess: () => {
       toast({
         title: "Serwer został dodany",
-        description: "Za chwilę zobaczysz go na liście",
+        description: "Powinien znajdować się już na liście",
       });
 
       onSuccess();

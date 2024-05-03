@@ -2,6 +2,7 @@
 
 import prisma from "@/prisma";
 import { z } from "zod";
+import { revalidateTag } from "next/cache";
 
 const schema = z.object({
   name: z.string(),
@@ -67,6 +68,8 @@ export const addServer = async ({ name }: AddServerPayload) => {
       icon: data.icon,
     },
   });
+
+  revalidateTag("servers");
 
   return {};
 };

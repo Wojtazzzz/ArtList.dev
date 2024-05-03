@@ -1,9 +1,14 @@
 import { API_URL } from "@/utils/env";
 
-export const serverFetch = async (path: string) => {
+export const serverFetch = async (
+  path: string,
+  revalidate: number = 60000,
+  tags: string[] = [],
+) => {
   const response = await fetch(API_URL + path, {
     next: {
-      revalidate: 60000,
+      revalidate,
+      tags,
     },
     credentials: "same-origin",
   });
@@ -12,5 +17,5 @@ export const serverFetch = async (path: string) => {
     throw new Error("Fetch error");
   }
 
-  return (await response.json()) as any[];
+  return await response.json();
 };
