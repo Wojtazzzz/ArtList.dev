@@ -3,7 +3,7 @@ import { Locator, Page } from "@playwright/test";
 export class Toast {
   private readonly toastsContainer: Locator;
 
-  constructor(private readonly page: Page) {
+  constructor(page: Page) {
     this.toastsContainer = page.getByRole("region", {
       name: "Notifications (F8)",
     });

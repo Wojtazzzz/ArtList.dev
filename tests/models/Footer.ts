@@ -6,7 +6,7 @@ export class Footer {
 
   // private readonly shadcnPageLink: Locator;
 
-  constructor(private readonly page: Page) {
+  constructor(page: Page) {
     // this.homePageLink = page.getByRole("link", { name: "Strona główna" });
     this.statutePageLink = page.getByRole("link", {
       name: "Regulamin serwisu",

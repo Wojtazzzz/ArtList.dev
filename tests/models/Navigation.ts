@@ -6,7 +6,7 @@ export class Navigation {
   private readonly addServerButton: Locator;
   private readonly addServerDialog: Locator;
 
-  constructor(private readonly page: Page) {
+  constructor(page: Page) {
     this.showDialogButton = page.getByRole("button", { name: "Dodaj serwer" });
     this.serverAddressInput = page.getByLabel("Nazwa", { exact: true });
     this.addServerButton = page.getByRole("button", { name: "Dodaj" });

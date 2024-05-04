@@ -11,9 +11,14 @@ export default async function StatutePage() {
     <main>
       <Container>
         <article className="prose mx-auto !max-w-[100ch]">
-          <h2>Regulamin Serwisu</h2>
+          <h2 id="statute-title">Regulamin Serwisu</h2>
+
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-          <ol role="list" className="list-decimal">
+          <ol
+            role="list"
+            className="list-decimal"
+            aria-labelledby="statute-title"
+          >
             <li>
               Aplikacja ArtList.pl służy do dzielenia się adresami serwerów do
               gry Minecraft.
