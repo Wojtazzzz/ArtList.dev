@@ -42,7 +42,7 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
             <p className="mb-1 text-base font-medium">
               {capitalize(server.name)}
             </p>
-            <div>
+            <div className="max-w-96 overflow-hidden">
               {server.motdFirstLine && <p>{server.motdFirstLine}</p>}
               {server.motdSecondLine && <p>{server.motdSecondLine}</p>}
             </div>
