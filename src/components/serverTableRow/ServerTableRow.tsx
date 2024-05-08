@@ -26,6 +26,7 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
         <button
           onClick={() => copyIp(server.name)}
           className="flex w-full py-2 text-left"
+          aria-label={`Skopiuj adres serwera ${server.name} do schowka`}
         >
           <div className="my-auto mr-3.5 h-full w-[58px]">
             {server.icon && (
