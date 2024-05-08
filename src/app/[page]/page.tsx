@@ -11,7 +11,7 @@ import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
-import prisma from "@/prisma";
+import { prisma } from "@/prisma";
 import {
   Pagination,
   PaginationContent,

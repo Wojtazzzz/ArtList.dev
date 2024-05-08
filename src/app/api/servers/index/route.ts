@@ -1,4 +1,4 @@
-import prisma from "@/prisma";
+import { prisma } from "@/prisma";
 import { NextRequest } from "next/server";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { cookies } from "next/headers";

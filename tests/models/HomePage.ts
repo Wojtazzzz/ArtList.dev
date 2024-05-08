@@ -12,7 +12,6 @@ export class HomePage {
       .getByRole("table", { name: "Lista serwerów Minecraft." })
       .getByRole("row")
       .filter({
-        // hasNot: this.page.getByRole("columnheader", { name: "#" }),
         hasNot: this.page.getByText("#", { exact: true }),
       });
   }
