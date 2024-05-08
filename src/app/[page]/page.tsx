@@ -7,21 +7,13 @@ import {
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
+import { ServerTableRow } from "@/components/modules/servers/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
 import { prisma } from "@/prisma";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui-library/pagination";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { ServersPagination } from "@/components/modules/servers/ServersPagination";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -99,65 +91,12 @@ export default async function HomePage({ params }: HomePageParams) {
         </Table>
 
         <div className="mt-6">
-          <Pagination>
-            <PaginationContent>
-              {response.prevPage && (
-                <PaginationItem>
-                  <PaginationPrevious href={`/${response.prevPage}`} />
-                </PaginationItem>
-              )}
-
-              {response.page - 2 > 0 && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.page - 2}`}>
-                    {response.page - 2}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              {response.prevPage && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.prevPage}`}>
-                    {response.prevPage}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              <PaginationItem>
-                <PaginationLink isActive href={`/${response.page}`}>
-                  {response.page}
-                </PaginationLink>
-              </PaginationItem>
-
-              {response.nextPage && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.nextPage}`}>
-                    {response.nextPage}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              {response.lastPage >= response.page + 2 && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.page + 2}`}>
-                    {response.page + 2}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              {response.lastPage >= response.page + 3 && (
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-              )}
-
-              {response.nextPage && (
-                <PaginationItem>
-                  <PaginationNext href={`/${response.nextPage}`} />
-                </PaginationItem>
-              )}
-            </PaginationContent>
-          </Pagination>
+          <ServersPagination
+            page={response.page}
+            prevPage={response.prevPage}
+            nextPage={response.nextPage}
+            lastPage={response.lastPage}
+          />
         </div>
       </Container>
     </main>

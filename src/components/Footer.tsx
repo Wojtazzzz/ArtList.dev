@@ -112,7 +112,7 @@ export const Footer = () => {
       </div>
 
       <div className="pb-4 text-center">
-        <span>© {new Date().getFullYear()} ArtList</span>
+        <span>© {new Date().getFullYear()} ArtList.dev</span>
       </div>
     </footer>
   );
