@@ -7,21 +7,17 @@ import {
   TableRow,
 } from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { ServerTableRow } from "@/components/serverTableRow/ServerTableRow";
+import { ServerTableRow } from "@/components/modules/servers/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
 import { prisma } from "@/prisma";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui-library/pagination";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { PaginationContainer } from "@/components/ui/pagination/PaginationContainer";
+import { PaginationPrevious } from "@/components/ui/pagination/PaginationPrevious";
+import { PaginationNext } from "@/components/ui/pagination/PaginationNext";
+import { PaginationEllipsis } from "@/components/ui/pagination/PaginationEllipsis";
+import { PaginationItem } from "@/components/ui/pagination/PaginationItem";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -99,65 +95,45 @@ export default async function HomePage({ params }: HomePageParams) {
         </Table>
 
         <div className="mt-6">
-          <Pagination>
-            <PaginationContent>
-              {response.prevPage && (
-                <PaginationItem>
-                  <PaginationPrevious href={`/${response.prevPage}`} />
-                </PaginationItem>
-              )}
+          <PaginationContainer>
+            {response.prevPage && (
+              <PaginationPrevious prevPageLink={`/${response.prevPage}`} />
+            )}
 
-              {response.page - 2 > 0 && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.page - 2}`}>
-                    {response.page - 2}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              {response.prevPage && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.prevPage}`}>
-                    {response.prevPage}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
-
-              <PaginationItem>
-                <PaginationLink isActive href={`/${response.page}`}>
-                  {response.page}
-                </PaginationLink>
+            {response.page - 2 > 0 && (
+              <PaginationItem pageLink={`/${response.page - 2}`}>
+                {response.page - 2}
               </PaginationItem>
+            )}
 
-              {response.nextPage && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.nextPage}`}>
-                    {response.nextPage}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
+            {response.prevPage && (
+              <PaginationItem pageLink={`/${response.prevPage}`}>
+                {response.prevPage}
+              </PaginationItem>
+            )}
 
-              {response.lastPage >= response.page + 2 && (
-                <PaginationItem>
-                  <PaginationLink href={`/${response.page + 2}`}>
-                    {response.page + 2}
-                  </PaginationLink>
-                </PaginationItem>
-              )}
+            <PaginationItem pageLink={`/${response.page - 2}`} isActive>
+              {response.page}
+            </PaginationItem>
 
-              {response.lastPage >= response.page + 3 && (
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-              )}
+            {response.nextPage && (
+              <PaginationItem pageLink={`/${response.nextPage}`}>
+                {response.nextPage}
+              </PaginationItem>
+            )}
 
-              {response.nextPage && (
-                <PaginationItem>
-                  <PaginationNext href={`/${response.nextPage}`} />
-                </PaginationItem>
-              )}
-            </PaginationContent>
-          </Pagination>
+            {response.lastPage >= response.page + 2 && (
+              <PaginationItem pageLink={`/${response.page + 2}`}>
+                {response.page + 2}
+              </PaginationItem>
+            )}
+
+            {response.lastPage >= response.page + 3 && <PaginationEllipsis />}
+
+            {response.nextPage && (
+              <PaginationNext nextPageLink={`/${response.nextPage}`} />
+            )}
+          </PaginationContainer>
         </div>
       </Container>
     </main>
