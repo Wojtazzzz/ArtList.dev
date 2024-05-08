@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import { TableCell, TableRow } from "@/components/ui-library/table";
-import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { capitalize } from "@/utils/capitalize";
 import { type Server } from "@/app/[page]/page";
 import Image from "next/image";
+import { useCopyServerAddress } from "@/components/serverTableRow/useCopyServerAddress";
 
 type ServerTableRowProps = {
   server: Server;
@@ -13,7 +13,7 @@ type ServerTableRowProps = {
 };
 
 export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
-  const { copyIp } = useCopyToClipboard();
+  const { copyIp } = useCopyServerAddress();
 
   return (
     <TableRow
@@ -26,6 +26,7 @@ export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
         <button
           onClick={() => copyIp(server.name)}
           className="flex w-full py-2 text-left"
+          aria-label={`Skopiuj adres serwera ${server.name} do schowka`}
         >
           <div className="my-auto mr-3.5 h-full w-[58px]">
             {server.icon && (

@@ -1,9 +1,9 @@
-import { useToast } from "@/components/ui-library/use-toast";
 import { addServer, AddServerPayload } from "@/actions/addServer";
 import { useMutation } from "@tanstack/react-query";
+import { useNotification } from "@/hooks/useNotification";
 
 export const useAddServer = (onSuccess: () => void) => {
-  const { toast } = useToast();
+  const { notify } = useNotification();
 
   const { mutate, isError, reset } = useMutation({
     mutationFn: async (data: AddServerPayload) => {
@@ -14,7 +14,7 @@ export const useAddServer = (onSuccess: () => void) => {
       }
     },
     onSuccess: () => {
-      toast({
+      notify({
         title: "Serwer został dodany",
         description: "Powinien znajdować się już na liście",
       });
@@ -22,7 +22,7 @@ export const useAddServer = (onSuccess: () => void) => {
       onSuccess();
     },
     onError: (error) => {
-      toast({
+      notify({
         title: "Wystąpił problem",
         description: error.message,
       });

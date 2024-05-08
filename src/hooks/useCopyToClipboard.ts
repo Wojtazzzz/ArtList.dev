@@ -1,19 +1,24 @@
-import { useToast } from "@/components/ui-library/use-toast";
-import { capitalize } from "@/utils/capitalize";
+import { useNotification } from "@/hooks/useNotification";
+
+type CopyTextArguments = {
+  text: string;
+  title: string;
+  description?: string;
+};
 
 export const useCopyToClipboard = () => {
-  const { toast } = useToast();
+  const { notify } = useNotification();
 
-  const copyIp = async (ip: string) => {
-    toast({
-      title: capitalize(ip),
-      description: `Adres serwera został skopiowany do schowka`,
+  const copyText = async ({ text, title, description }: CopyTextArguments) => {
+    await window.navigator.clipboard.writeText(text);
+
+    notify({
+      title,
+      description,
     });
-
-    await navigator.clipboard.writeText(ip);
   };
 
   return {
-    copyIp,
+    copyText,
   };
 };
