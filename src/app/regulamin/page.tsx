@@ -12,7 +12,7 @@ export default async function StatutePage() {
     <main>
       <Container>
         <article className="prose mx-auto !max-w-[100ch]">
-          <TypographyH2>
+          <TypographyH2 id="statute-title">
             <span className="text-3xl font-bold">Regulamin Serwisu</span>
           </TypographyH2>
 
