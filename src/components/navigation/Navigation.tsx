@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { AddServerDialog } from "@/components/navigation/AddServerDialog";
+import { ChangeTheme } from "@/components/ChangeTheme";
 
 export const Navigation = () => {
   return (
-    <nav className="border-gray-200 bg-white dark:bg-gray-900">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <Link href="/" className="flex items-center space-x-1.5">
+    <nav className="border-gray-200 bg-white">
+      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-y-4 p-4">
+        <Link href="/" className="flex items-center space-x-1.5 pr-1.5">
           <svg
-            className="h-6 w-6 text-gray-800 dark:text-white"
+            className="h-6 w-6 text-gray-800"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -35,10 +36,13 @@ export const Navigation = () => {
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
           <ul
             role="list"
-            className="mt-0 flex space-x-8 rounded-lg border-gray-100 bg-white font-medium"
+            className="mt-0 flex space-x-4 rounded-lg border-gray-100 bg-white font-medium"
           >
             <li>
               <AddServerDialog />
+            </li>
+            <li>
+              <ChangeTheme />
             </li>
           </ul>
         </div>
