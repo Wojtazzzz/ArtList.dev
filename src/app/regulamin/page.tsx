@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Metadata } from "next";
 import Link from "next/link";
+import { TypographyH2, TypographyP } from "@/components/ui/Typography";
 
 export const metadata: Metadata = {
   title: "Regulamin serwisu - ArtList.pl",
@@ -11,57 +12,76 @@ export default async function StatutePage() {
     <main>
       <Container>
         <article className="prose mx-auto !max-w-[100ch]">
-          <h2 id="statute-title">Regulamin Serwisu</h2>
+          <TypographyH2>
+            <span className="text-3xl font-bold">Regulamin Serwisu</span>
+          </TypographyH2>
 
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
           <ol
             role="list"
-            className="list-decimal"
+            className="list-decimal dark:marker:text-gray-300"
             aria-labelledby="statute-title"
           >
             <li>
-              Aplikacja ArtList.pl służy do dzielenia się adresami serwerów do
-              gry Minecraft.
+              <TypographyP>
+                Aplikacja ArtList.pl służy do dzielenia się adresami serwerów do
+                gry Minecraft.
+              </TypographyP>
             </li>
             <li>
-              Za treści niezwiązane z tematyką witryny uważane są wszelkie
-              reklamy czy linki do innych stron o podobnej tematyce (listy
-              serwerów/hostingi itd.) bez uprzedniej zgody administratora
-              serwisu.
+              <TypographyP>
+                Za treści niezwiązane z tematyką witryny uważane są wszelkie
+                reklamy czy linki do innych stron o podobnej tematyce (listy
+                serwerów/hostingi itd.) bez uprzedniej zgody administratora
+                serwisu.
+              </TypographyP>
             </li>
             <li>
-              Dodanie serwera do listy jest w pełni darmowe i nie wymaga
-              rejestracji konta.
+              <TypographyP>
+                Dodanie serwera do listy jest w pełni darmowe i nie wymaga
+                rejestracji konta.
+              </TypographyP>
             </li>
             <li>
-              W serwisie nie wolno umieszczać treści powszechnie uważanych za
-              wulgarne, treści naruszających prawa autorskie oraz materiałów
-              pornograficznych.
+              <TypographyP>
+                W serwisie nie wolno umieszczać treści powszechnie uważanych za
+                wulgarne, treści naruszających prawa autorskie oraz materiałów
+                pornograficznych.
+              </TypographyP>
             </li>
             <li>
-              Treści publikowane przez użytkowników mogą być moderowane. W
-              przypadku naruszeń regulaminu mogą być również usunięte bez
-              uprzedzenia.
+              <TypographyP>
+                Treści publikowane przez użytkowników mogą być moderowane. W
+                przypadku naruszeń regulaminu mogą być również usunięte bez
+                uprzedzenia.
+              </TypographyP>
             </li>
             <li>
-              W przypadku naruszenia postanowień regulaminu dostęp do witryny
-              może zostać zablokowany.
+              <TypographyP>
+                W przypadku naruszenia postanowień regulaminu dostęp do witryny
+                może zostać zablokowany.
+              </TypographyP>
             </li>
             <li>
-              Każdy użytkownik, również anonimowy może opublikować adres do
-              serwera Minecraft.
+              <TypographyP>
+                Każdy użytkownik, również anonimowy może opublikować adres do
+                serwera Minecraft.
+              </TypographyP>
             </li>
             <li>
-              Informacje na temat opublikowanych serwerów są pobierane
-              cyklicznie z publicznie udostępnionego{" "}
-              <Link
-                href="https://mcsrvstat.us/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                API
-              </Link>
-              .
+              <TypographyP>
+                Informacje na temat opublikowanych serwerów są pobierane
+                cyklicznie z publicznie udostępnionego{" "}
+                <Link
+                  href="https://mcsrvstat.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dark:text-white"
+                >
+                  api
+                </Link>
+                .
+              </TypographyP>
             </li>
           </ol>
         </article>
