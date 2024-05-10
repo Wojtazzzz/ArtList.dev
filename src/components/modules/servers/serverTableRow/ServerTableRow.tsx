@@ -6,7 +6,6 @@ import { capitalize } from "@/utils/capitalize";
 import { type Server } from "@/app/[page]/page";
 import Image from "next/image";
 import { useCopyServerAddress } from "@/components/modules/servers/serverTableRow/useCopyServerAddress";
-import { useTheme } from "next-themes";
 
 type ServerTableRowProps = {
   server: Server;
@@ -15,14 +14,9 @@ type ServerTableRowProps = {
 
 export const ServerTableRow = ({ server, index }: ServerTableRowProps) => {
   const { copyIp } = useCopyServerAddress();
-  const { theme } = useTheme();
 
   return (
-    <TableRow
-      className={cn("whitespace-nowrap", {
-        "bg-muted": index % 2 === 0 && theme === "light",
-      })}
-    >
+    <TableRow className="whitespace-nowrap odd:bg-muted/40 hover:odd:bg-muted dark:odd:bg-muted/25 dark:hover:bg-muted/10">
       <TableCell className="font-medium">{index}</TableCell>
       <TableCell className="py-2">
         <button
