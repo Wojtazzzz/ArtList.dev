@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AddServerDialog } from "@/components/navigation/AddServerDialog";
 import { ChangeTheme } from "@/components/ChangeTheme";
+import { TypographyH1 } from "@/components/ui/Typography";
 
 export const Navigation = () => {
   return (
@@ -25,9 +26,9 @@ export const Navigation = () => {
             />
           </svg>
 
-          <h1 className="self-center whitespace-nowrap text-2xl font-semibold">
-            ArtList
-          </h1>
+          <div className="self-center whitespace-nowrap text-2xl font-semibold">
+            <TypographyH1>ArtList</TypographyH1>
+          </div>
 
           <span>(beta)</span>
         </Link>

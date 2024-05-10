@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Metadata } from "next";
 import Link from "next/link";
+import { TypographyH2 } from "@/components/ui/Typography";
 
 export const metadata: Metadata = {
   title: "Regulamin serwisu - ArtList.pl",
@@ -11,7 +12,9 @@ export default async function StatutePage() {
     <main>
       <Container>
         <article className="prose mx-auto !max-w-[100ch]">
-          <h2 id="statute-title">Regulamin Serwisu</h2>
+          <TypographyH2>
+            <span className="text-3xl font-bold">Regulamin Serwisu</span>
+          </TypographyH2>
 
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
           <ol
