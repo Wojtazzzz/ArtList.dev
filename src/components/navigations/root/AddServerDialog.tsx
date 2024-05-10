@@ -12,8 +12,8 @@ import {
 import { Label } from "@/components/ui-library/label";
 import { Input } from "@/components/ui-library/input";
 import { FormStatusButton } from "@/components/ui/FormStatusButton";
-import { useAddServer } from "@/components/navigation/useAddServer";
-import { useAddServerDialog } from "@/components/navigation/useAddServerDialog";
+import { useAddServer } from "@/components/navigations/root/useAddServer";
+import { useAddServerDialog } from "@/components/navigations/root/useAddServerDialog";
 
 export const AddServerDialog = () => {
   const { open, closeDialog, setDialogOpen } = useAddServerDialog();

@@ -4,8 +4,8 @@ import { type ReactNode } from "react";
 import { Toaster } from "@/components/ui-library/toaster";
 import { Providers } from "@/components/Providers";
 import { Footer } from "@/components/Footer";
-import { Navigation } from "@/components/navigation/Navigation";
 import { Inter } from "next/font/google";
+import { RootNavigation } from "@/components/navigations/root/RootNavigation";
 
 export const metadata: Metadata = {
   title: "Lista serwerów Minecraft - ArtList.pl",
@@ -27,8 +27,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pl" className={inter.className}>
       <body>
         <Providers>
-          <Navigation />
-
+          {/*<Navigation />*/}
+          <RootNavigation />
           {children}
 
           <Footer />
