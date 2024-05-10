@@ -59,3 +59,15 @@ export function TypographyH4({ children, ...props }: TypographyH4Props) {
     </h4>
   );
 }
+
+type TypographyPProps = {
+  children: ReactNode;
+};
+
+export function TypographyP({ children }: TypographyPProps) {
+  return (
+    <p className="leading-7 dark:text-white [&:not(:first-child)]:mt-6">
+      {children}
+    </p>
+  );
+}
