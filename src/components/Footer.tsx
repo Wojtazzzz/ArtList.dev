@@ -25,12 +25,12 @@ export const Footer = () => {
       <div className="mx-auto max-w-screen-xl p-4 py-10 text-center md:text-left">
         <div className="grid-1 grid gap-5 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <div>
-            <p className="mb-4 flex items-center justify-center font-semibold md:justify-start">
+            <div className="mb-4 flex items-center justify-center font-semibold md:justify-start">
               <div className="mr-1 md:mr-1.5">
                 <Logo size="sm" />
               </div>
               ArtList
-            </p>
+            </div>
             <p>
               Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub
               zareklamuj własny.
