@@ -24,7 +24,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pl" className={inter.className}>
+    <html lang="pl" className={inter.className} suppressHydrationWarning>
       <body>
         <Providers>
           {/*<Navigation />*/}
