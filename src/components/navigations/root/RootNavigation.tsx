@@ -4,19 +4,19 @@ import { NavigationContainer } from "@/components/ui/navigation/NavigationContai
 import { NavigationList } from "@/components/ui/navigation/NavigationList";
 import { NavigationListItem } from "@/components/ui/navigation/NavigationListItem";
 import { TypographyH1 } from "@/components/ui/Typography";
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AddServerDialog } from "@/components/navigations/root/AddServerDialog";
 import { ChangeTheme } from "@/components/ChangeTheme";
 import { Logo } from "@/components/Logo";
+import { Link } from "@/components/ui/Link";
 
 export const RootNavigation = () => {
   return (
     <NavigationContainer>
       <Container>
         <div className="flex w-full flex-wrap items-center justify-between gap-y-4">
-          <div>
-            <Link href="/" className="flex items-center space-x-1.5 pr-1.5">
+          <Link href="/">
+            <div className="flex items-center space-x-1.5 pr-1.5">
               <Logo size="base" />
 
               <div className="self-center whitespace-nowrap text-2xl font-semibold">
@@ -24,8 +24,8 @@ export const RootNavigation = () => {
               </div>
 
               <span>(beta)</span>
-            </Link>
-          </div>
+            </div>
+          </Link>
 
           <NavigationList>
             <NavigationListItem>

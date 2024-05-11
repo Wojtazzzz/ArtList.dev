@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Metadata } from "next";
-import Link from "next/link";
 import { TypographyH2, TypographyP } from "@/components/ui/Typography";
+import { Link } from "@/components/ui/Link";
 
 export const metadata: Metadata = {
   title: "Regulamin serwisu - ArtList.pl",
@@ -75,10 +75,9 @@ export default async function StatutePage() {
                 <Link
                   href="https://mcsrvstat.us/"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="dark:text-white"
+                  variant="external"
                 >
-                  api
+                  <span className="underline dark:text-white">API</span>
                 </Link>
                 .
               </TypographyP>

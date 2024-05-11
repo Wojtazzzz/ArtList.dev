@@ -1,21 +1,21 @@
-import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { Link } from "@/components/ui/Link";
 
 const links = [
   {
     name: "Strona główna",
     href: "/",
-    external: false,
+    variant: "internal",
   },
   {
     name: "Regulamin serwisu",
     href: "/regulamin",
-    external: false,
+    variant: "internal",
   },
   {
     name: "Shadcn (ui)",
     href: "https://ui.shadcn.com/",
-    external: true,
+    variant: "external",
   },
 ] as const;
 
@@ -44,14 +44,14 @@ export const Footer = () => {
               Linki
             </p>
 
-            {links.map(({ name, href, external }, index) => (
+            {links.map(({ name, href, variant }, index) => (
               <p key={index}>
                 <Link
                   href={href}
-                  className="hover:underline"
-                  rel={external ? "noopener noreferrer" : undefined}
-                  target={external ? "_blank" : "_self"}
+                  variant={variant}
+                  target={variant === "external" ? "_blank" : "_self"}
                 >
+                  <span className="hover:underline"></span>
                   {name}
                 </Link>
               </p>
@@ -64,7 +64,7 @@ export const Footer = () => {
             </p>
             <Link
               href="https://github.com/Wojtazzzz/ArtList.dev"
-              rel="noopener noreferrer"
+              variant="external"
               target="_blank"
             >
               <p className="group mb-4 flex items-center justify-center md:justify-start">
