@@ -1,95 +1,173 @@
 "use client";
 
+import { flexRender } from "@tanstack/react-table";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui-library/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui-library/dropdown-menu";
+import { Input } from "@/components/ui-library/input";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
-import Image from "next/image";
-import { capitalize } from "@/utils/capitalize";
-import { cn } from "@/lib/utils";
-import { type Server } from "@/app/[page]/page";
-import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
-import { useCopyServerAddress } from "@/components/modules/servers/serverTableRow/useCopyServerAddress";
+import { Server } from "@/app/[page]/page";
+import { PaginationPrevious } from "@/components/ui/pagination/PaginationPrevious";
+import { PaginationItem } from "@/components/ui/pagination/PaginationItem";
+import { PaginationEllipsis } from "@/components/ui/pagination/PaginationEllipsis";
+import { PaginationNext } from "@/components/ui/pagination/PaginationNext";
+import { PaginationContainer } from "@/components/ui/pagination/PaginationContainer";
+import { useServersTable } from "@/components/modules/servers/useServersTable";
+import { usePaginationParams } from "@/hooks/usePaginationParams";
 
-type ServersTableProps = {
-  page: number;
+type DemoServersTableProps = {
   servers: Server[];
 };
-export const ServersTable = ({ page, servers }: ServersTableProps) => {
-  const { copyIp } = useCopyServerAddress();
+
+export function ServersTable({ servers }: DemoServersTableProps) {
+  const { page, limit } = usePaginationParams();
+  const { table, columnsCount } = useServersTable(servers);
 
   return (
-    <>
+    <div className="w-full">
       <p className="mb-6 mt-3 text-sm">
         Kliknij w nazwę serwera, aby skopiować jego adres.
       </p>
 
-      <Table>
-        <TableCaption>Lista serwerów Minecraft.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-16">#</TableHead>
-            <TableHead>Nazwa</TableHead>
-            <TableHead>Graczy</TableHead>
-            <TableHead className="text-right">Wersja</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {servers.map((server, index) => (
-            <TableRow className="whitespace-nowrap odd:bg-muted/40 hover:odd:bg-muted dark:odd:bg-muted/25 dark:hover:bg-muted/10">
-              <TableCell className="font-medium">
-                {(page - 1) * SERVERS_LIMIT_PER_PAGE + (index + 1)}
-              </TableCell>
-              <TableCell className="py-2">
-                <button
-                  onClick={() => copyIp(server.name)}
-                  className="flex w-full py-2 text-left"
-                  aria-label={`Skopiuj adres serwera ${server.name} do schowka`}
-                >
-                  <div className="my-auto mr-3.5 h-full w-[58px]">
-                    {server.icon && (
-                      <Image
-                        src={server.icon}
-                        alt="Logo serwera"
-                        width="58"
-                        height="58"
-                      />
-                    )}
-                  </div>
+      <div className="flex items-center py-4">
+        <Input
+          placeholder="Wyszukaj po nazwie"
+          value={(table.getColumn("nazwa")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("nazwa")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="ml-auto">
+              Pokaż kolumny <ChevronDown className="ml-2 h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {table
+              .getAllColumns()
+              .filter((column) => column.getCanHide())
+              .map((column) => {
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    className="capitalize"
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) => column.toggleVisibility(value)}
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
+                );
+              })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
 
-                  <div>
-                    <p className="mb-1 text-base font-medium">
-                      {capitalize(server.name)}
-                    </p>
-                    <div className="max-w-96 overflow-hidden">
-                      {server.motdFirstLine && <p>{server.motdFirstLine}</p>}
-                      {server.motdSecondLine && <p>{server.motdSecondLine}</p>}
-                    </div>
-                  </div>
-                </button>
-              </TableCell>
-              <TableCell>
-                <span className={cn({ "text-red-600": !server.online })}>
-                  {server.currentPlayers} / {server.maxPlayers}
-                </span>
-              </TableCell>
-              <TableCell className="text-right">
-                <p
-                  className="ml-auto w-40 overflow-hidden overflow-ellipsis whitespace-nowrap"
-                  title={server.version}
-                >
-                  {server.version}
-                </p>
-              </TableCell>
+      <Table>
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                  </TableHead>
+                );
+              })}
             </TableRow>
           ))}
+        </TableHeader>
+
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row, rowIndex) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+                className="whitespace-nowrap odd:bg-muted/40 hover:odd:bg-muted dark:odd:bg-muted/25 dark:hover:bg-muted/10"
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {cell.id.includes("_index") ? (
+                      <div className="font-medium">
+                        {(Math.max(1, page) - 1) * limit + (rowIndex + 1)}
+                      </div>
+                    ) : (
+                      flexRender(cell.column.columnDef.cell, cell.getContext())
+                    )}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columnsCount} className="h-24 text-center">
+                Brak serwerów.
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
-    </>
+
+      <div className="mt-6">
+        <PaginationContainer>
+          {table.getCanPreviousPage() && (
+            <PaginationPrevious prevPageLink={`/?page=${page - 1}`} />
+          )}
+
+          {page - 2 > 0 && (
+            <PaginationItem pageLink={`/?page=${page - 2}`}>
+              {page - 2}
+            </PaginationItem>
+          )}
+
+          {table.getCanPreviousPage() && (
+            <PaginationItem pageLink={`/?page=${page - 1}`}>
+              {page - 1}
+            </PaginationItem>
+          )}
+
+          <PaginationItem pageLink={`/?page=${page - 2}`} isActive>
+            {page}
+          </PaginationItem>
+
+          {table.getCanNextPage() && (
+            <PaginationItem pageLink={`/?page=${page + 1}`}>
+              {page + 1}
+            </PaginationItem>
+          )}
+
+          {Number(table.lastPage) >= page + 2 && (
+            <PaginationItem pageLink={`/?page=${page + 2}`}>
+              {page + 2}
+            </PaginationItem>
+          )}
+
+          {Number(table.lastPage) >= page + 3 && <PaginationEllipsis />}
+
+          {table.getCanNextPage() && (
+            <PaginationNext nextPageLink={`/?page=${page + 1}`} />
+          )}
+        </PaginationContainer>
+      </div>
+    </div>
   );
-};
+}

@@ -5,7 +5,7 @@ import { parseData } from "@/utils/parseData";
 import { prisma } from "@/prisma";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { getPageParam } from "@/utils/getPageParam";
-import { DemoServersTable } from "@/components/modules/servers/DemoServersTable";
+import { ServersTable } from "@/components/modules/servers/ServersTable";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -60,7 +60,7 @@ export default async function HomePage({ params }: HomePageParams) {
   return (
     <main>
       <Container>
-        <DemoServersTable servers={response.data} />
+        <ServersTable servers={response.data} />
       </Container>
     </main>
   );
