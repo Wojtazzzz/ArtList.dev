@@ -1,20 +1,11 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui-library/table";
 import { Container } from "@/components/ui/Container";
-import { ServerTableRow } from "@/components/modules/servers/serverTableRow/ServerTableRow";
 import { serverFetch } from "@/utils/serverFetch";
 import { z } from "zod";
 import { parseData } from "@/utils/parseData";
 import { prisma } from "@/prisma";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
-import { ServersPagination } from "@/components/modules/servers/ServersPagination";
 import { getPageParam } from "@/utils/getPageParam";
+import { DemoServersTable } from "@/components/modules/servers/DemoServersTable";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -69,40 +60,7 @@ export default async function HomePage({ params }: HomePageParams) {
   return (
     <main>
       <Container>
-        <p className="mb-6 mt-3 text-sm">
-          Kliknij w nazwę serwera, aby skopiować jego adres.
-        </p>
-        <Table>
-          <TableCaption>Lista serwerów Minecraft.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-16">#</TableHead>
-              <TableHead>Nazwa</TableHead>
-              <TableHead>Graczy</TableHead>
-              <TableHead className="text-right">Wersja</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {response.data.map((server, index) => (
-              <ServerTableRow
-                server={server}
-                index={
-                  (response.page - 1) * SERVERS_LIMIT_PER_PAGE + (index + 1)
-                }
-                key={server.id}
-              />
-            ))}
-          </TableBody>
-        </Table>
-
-        <div className="mt-6">
-          <ServersPagination
-            page={response.page}
-            prevPage={response.prevPage}
-            nextPage={response.nextPage}
-            lastPage={response.lastPage}
-          />
-        </div>
+        <DemoServersTable servers={response.data} />
       </Container>
     </main>
   );

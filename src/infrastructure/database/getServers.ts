@@ -9,8 +9,8 @@ type GetServersData = {
 
 export const getServers = async ({ skip, limit, orderBy }: GetServersData) => {
   return prisma.server.findMany({
-    skip,
-    take: limit,
+    skip: 0,
+    take: 99999999,
     orderBy,
     select: {
       id: true,
