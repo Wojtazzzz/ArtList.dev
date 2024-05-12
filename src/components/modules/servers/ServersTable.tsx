@@ -37,10 +37,6 @@ export function ServersTable({ servers }: DemoServersTableProps) {
 
   return (
     <div className="w-full">
-      <p className="mb-6 mt-3 text-sm">
-        Kliknij w nazwę serwera, aby skopiować jego adres.
-      </p>
-
       <div className="flex items-center py-4">
         <Input
           placeholder="Wyszukaj po nazwie"
