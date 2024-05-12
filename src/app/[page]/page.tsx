@@ -14,6 +14,7 @@ import { parseData } from "@/utils/parseData";
 import { prisma } from "@/prisma";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { ServersPagination } from "@/components/modules/servers/ServersPagination";
+import { getPageParam } from "@/utils/getPageParam";
 
 const serversSchema = z.object({
   page: z.number(),
@@ -49,17 +50,19 @@ export async function generateStaticParams() {
 
 type HomePageParams = {
   params: {
-    page?: number;
+    page?: string;
   };
 };
 
 export default async function HomePage({ params }: HomePageParams) {
-  const pageParam = isNaN(Number(params.page)) ? 0 : Number(params.page);
+  const pageParam = getPageParam(params.page);
 
   const response = parseData(
-    await serverFetch(`/servers/index?page=${Math.max(0, pageParam)}`, 60000, [
-      "servers",
-    ]),
+    await serverFetch(
+      `/servers/index?page=${Math.max(0, pageParam)}&limit=${SERVERS_LIMIT_PER_PAGE}`,
+      60000,
+      ["servers"],
+    ),
     serversSchema,
   );
 
@@ -83,7 +86,9 @@ export default async function HomePage({ params }: HomePageParams) {
             {response.data.map((server, index) => (
               <ServerTableRow
                 server={server}
-                index={((pageParam === 0 ? 1 : pageParam) - 1) * 2 + index + 1}
+                index={
+                  (response.page - 1) * SERVERS_LIMIT_PER_PAGE + (index + 1)
+                }
                 key={server.id}
               />
             ))}
