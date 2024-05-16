@@ -13,6 +13,7 @@ import { Input } from "@/components/ui-library/input";
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -69,6 +70,7 @@ export function ServersTable({ servers }: ServersTableProps) {
       </div>
 
       <Table>
+        <TableCaption>Lista serwerów Minecraft.</TableCaption>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
