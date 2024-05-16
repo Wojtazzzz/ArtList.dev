@@ -27,8 +27,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pl" className={inter.className} suppressHydrationWarning>
       <body>
         <Providers>
-          {/*<Navigation />*/}
           <RootNavigation />
+
           {children}
 
           <Footer />

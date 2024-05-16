@@ -2,8 +2,25 @@ import { getServers } from "@/infrastructure/database/getServers";
 import { getServersCount } from "@/infrastructure/database/getServersCount";
 import { computePaginationProperties } from "@/utils/computePaginationProperties";
 
-export const getPaginatedServers = async (page: number, limit: number) => {
-  const serversCount = await getServersCount();
+type FilterServers =
+  | {
+      name: string | undefined;
+    }
+  | undefined;
+
+export const getPaginatedServers = async (
+  page: number,
+  limit: number,
+  filter: FilterServers,
+) => {
+  const filterProp = {
+    name: {
+      contains: filter?.name ? filter.name : "",
+      mode: "insensitive",
+    },
+  } as const;
+
+  const serversCount = await getServersCount(filterProp);
 
   const { currentPage, nextPage, prevPage, lastPage, skip } =
     await computePaginationProperties(page, limit, serversCount);
@@ -22,6 +39,7 @@ export const getPaginatedServers = async (page: number, limit: number) => {
         maxPlayers: "desc",
       },
     ],
+    filter: filterProp,
   });
 
   return {

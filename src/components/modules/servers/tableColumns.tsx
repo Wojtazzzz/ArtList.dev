@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Server } from "@/app/[page]/page";
+import { type Server } from "@/app/page";
 import { ArrowUpDown } from "lucide-react";
 import Image from "next/image";
 import { capitalize } from "@/utils/capitalize";
@@ -78,12 +78,11 @@ export const columns: ColumnDef<Server>[] = [
   {
     id: "wersja",
     accessorKey: "version",
-
-    header: () => <div className="">Wersja</div>,
+    header: () => <div>Wersja</div>,
     cell: ({ row }) => (
       <p
         className="w-40 overflow-hidden overflow-ellipsis whitespace-nowrap"
-        title={row.original.version}
+        title={row.original.version ?? undefined}
       >
         {row.original.version}
       </p>

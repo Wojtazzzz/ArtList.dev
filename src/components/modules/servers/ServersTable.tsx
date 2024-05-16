@@ -18,32 +18,33 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
-import { Server } from "@/app/[page]/page";
-import { PaginationPrevious } from "@/components/ui/pagination/PaginationPrevious";
-import { PaginationItem } from "@/components/ui/pagination/PaginationItem";
-import { PaginationEllipsis } from "@/components/ui/pagination/PaginationEllipsis";
-import { PaginationNext } from "@/components/ui/pagination/PaginationNext";
-import { PaginationContainer } from "@/components/ui/pagination/PaginationContainer";
+import { type Server } from "@/app/page";
 import { useServersTable } from "@/components/modules/servers/useServersTable";
-import { usePaginationParams } from "@/hooks/usePaginationParams";
+import { useRouter, useSearchParams } from "next/navigation";
+import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { type ChangeEvent } from "react";
 
 type DemoServersTableProps = {
   servers: Server[];
 };
 
 export function ServersTable({ servers }: DemoServersTableProps) {
-  const { page, limit } = usePaginationParams();
   const { table, columnsCount } = useServersTable(servers);
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const filterServersByName = (event: ChangeEvent<HTMLInputElement>) => {
+    router.push(`/?name=${event.target.value}`);
+  };
 
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
           placeholder="Wyszukaj po nazwie"
-          value={(table.getColumn("nazwa")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("nazwa")?.setFilterValue(event.target.value)
-          }
+          value={searchParams.get("name") || ""}
+          onChange={filterServersByName}
           className="max-w-sm"
         />
         <DropdownMenu>
@@ -104,7 +105,10 @@ export function ServersTable({ servers }: DemoServersTableProps) {
                   <TableCell key={cell.id}>
                     {cell.id.includes("_index") ? (
                       <div className="font-medium">
-                        {(Math.max(1, page) - 1) * limit + (rowIndex + 1)}
+                        {(Math.max(1, Number(searchParams.get("page") ?? 1)) -
+                          1) *
+                          SERVERS_LIMIT_PER_PAGE +
+                          (rowIndex + 1)}
                       </div>
                     ) : (
                       flexRender(cell.column.columnDef.cell, cell.getContext())
@@ -122,48 +126,6 @@ export function ServersTable({ servers }: DemoServersTableProps) {
           )}
         </TableBody>
       </Table>
-
-      <div className="mt-6">
-        <PaginationContainer>
-          {table.getCanPreviousPage() && (
-            <PaginationPrevious prevPageLink={`/?page=${page - 1}`} />
-          )}
-
-          {page - 2 > 0 && (
-            <PaginationItem pageLink={`/?page=${page - 2}`}>
-              {page - 2}
-            </PaginationItem>
-          )}
-
-          {table.getCanPreviousPage() && (
-            <PaginationItem pageLink={`/?page=${page - 1}`}>
-              {page - 1}
-            </PaginationItem>
-          )}
-
-          <PaginationItem pageLink={`/?page=${page - 2}`} isActive>
-            {page}
-          </PaginationItem>
-
-          {table.getCanNextPage() && (
-            <PaginationItem pageLink={`/?page=${page + 1}`}>
-              {page + 1}
-            </PaginationItem>
-          )}
-
-          {Number(table.lastPage) >= page + 2 && (
-            <PaginationItem pageLink={`/?page=${page + 2}`}>
-              {page + 2}
-            </PaginationItem>
-          )}
-
-          {Number(table.lastPage) >= page + 3 && <PaginationEllipsis />}
-
-          {table.getCanNextPage() && (
-            <PaginationNext nextPageLink={`/?page=${page + 1}`} />
-          )}
-        </PaginationContainer>
-      </div>
     </div>
   );
 }

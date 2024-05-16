@@ -8,7 +8,7 @@ export const usePaginationParams = () => {
   const limitParam = searchParams.get("limit");
 
   const page = getPageParam(searchParams.get("page"));
-  const limit = getLimitParam(isNaN(Number(limitParam)) ? "3" : limitParam);
+  const limit = getLimitParam(isNaN(Number(limitParam)) ? "3" : limitParam, 3);
 
   return {
     page,

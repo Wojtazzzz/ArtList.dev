@@ -2,28 +2,26 @@ import { useState } from "react";
 import {
   ColumnFiltersState,
   getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   SortingState,
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import { Server } from "@/app/[page]/page";
-import { usePaginationParams } from "@/hooks/usePaginationParams";
+import { type Server } from "@/app/page";
 import { columns } from "@/components/modules/servers/tableColumns";
+import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { usePaginationParams } from "@/hooks/usePaginationParams";
 
 export const useServersTable = (servers: Server[]) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState({});
 
-  const { page, limit } = usePaginationParams();
+  const { page } = usePaginationParams();
 
-  const [pagination, setPagination] = useState({
+  const [pagination] = useState({
+    pageSize: SERVERS_LIMIT_PER_PAGE,
     pageIndex: page,
-    pageSize: limit,
   });
 
   const table = useReactTable({
@@ -32,16 +30,14 @@ export const useServersTable = (servers: Server[]) => {
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
+    manualPagination: true,
+    manualFiltering: true,
     state: {
       sorting,
       columnFilters,
       columnVisibility,
-      rowSelection,
       pagination,
     },
   });
