@@ -20,9 +20,10 @@ import {
 } from "@/components/ui-library/table";
 import { type Server } from "@/app/page";
 import { useServersTable } from "@/components/modules/servers/useServersTable";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { type ChangeEvent } from "react";
+import { useServersPaginationParams } from "@/components/modules/servers/useServersPaginationParams";
 
 type DemoServersTableProps = {
   servers: Server[];
@@ -30,8 +31,8 @@ type DemoServersTableProps = {
 
 export function ServersTable({ servers }: DemoServersTableProps) {
   const { table, columnsCount } = useServersTable(servers);
+  const { page, name } = useServersPaginationParams();
 
-  const searchParams = useSearchParams();
   const router = useRouter();
 
   const filterServersByName = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +44,7 @@ export function ServersTable({ servers }: DemoServersTableProps) {
       <div className="flex items-center py-4">
         <Input
           placeholder="Wyszukaj po nazwie"
-          value={searchParams.get("name") || ""}
+          value={name ?? ""}
           onChange={filterServersByName}
           className="max-w-sm"
         />
@@ -105,9 +106,7 @@ export function ServersTable({ servers }: DemoServersTableProps) {
                   <TableCell key={cell.id}>
                     {cell.id.includes("_index") ? (
                       <div className="font-medium">
-                        {(Math.max(1, Number(searchParams.get("page") ?? 1)) -
-                          1) *
-                          SERVERS_LIMIT_PER_PAGE +
+                        {(Math.max(1, page) - 1) * SERVERS_LIMIT_PER_PAGE +
                           (rowIndex + 1)}
                       </div>
                     ) : (
