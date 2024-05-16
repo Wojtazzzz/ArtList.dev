@@ -20,24 +20,18 @@ import {
 } from "@/components/ui-library/table";
 import { type Server } from "@/app/page";
 import { useServersTable } from "@/components/modules/servers/useServersTable";
-import { useRouter } from "next/navigation";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
-import { type ChangeEvent } from "react";
 import { useServersPaginationParams } from "@/components/modules/servers/useServersPaginationParams";
+import { useServersSearch } from "@/components/modules/servers/useServersSearch";
 
-type DemoServersTableProps = {
+type ServersTableProps = {
   servers: Server[];
 };
 
-export function ServersTable({ servers }: DemoServersTableProps) {
+export function ServersTable({ servers }: ServersTableProps) {
   const { table, columnsCount } = useServersTable(servers);
   const { page, name } = useServersPaginationParams();
-
-  const router = useRouter();
-
-  const filterServersByName = (event: ChangeEvent<HTMLInputElement>) => {
-    router.push(`/?name=${event.target.value}`);
-  };
+  const { filterServersByName } = useServersSearch();
 
   return (
     <div className="w-full">
