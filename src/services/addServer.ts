@@ -1,5 +1,4 @@
 import { getServerByName } from "@/infrastructure/database/getServerByName";
-import { revalidateTag } from "next/cache";
 import { fetchExternalServerData } from "@/infrastructure/fetchExternalServerData";
 import { createServer } from "@/infrastructure/database/createServer";
 import { SERVER_DATA_RESPONSE } from "@/utils/mocks/serverDataResponse";
@@ -53,8 +52,6 @@ export const addServer = async (
     version: response.data.version,
     icon: response.data.icon,
   });
-
-  revalidateTag("servers");
 
   return {
     success: true,

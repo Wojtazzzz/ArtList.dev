@@ -5,13 +5,20 @@ type GetServersData = {
   skip: number;
   limit: number;
   orderBy: Prisma.ServerOrderByWithRelationInput[];
+  filter: Prisma.ServerWhereInput;
 };
 
-export const getServers = async ({ skip, limit, orderBy }: GetServersData) => {
+export const getServers = async ({
+  skip,
+  limit,
+  orderBy,
+  filter,
+}: GetServersData) => {
   return prisma.server.findMany({
     skip,
     take: limit,
     orderBy,
+    where: filter,
     select: {
       id: true,
       name: true,

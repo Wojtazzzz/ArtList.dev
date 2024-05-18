@@ -13,6 +13,9 @@ export class HomePage {
       .getByRole("row")
       .filter({
         hasNot: this.page.getByText("#", { exact: true }),
+      })
+      .filter({
+        hasNot: this.page.getByText("Brak serwerów.", { exact: true }),
       });
   }
 }

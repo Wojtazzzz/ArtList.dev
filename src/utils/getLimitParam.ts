@@ -1,12 +1,15 @@
-export const getLimitParam = (limit: string | null | undefined) => {
+export const getLimitParam = (
+  limit: string | null | undefined,
+  defaultValue: number,
+) => {
   if (!limit) {
-    return 50;
+    return defaultValue;
   }
 
   const numericLimit = Number(limit);
 
   if (isNaN(numericLimit)) {
-    return 50;
+    return defaultValue;
   }
 
   return numericLimit;
