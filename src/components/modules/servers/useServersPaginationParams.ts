@@ -22,7 +22,7 @@ export const useServersPaginationParams = () => {
 
   const changeParam = useDebouncedCallback((newName: string) => {
     router.push(`/?name=${newName}`);
-  }, 500);
+  }, 350);
 
   return {
     page,
