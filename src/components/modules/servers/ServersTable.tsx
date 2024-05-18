@@ -23,7 +23,6 @@ import { type Server } from "@/app/page";
 import { useServersTable } from "@/components/modules/servers/useServersTable";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { useServersPaginationParams } from "@/components/modules/servers/useServersPaginationParams";
-import { useServersSearch } from "@/components/modules/servers/useServersSearch";
 
 type ServersTableProps = {
   servers: Server[];
@@ -32,7 +31,6 @@ type ServersTableProps = {
 export function ServersTable({ servers }: ServersTableProps) {
   const { table, columnsCount } = useServersTable(servers);
   const { page, name, onChangeName } = useServersPaginationParams();
-  const { filterServersByName } = useServersSearch();
 
   return (
     <div className="w-full">
