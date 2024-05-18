@@ -31,7 +31,7 @@ type ServersTableProps = {
 
 export function ServersTable({ servers }: ServersTableProps) {
   const { table, columnsCount } = useServersTable(servers);
-  const { page, name } = useServersPaginationParams();
+  const { page, name, onChangeName } = useServersPaginationParams();
   const { filterServersByName } = useServersSearch();
 
   return (
@@ -40,7 +40,7 @@ export function ServersTable({ servers }: ServersTableProps) {
         <Input
           placeholder="Wyszukaj po nazwie"
           value={name ?? ""}
-          onChange={filterServersByName}
+          onChange={onChangeName}
           className="max-w-sm"
         />
         <DropdownMenu>

@@ -1,15 +1,33 @@
 import { usePaginationParams } from "@/hooks/usePaginationParams";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ChangeEvent, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export const useServersPaginationParams = () => {
-  const searchParams = useSearchParams();
   const { page, limit } = usePaginationParams();
+  const router = useRouter();
 
-  const name = searchParams.get("name");
+  const searchParams = useSearchParams();
+  const nameParam = searchParams.get("name");
+
+  const [name, setName] = useState(nameParam ?? "");
+
+  const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
+    const newName = event.target.value;
+
+    setName(() => newName);
+
+    changeParam(newName);
+  };
+
+  const changeParam = useDebouncedCallback((newName: string) => {
+    router.push(`/?name=${newName}`);
+  }, 500);
 
   return {
     page,
     limit,
     name,
+    onChangeName,
   };
 };
