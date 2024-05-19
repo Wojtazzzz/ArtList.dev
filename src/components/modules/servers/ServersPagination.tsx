@@ -55,7 +55,7 @@ export const ServersPagination = ({
       )}
 
       {lastPage >= page + 2 && (
-        <PaginationItem pageLink={`/${page + 2}${params}`}>
+        <PaginationItem pageLink={`/?page=${page + 2}${params}`}>
           {page + 2}
         </PaginationItem>
       )}
