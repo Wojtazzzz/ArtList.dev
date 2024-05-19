@@ -22,9 +22,12 @@ export const fetchExternalServerData = async (
     };
   }
 
-  const result = serverResponseSchema.safeParse(await response.json());
+  const result = await serverResponseSchema.safeParseAsync(
+    await response.json(),
+  );
 
-  console.log(result.error);
+  // console.log(result.error);
+
   if (!result.success) {
     return {
       success: false,
@@ -81,7 +84,7 @@ export const serverResponseSchema = z.union([
       name: z.string().nullish(),
     }),
     hostname: z.string(),
-    icon: z.string(),
+    icon: z.string().nullish(),
     info: z
       .object({
         raw: z.array(z.string()),
