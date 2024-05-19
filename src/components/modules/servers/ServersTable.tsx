@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpDown } from "lucide-react";
-import { Input } from "@/components/ui-library/input";
 import {
   Table,
   TableBody,
@@ -11,9 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui-library/table";
-import { type Server } from "@/app/page";
+import { type Server } from "@/utils/schema";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
-import { useServersPaginationParams } from "@/components/modules/servers/useServersPaginationParams";
 import Image from "next/image";
 import { capitalize } from "@/utils/capitalize";
 import { cn } from "@/lib/utils";
@@ -21,20 +19,21 @@ import { CopyIpButton } from "@/components/modules/servers/CopyIpButton";
 
 type ServersTableProps = {
   servers: Server[];
+  page: number;
 };
 
-export function ServersTable({ servers }: ServersTableProps) {
-  const { page, name, onChangeName } = useServersPaginationParams();
+export function ServersTable({ servers, page }: ServersTableProps) {
+  // const { name, onChangeName } = useServersPaginationParams();
 
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-        <Input
-          placeholder="Wyszukaj po nazwie"
-          value={name}
-          onChange={onChangeName}
-          className="max-w-sm"
-        />
+        {/*<Input*/}
+        {/*  placeholder="Wyszukaj po nazwie"*/}
+        {/*  value={name}*/}
+        {/*  onChange={onChangeName}*/}
+        {/*  className="max-w-sm"*/}
+        {/*/>*/}
         {/*<DropdownMenu>*/}
         {/*  <DropdownMenuTrigger asChild>*/}
         {/*    <Button variant="outline" className="ml-auto">*/}
