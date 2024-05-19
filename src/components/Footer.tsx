@@ -51,8 +51,7 @@ export const Footer = () => {
                   variant={variant}
                   target={variant === "external" ? "_blank" : "_self"}
                 >
-                  <span className="hover:underline"></span>
-                  {name}
+                  <span className="hover:underline">{name}</span>
                 </Link>
               </p>
             ))}
