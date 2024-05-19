@@ -37,7 +37,7 @@ export function ServersTable({ servers }: ServersTableProps) {
       <div className="flex items-center py-4">
         <Input
           placeholder="Wyszukaj po nazwie"
-          value={name ?? ""}
+          value={name}
           onChange={onChangeName}
           className="max-w-sm"
         />
