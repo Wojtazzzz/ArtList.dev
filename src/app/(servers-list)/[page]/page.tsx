@@ -1,4 +1,3 @@
-import { Container } from "@/components/ui/Container";
 import { API_URL, SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { ServersTable } from "@/components/modules/servers/ServersTable";
 import { getPageParam } from "@/utils/getPageParam";
@@ -37,19 +36,17 @@ export default async function ServersPaginatedPage({
   const response = await fetchServers(getPageParam(params.page));
 
   return (
-    <main>
-      <Container>
-        <ServersTable servers={response.servers} page={response.page} />
+    <>
+      <ServersTable servers={response.servers} page={response.page} />
 
-        <div className="mt-6">
-          <StaticPagination
-            lastPage={response.lastPage}
-            page={response.page}
-            nextPage={response.nextPage}
-            prevPage={response.prevPage}
-          />
-        </div>
-      </Container>
-    </main>
+      <div className="mt-6">
+        <StaticPagination
+          lastPage={response.lastPage}
+          page={response.page}
+          nextPage={response.nextPage}
+          prevPage={response.prevPage}
+        />
+      </div>
+    </>
   );
 }

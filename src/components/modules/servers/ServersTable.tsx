@@ -25,45 +25,11 @@ type ServersTableProps = {
 };
 
 export function ServersTable({ servers, page }: ServersTableProps) {
-  // const { name, onChangeName } = useServersPaginationParams();
   const { sortByName, sortByPlayers } = useServersSort();
   const { copyIp } = useCopyServerAddress();
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
-        {/*<Input*/}
-        {/*  placeholder="Wyszukaj po nazwie"*/}
-        {/*  value={name}*/}
-        {/*  onChange={onChangeName}*/}
-        {/*  className="max-w-sm"*/}
-        {/*/>*/}
-        {/*<DropdownMenu>*/}
-        {/*  <DropdownMenuTrigger asChild>*/}
-        {/*    <Button variant="outline" className="ml-auto">*/}
-        {/*      Pokaż kolumny <ChevronDown className="ml-2 h-4 w-4" />*/}
-        {/*    </Button>*/}
-        {/*  </DropdownMenuTrigger>*/}
-        {/*  <DropdownMenuContent align="end">*/}
-        {/*    {table*/}
-        {/*      .getAllColumns()*/}
-        {/*      .filter((column) => column.getCanHide())*/}
-        {/*      .map((column) => {*/}
-        {/*        return (*/}
-        {/*          <DropdownMenuCheckboxItem*/}
-        {/*            key={column.id}*/}
-        {/*            className="capitalize"*/}
-        {/*            checked={column.getIsVisible()}*/}
-        {/*            onCheckedChange={(value) => column.toggleVisibility(value)}*/}
-        {/*          >*/}
-        {/*            {column.id}*/}
-        {/*          </DropdownMenuCheckboxItem>*/}
-        {/*        );*/}
-        {/*      })}*/}
-        {/*  </DropdownMenuContent>*/}
-        {/*</DropdownMenu>*/}
-      </div>
-
       <Table>
         <TableCaption>Lista serwerów Minecraft.</TableCaption>
         <TableHeader>
