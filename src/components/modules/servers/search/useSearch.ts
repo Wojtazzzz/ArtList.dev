@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "@/hooks/useSearchParams";
+import { useDebouncedCallback } from "use-debounce";
 
 export const useSearch = () => {
   const { getSearchParam, filterSearchParams } = useSearchParams();
@@ -9,11 +10,12 @@ export const useSearch = () => {
 
   const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-
-    router.push(
-      `/search?name=${event.target.value}&${filterSearchParams(["name"])}`,
-    );
+    pushParams(event.target.value);
   };
+
+  const pushParams = useDebouncedCallback((name) => {
+    router.push(`/search?name=${name}&${filterSearchParams(["name"])}`);
+  }, 300);
 
   return {
     value,
