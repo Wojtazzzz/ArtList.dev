@@ -1,8 +1,11 @@
-import { API_URL, SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
+import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { ServersTable } from "@/components/modules/servers/ServersTable";
 import { getPageParam } from "@/utils/getPageParam";
 import { prisma } from "@/prisma";
 import { StaticPagination } from "@/components/modules/servers/paginations/StaticPagination";
+import { getPaginatedServers } from "@/services/getPaginatedServers";
+
+export const revalidate = 1200;
 
 export async function generateStaticParams() {
   const serversCount = await prisma.server.count();
@@ -20,20 +23,13 @@ type ServersPaginatedPageParams = {
   };
 };
 
-const fetchServers = async (page: number) => {
-  const response = await fetch(`${API_URL}/servers?page=${page}`);
-
-  if (!response.ok) {
-    throw new Error("Fetch failed");
-  }
-
-  return await response.json();
-};
-
 export default async function ServersPaginatedPage({
   params,
 }: ServersPaginatedPageParams) {
-  const response = await fetchServers(getPageParam(params.page));
+  const response = await getPaginatedServers(
+    getPageParam(params.page),
+    SERVERS_LIMIT_PER_PAGE,
+  );
 
   return (
     <>

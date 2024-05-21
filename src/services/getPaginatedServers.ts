@@ -11,7 +11,7 @@ type FilterServers =
 export const getPaginatedServers = async (
   page: number,
   limit: number,
-  filter: FilterServers,
+  filter?: FilterServers,
   sort?: string,
 ) => {
   const filterProp = {
