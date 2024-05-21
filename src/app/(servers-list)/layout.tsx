@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { Search } from "@/components/modules/servers/search/Search";
 import { Container } from "@/components/ui/Container";
 
@@ -13,7 +13,9 @@ export default function ServersListLayout({
     <main>
       <Container>
         <div className="flex items-center py-4">
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
 
           {/*<DropdownMenu>*/}
           {/*  <DropdownMenuTrigger asChild>*/}
