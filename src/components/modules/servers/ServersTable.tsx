@@ -16,6 +16,7 @@ import Image from "next/image";
 import { capitalize } from "@/utils/capitalize";
 import { cn } from "@/lib/utils";
 import { CopyIpButton } from "@/components/modules/servers/CopyIpButton";
+import { useServersSort } from "@/components/modules/servers/useServersSort";
 
 type ServersTableProps = {
   servers: Server[];
@@ -24,6 +25,7 @@ type ServersTableProps = {
 
 export function ServersTable({ servers, page }: ServersTableProps) {
   // const { name, onChangeName } = useServersPaginationParams();
+  const { sortByName, sortByPlayers } = useServersSort();
 
   return (
     <div className="w-full">
@@ -66,10 +68,7 @@ export function ServersTable({ servers, page }: ServersTableProps) {
           <TableRow>
             <TableHead>#</TableHead>
             <TableHead>
-              <button
-                className="flex items-center"
-                onClick={() => console.log("name sorting")}
-              >
+              <button className="flex items-center" onClick={sortByName}>
                 Nazwa
                 <span className="sr-only">
                   Sortuj według nazwy, alfabetycznie
@@ -78,13 +77,10 @@ export function ServersTable({ servers, page }: ServersTableProps) {
               </button>
             </TableHead>
             <TableHead>
-              <button
-                className="flex items-center"
-                onClick={() => console.log("players sorting")}
-              >
+              <button className="flex items-center" onClick={sortByPlayers}>
                 Gracze
                 <span className="sr-only">
-                  Sortuj według nazwy, alfabetycznie
+                  Sortuj według ilości aktywnych graczy
                 </span>
                 <ArrowUpDown className="ml-2 h-4 w-4" />
               </button>
