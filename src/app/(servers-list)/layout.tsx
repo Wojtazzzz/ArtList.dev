@@ -2,10 +2,13 @@ import { ReactNode } from "react";
 import { Search } from "@/components/modules/servers/search/Search";
 import { Container } from "@/components/ui/Container";
 
-type ServersListLaoutProps = {
+type ServersListLayoutProps = {
   children: ReactNode;
 };
-export default function ServersListLayout({ children }: ServersListLaoutProps) {
+
+export default function ServersListLayout({
+  children,
+}: ServersListLayoutProps) {
   return (
     <main>
       <Container>

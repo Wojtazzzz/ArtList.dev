@@ -1,12 +1,9 @@
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export const useServersSort = () => {
-  const searchParams = useSearchParams();
+export const useServersSort = (sort: string) => {
   const router = useRouter();
 
   const sortByName = async () => {
-    const sort = searchParams.get("sort");
-
     if (sort === "name") {
       router.push("/search?sort=-name");
     } else {
@@ -15,8 +12,6 @@ export const useServersSort = () => {
   };
 
   const sortByPlayers = async () => {
-    const sort = searchParams.get("sort");
-
     if (sort === "players") {
       router.push("/search?sort=-players");
     } else {

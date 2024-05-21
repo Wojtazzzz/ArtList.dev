@@ -22,10 +22,15 @@ import { useCopyServerAddress } from "@/components/modules/servers/useCopyServer
 type ServersTableProps = {
   servers: Server[];
   page: number;
+  defaultSort?: string;
 };
 
-export function ServersTable({ servers, page }: ServersTableProps) {
-  const { sortByName, sortByPlayers } = useServersSort();
+export function ServersTable({
+  servers,
+  page,
+  defaultSort = "-players",
+}: ServersTableProps) {
+  const { sortByName, sortByPlayers } = useServersSort(defaultSort);
   const { copyIp } = useCopyServerAddress();
 
   return (
