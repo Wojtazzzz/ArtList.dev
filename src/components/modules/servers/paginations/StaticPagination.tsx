@@ -29,7 +29,7 @@ export const StaticPagination = ({
         <PaginationItem pageLink={`/${prevPage}`}>{prevPage}</PaginationItem>
       )}
 
-      <PaginationItem pageLink={`/${page - 2}`} isActive>
+      <PaginationItem pageLink={`/${page}`} isActive>
         {page}
       </PaginationItem>
 

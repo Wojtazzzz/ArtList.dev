@@ -49,7 +49,7 @@ export const DynamicPagination = ({
       )}
 
       <PaginationItem
-        pageLink={`/search?page=${page - 2}&${currentSearchParams}`}
+        pageLink={`/search?page=${page}&${currentSearchParams}`}
         isActive
       >
         {page}
