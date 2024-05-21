@@ -28,13 +28,13 @@ export const DynamicPagination = ({
     <PaginationContainer>
       {prevPage && (
         <PaginationPrevious
-          prevPageLink={`/search?page=${prevPage}&${currentSearchParams}`}
+          prevPageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
         />
       )}
 
       {page - 2 > 0 && (
         <PaginationItem
-          pageLink={`/search?page=${page - 2}&${currentSearchParams}`}
+          pageLink={`/szukaj?page=${page - 2}&${currentSearchParams}`}
         >
           {page - 2}
         </PaginationItem>
@@ -42,14 +42,14 @@ export const DynamicPagination = ({
 
       {prevPage && (
         <PaginationItem
-          pageLink={`/search?page=${prevPage}&${currentSearchParams}`}
+          pageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
         >
           {prevPage}
         </PaginationItem>
       )}
 
       <PaginationItem
-        pageLink={`/search?page=${page}&${currentSearchParams}`}
+        pageLink={`/szukaj?page=${page}&${currentSearchParams}`}
         isActive
       >
         {page}
@@ -57,7 +57,7 @@ export const DynamicPagination = ({
 
       {nextPage && (
         <PaginationItem
-          pageLink={`/search?page=${nextPage}&${currentSearchParams}`}
+          pageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
         >
           {nextPage}
         </PaginationItem>
@@ -65,7 +65,7 @@ export const DynamicPagination = ({
 
       {lastPage >= page + 2 && (
         <PaginationItem
-          pageLink={`/search?page=${page + 2}&${currentSearchParams}`}
+          pageLink={`/szukaj?page=${page + 2}&${currentSearchParams}`}
         >
           {page + 2}
         </PaginationItem>
@@ -75,7 +75,7 @@ export const DynamicPagination = ({
 
       {nextPage && (
         <PaginationNext
-          nextPageLink={`/search?page=${nextPage}&${currentSearchParams}`}
+          nextPageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
         />
       )}
     </PaginationContainer>

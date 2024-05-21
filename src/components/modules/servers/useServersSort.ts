@@ -5,17 +5,17 @@ export const useServersSort = (sort: string) => {
 
   const sortByName = async () => {
     if (sort === "name") {
-      router.push("/search?sort=-name");
+      router.push("/szukaj?sort=-name");
     } else {
-      router.push("/search?sort=name");
+      router.push("/szukaj?sort=name");
     }
   };
 
   const sortByPlayers = async () => {
     if (sort === "players") {
-      router.push("/search?sort=-players");
+      router.push("/szukaj?sort=-players");
     } else {
-      router.push("/search?sort=players");
+      router.push("/szukaj?sort=players");
     }
   };
 

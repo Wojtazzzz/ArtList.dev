@@ -14,7 +14,7 @@ export const useSearch = () => {
   };
 
   const pushParams = useDebouncedCallback((name) => {
-    router.push(`/search?name=${name}&${filterSearchParams(["name"])}`);
+    router.push(`/szukaj?name=${name}&${filterSearchParams(["name"])}`);
   }, 300);
 
   return {
