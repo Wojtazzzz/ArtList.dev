@@ -15,8 +15,9 @@ import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import Image from "next/image";
 import { capitalize } from "@/utils/capitalize";
 import { cn } from "@/lib/utils";
-import { CopyIpButton } from "@/components/modules/servers/CopyIpButton";
 import { useServersSort } from "@/components/modules/servers/useServersSort";
+import { CopyButton } from "@/components/ui/CopyButton";
+import { useCopyServerAddress } from "@/components/modules/servers/useCopyServerAddress";
 
 type ServersTableProps = {
   servers: Server[];
@@ -26,6 +27,7 @@ type ServersTableProps = {
 export function ServersTable({ servers, page }: ServersTableProps) {
   // const { name, onChangeName } = useServersPaginationParams();
   const { sortByName, sortByPlayers } = useServersSort();
+  const { copyIp } = useCopyServerAddress();
 
   return (
     <div className="w-full">
@@ -155,8 +157,11 @@ export function ServersTable({ servers, page }: ServersTableProps) {
                 </TableCell>
 
                 <TableCell>
-                  <div className="flex justify-end gap-x-1.5">
-                    <CopyIpButton ip={server.name} />
+                  <div className="flex justify-end">
+                    <CopyButton
+                      label="Skopiuj adres IP serwera do schowka"
+                      onClick={() => copyIp(server.name)}
+                    />
                   </div>
                 </TableCell>
               </TableRow>
