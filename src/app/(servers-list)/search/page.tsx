@@ -16,7 +16,9 @@ export default async function SearchPage({ searchParams }: SearchPageParams) {
   const response = await getPaginatedServers(
     getPageParam(searchParams.page),
     SERVERS_LIMIT_PER_PAGE,
-    undefined,
+    {
+      name: searchParams.name,
+    },
     searchParams.sort,
   );
 
