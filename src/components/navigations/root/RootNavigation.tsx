@@ -7,7 +7,7 @@ import { TypographyH1 } from "@/components/ui/Typography";
 import { Container } from "@/components/ui/Container";
 import { AddServerDialog } from "@/components/navigations/root/AddServerDialog";
 import { ChangeTheme } from "@/components/ChangeTheme";
-import { Logo } from "@/components/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { Link } from "@/components/ui/Link";
 
 export const RootNavigation = () => {

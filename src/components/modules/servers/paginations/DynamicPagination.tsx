@@ -5,57 +5,68 @@ import { PaginationItem } from "@/components/ui/pagination/PaginationItem";
 import { PaginationEllipsis } from "@/components/ui/pagination/PaginationEllipsis";
 import { PaginationNext } from "@/components/ui/pagination/PaginationNext";
 import { PaginationContainer } from "@/components/ui/pagination/PaginationContainer";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "@/hooks/useSearchParams";
 
-type ServersPaginationProps = {
+type DynamicPaginationProps = {
   page: number;
   prevPage: number | null;
   nextPage: number | null;
   lastPage: number;
 };
 
-export const ServersPagination = ({
+export const DynamicPagination = ({
   page,
   prevPage,
   nextPage,
   lastPage,
-}: ServersPaginationProps) => {
-  const searchParams = useSearchParams();
+}: DynamicPaginationProps) => {
+  const { filterSearchParams } = useSearchParams();
 
-  const nameParam = searchParams.get("name");
-
-  const params = nameParam ? `&name=${nameParam}` : "";
+  const currentSearchParams = filterSearchParams(["page"]);
 
   return (
     <PaginationContainer>
       {prevPage && (
-        <PaginationPrevious prevPageLink={`/?page=${prevPage}${params}`} />
+        <PaginationPrevious
+          prevPageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
+        />
       )}
 
       {page - 2 > 0 && (
-        <PaginationItem pageLink={`/?page=${page - 2}${params}`}>
+        <PaginationItem
+          pageLink={`/szukaj?page=${page - 2}&${currentSearchParams}`}
+        >
           {page - 2}
         </PaginationItem>
       )}
 
       {prevPage && (
-        <PaginationItem pageLink={`/?page=${prevPage}${params}`}>
+        <PaginationItem
+          pageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
+        >
           {prevPage}
         </PaginationItem>
       )}
 
-      <PaginationItem pageLink={`/?page=${page - 2}${params}`} isActive>
+      <PaginationItem
+        pageLink={`/szukaj?page=${page}&${currentSearchParams}`}
+        isActive
+      >
         {page}
       </PaginationItem>
 
       {nextPage && (
-        <PaginationItem pageLink={`/?page=${nextPage}${params}`}>
+        <PaginationItem
+          pageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
+        >
           {nextPage}
         </PaginationItem>
       )}
 
       {lastPage >= page + 2 && (
-        <PaginationItem pageLink={`/${page + 2}${params}`}>
+        <PaginationItem
+          pageLink={`/szukaj?page=${page + 2}&${currentSearchParams}`}
+        >
           {page + 2}
         </PaginationItem>
       )}
@@ -63,7 +74,9 @@ export const ServersPagination = ({
       {lastPage >= page + 3 && <PaginationEllipsis />}
 
       {nextPage && (
-        <PaginationNext nextPageLink={`/?page=${nextPage}${params}`} />
+        <PaginationNext
+          nextPageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
+        />
       )}
     </PaginationContainer>
   );

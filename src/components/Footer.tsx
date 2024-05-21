@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { Link } from "@/components/ui/Link";
 
 const links = [

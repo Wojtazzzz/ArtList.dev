@@ -12,6 +12,7 @@ export const getPaginatedServers = async (
   page: number,
   limit: number,
   filter: FilterServers,
+  sort?: string,
 ) => {
   const filterProp = {
     name: {
@@ -28,17 +29,7 @@ export const getPaginatedServers = async (
   const servers = await getServers({
     skip,
     limit,
-    orderBy: [
-      {
-        online: "desc",
-      },
-      {
-        currentPlayers: "desc",
-      },
-      {
-        maxPlayers: "desc",
-      },
-    ],
+    orderBy: computeOrderBy(sort),
     filter: filterProp,
   });
 
@@ -50,3 +41,97 @@ export const getPaginatedServers = async (
     servers,
   };
 };
+
+type SortBy = {
+  [key in string]: "desc" | "asc";
+}[];
+
+function computeOrderBy(sort?: string): SortBy {
+  if (!sort) {
+    return [
+      {
+        online: "desc",
+      },
+      {
+        currentPlayers: "desc",
+      },
+      {
+        maxPlayers: "desc",
+      },
+    ];
+  }
+
+  if (sort === "name") {
+    return [
+      {
+        name: "asc",
+      },
+      {
+        online: "desc",
+      },
+      {
+        currentPlayers: "desc",
+      },
+      {
+        maxPlayers: "desc",
+      },
+    ];
+  }
+
+  if (sort === "-name") {
+    return [
+      {
+        name: "desc",
+      },
+      {
+        online: "desc",
+      },
+      {
+        currentPlayers: "desc",
+      },
+      {
+        maxPlayers: "desc",
+      },
+    ];
+  }
+
+  if (sort === "players") {
+    return [
+      {
+        online: "desc",
+      },
+      {
+        currentPlayers: "asc",
+      },
+      {
+        maxPlayers: "desc",
+      },
+    ];
+  }
+
+  if (sort === "-players") {
+    return [
+      {
+        online: "desc",
+      },
+      {
+        currentPlayers: "desc",
+      },
+      {
+        maxPlayers: "desc",
+      },
+    ];
+  }
+
+  return [
+    {
+      online: "desc",
+    },
+    {
+      currentPlayers: "desc",
+    },
+    {
+      maxPlayers: "desc",
+    },
+  ];
+}

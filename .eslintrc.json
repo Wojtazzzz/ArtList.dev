@@ -7,9 +7,14 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["eslint-plugin-react", "eslint-plugin-react-hooks"],
+  "plugins": [
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks"
+  ],
   "rules": {
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "strict": 1
   }
 }
