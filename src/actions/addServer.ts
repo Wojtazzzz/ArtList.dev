@@ -24,7 +24,7 @@ export const addServer = async ({ name }: AddServerPayload) => {
     };
   }
 
-  revalidatePath("/");
+  revalidatePath("/(servers-list)", "layout");
 
   return {};
 };
