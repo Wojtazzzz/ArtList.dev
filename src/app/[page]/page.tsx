@@ -1,9 +1,9 @@
 import { Container } from "@/components/ui/Container";
 import { API_URL, SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { ServersTable } from "@/components/modules/servers/ServersTable";
-import { ServersPagination } from "@/components/modules/servers/ServersPagination";
 import { getPageParam } from "@/utils/getPageParam";
 import { prisma } from "@/prisma";
+import { StaticPagination } from "@/components/modules/servers/paginations/StaticPagination";
 
 export async function generateStaticParams() {
   const serversCount = await prisma.server.count();
@@ -42,7 +42,7 @@ export default async function ServersPaginatedPage({
         <ServersTable servers={response.servers} page={response.page} />
 
         <div className="mt-6">
-          <ServersPagination
+          <StaticPagination
             lastPage={response.lastPage}
             page={response.page}
             nextPage={response.nextPage}

@@ -4,19 +4,19 @@ import { PaginationEllipsis } from "@/components/ui/pagination/PaginationEllipsi
 import { PaginationNext } from "@/components/ui/pagination/PaginationNext";
 import { PaginationContainer } from "@/components/ui/pagination/PaginationContainer";
 
-type ServersPaginationProps = {
+type StaticPaginationProps = {
   page: number;
   prevPage: number | null;
   nextPage: number | null;
   lastPage: number;
 };
 
-export const ServersPagination = ({
+export const StaticPagination = ({
   page,
   prevPage,
   nextPage,
   lastPage,
-}: ServersPaginationProps) => {
+}: StaticPaginationProps) => {
   return (
     <PaginationContainer>
       {prevPage && <PaginationPrevious prevPageLink={`/${prevPage}`} />}

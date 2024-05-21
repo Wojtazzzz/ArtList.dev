@@ -1,9 +1,9 @@
 import { Container } from "@/components/ui/Container";
 import { SERVERS_LIMIT_PER_PAGE } from "@/utils/env";
 import { ServersTable } from "@/components/modules/servers/ServersTable";
-import { ServersPagination } from "@/components/modules/servers/ServersPagination";
 import { getPaginatedServers } from "@/services/getPaginatedServers";
 import { getPageParam } from "@/utils/getPageParam";
+import { DynamicPagination } from "@/components/modules/servers/paginations/DynamicPagination";
 
 type SearchPageParams = {
   searchParams: {
@@ -27,7 +27,7 @@ export default async function SearchPage({ searchParams }: SearchPageParams) {
         <ServersTable servers={response.servers} page={response.page} />
 
         <div className="mt-6">
-          <ServersPagination
+          <DynamicPagination
             lastPage={response.lastPage}
             page={response.page}
             nextPage={response.nextPage}
