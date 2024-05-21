@@ -23,9 +23,10 @@ type ServersPaginatedPageParams = {
 const fetchServers = async (page: number) => {
   const response = await fetch(`${API_URL}/servers?page=${page}`);
 
-  // if (!response.ok) {
-  //   throw new Error("Fetch failed");
-  // }
+  if (!response.ok) {
+    return null;
+    // throw new Error("Fetch failed");
+  }
 
   return await response.json();
 };
@@ -35,7 +36,7 @@ export default async function ServersPaginatedPage({
 }: ServersPaginatedPageParams) {
   const response = await fetchServers(getPageParam(params.page));
 
-  if (!response.ok) {
+  if (!response) {
     return <span>Build...</span>;
   }
   return (
