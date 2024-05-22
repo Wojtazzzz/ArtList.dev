@@ -14,7 +14,9 @@ type GetServerDataResponse =
 export const fetchExternalServerData = async (
   serverName: string,
 ): Promise<GetServerDataResponse> => {
-  const response = await fetch(`https://api.mcsrvstat.us/3/${serverName}`);
+  const response = await fetch(`https://api.mcsrvstat.us/3/${serverName}`, {
+    cache: "no-store",
+  });
 
   console.log("UPDATE: ", serverName);
 
