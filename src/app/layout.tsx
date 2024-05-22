@@ -29,7 +29,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers>
           <RootNavigation />
 
-          {children}
+          <main>{children}</main>
 
           <Footer />
 
