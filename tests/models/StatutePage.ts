@@ -3,13 +3,22 @@ import { type Page } from "@playwright/test";
 export class StatutePage {
   constructor(private readonly page: Page) {}
 
-  getRulesList() {
-    return this.page.getByRole("list", {
-      name: "Regulamin serwisu",
+  getHeader(content: string) {
+    return this.page.getByRole("heading", {
+      name: content,
+      level: 2,
     });
   }
 
-  getRules() {
-    return this.getRulesList().getByRole("listitem");
+  getParagraph(content: string) {
+    return this.page.getByRole("listitem").getByRole("paragraph", {
+      name: content,
+    });
+  }
+
+  getRulesSection(label: string) {
+    return this.page.getByRole("list", {
+      name: label,
+    });
   }
 }

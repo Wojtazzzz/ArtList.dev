@@ -11,7 +11,7 @@ export default async function StatutePage() {
   return (
     <Container>
       {rules.map((section, sectionIndex) => (
-        <article className="prose mx-auto !max-w-[100ch]" key={sectionIndex}>
+        <section className="prose mx-auto !max-w-[100ch]" key={sectionIndex}>
           <TypographyH2 id="statute-title">
             <span className="text-3xl font-bold">{section.header}</span>
           </TypographyH2>
@@ -28,7 +28,7 @@ export default async function StatutePage() {
               </li>
             ))}
           </ol>
-        </article>
+        </section>
       ))}
     </Container>
   );
