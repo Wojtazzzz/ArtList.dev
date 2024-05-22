@@ -16,6 +16,7 @@ export const Providers = ({ children }: ProvidersProps) => {
       attribute="class"
       defaultTheme="system"
       enableSystem
+      disableTransitionOnChange
       themes={["light", "dark"]}
     >
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
