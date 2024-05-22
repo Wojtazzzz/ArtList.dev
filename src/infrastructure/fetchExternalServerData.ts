@@ -1,4 +1,5 @@
 import { z } from "zod";
+import * as fs from "node:fs";
 
 type GetServerDataResponse =
   | {
@@ -26,9 +27,13 @@ export const fetchExternalServerData = async (
     await response.json(),
   );
 
-  // console.log(result.error);
+  console.log("TWORZE LOG");
 
   if (!result.success) {
+    if (!fs.existsSync(`./logs/${serverName}.log`)) {
+      fs.writeFile(`./logs/${serverName}.log`, result.error.message, () => {});
+    }
+
     return {
       success: false,
       message: "Serwer zwrócił nieprawidłowe dane",
@@ -43,7 +48,7 @@ export const fetchExternalServerData = async (
 
 export const serverResponseSchema = z.union([
   z.object({
-    ip: z.string(),
+    ip: z.number(),
     port: z.number(),
     debug: z.object({
       ping: z.boolean(),
