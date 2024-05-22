@@ -18,27 +18,18 @@ export const fetchExternalServerData = async (
     cache: "no-store",
   });
 
-  console.log("UPDATE: ", serverName);
-
   if (!response.ok) {
-    console.log("INVALID RESPONSE");
     return {
       success: false,
       message: "Nie udało się pobrać danych serwera",
     };
   }
 
-  console.log("RESPONSE: ", response);
-
   const result = await serverResponseSchema.safeParseAsync(
     await response.json(),
   );
 
-  console.log("ZOD RESULT: ", result);
-
   if (!result.success) {
-    console.log("ZOD ERROR");
-    console.log("LOG ", `./logs/${serverName}.log`);
     if (!fs.existsSync(`./logs/${serverName}.log`)) {
       fs.writeFile(`./logs/${serverName}.log`, result.error.message, () => {});
     }
@@ -48,8 +39,6 @@ export const fetchExternalServerData = async (
       message: "Serwer zwrócił nieprawidłowe dane",
     };
   }
-
-  console.log("OK!");
 
   return {
     success: true,
