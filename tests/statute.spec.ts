@@ -3,6 +3,7 @@ import { Footer } from "./models/Footer";
 import { expect } from "@playwright/test";
 import { StatutePage } from "./models/StatutePage";
 import { HomePage } from "./models/HomePage";
+import { rules } from "@/utils/data/rules";
 
 test("statute", async ({ page }) => {
   const statutePage = new StatutePage(page);
@@ -13,11 +14,12 @@ test("statute", async ({ page }) => {
 
   await footer.goToStatutePage();
 
-  const rules = statutePage.getRules();
+  for (const rule of rules) {
+    await expect(statutePage.getHeader(rule.header)).toBeVisible();
+    await expect(statutePage.getRulesSection(rule.header)).toBeVisible();
 
-  await expect(rules).toHaveCount(8);
-
-  for (const rule of await rules.all()) {
-    await expect(rule).toBeVisible();
+    for (const paragraph of rule.paragraphs) {
+      expect(statutePage.getParagraph(paragraph.toString())).toBeDefined();
+    }
   }
 });
