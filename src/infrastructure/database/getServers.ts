@@ -29,6 +29,7 @@ export const getServers = async ({
       motdFirstLine: true,
       motdSecondLine: true,
       icon: true,
+      updatedAt: true,
     },
   });
 };
