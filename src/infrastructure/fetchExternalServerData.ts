@@ -27,8 +27,6 @@ export const fetchExternalServerData = async (
     await response.json(),
   );
 
-  console.log("TWORZE LOG");
-
   if (!result.success) {
     if (!fs.existsSync(`./logs/${serverName}.log`)) {
       fs.writeFile(`./logs/${serverName}.log`, result.error.message, () => {});
@@ -48,7 +46,7 @@ export const fetchExternalServerData = async (
 
 export const serverResponseSchema = z.union([
   z.object({
-    ip: z.number(),
+    ip: z.string(),
     port: z.number(),
     debug: z.object({
       ping: z.boolean(),
