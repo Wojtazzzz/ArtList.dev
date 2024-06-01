@@ -1,12 +1,12 @@
 import {
-  PaginationEllipsis as ShadcnPaginationEllipsis,
-  PaginationItem,
-} from "@/components/ui-library/pagination";
+	PaginationEllipsis as ShadcnPaginationEllipsis,
+	PaginationItem,
+} from '@/components/ui-library/pagination';
 
 export const PaginationEllipsis = () => {
-  return (
-    <PaginationItem>
-      <ShadcnPaginationEllipsis />
-    </PaginationItem>
-  );
+	return (
+		<PaginationItem>
+			<ShadcnPaginationEllipsis />
+		</PaginationItem>
+	);
 };

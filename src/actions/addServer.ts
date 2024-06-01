@@ -1,30 +1,30 @@
-"use server";
+'use server';
 
-import { addServer as addServerService } from "@/services/addServer";
-import { revalidatePath } from "next/cache";
+import { addServer as addServerService } from '@/services/addServer';
+import { revalidatePath } from 'next/cache';
 
 export type AddServerPayload = {
-  name: string;
+	name: string;
 };
 
 export const addServer = async ({ name }: AddServerPayload) => {
-  if (name.length <= 0) {
-    return {
-      error: "Podano nieprawidłową nazwę serwera",
-    };
-  }
+	if (name.length <= 0) {
+		return {
+			error: 'Podano nieprawidłową nazwę serwera',
+		};
+	}
 
-  const response = await addServerService({
-    name,
-  });
+	const response = await addServerService({
+		name,
+	});
 
-  if (!response.success) {
-    return {
-      error: response.error,
-    };
-  }
+	if (!response.success) {
+		return {
+			error: response.error,
+		};
+	}
 
-  revalidatePath("/(servers-list)", "layout");
+	revalidatePath('/(servers-list)', 'layout');
 
-  return {};
+	return {};
 };

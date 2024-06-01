@@ -1,24 +1,24 @@
-import { type Page } from "@playwright/test";
+import { type Page } from '@playwright/test';
 
 export class StatutePage {
-  constructor(private readonly page: Page) {}
+	constructor(private readonly page: Page) {}
 
-  getHeader(content: string) {
-    return this.page.getByRole("heading", {
-      name: content,
-      level: 2,
-    });
-  }
+	getHeader(content: string) {
+		return this.page.getByRole('heading', {
+			name: content,
+			level: 2,
+		});
+	}
 
-  getParagraph(content: string) {
-    return this.page.getByRole("listitem").getByRole("paragraph", {
-      name: content,
-    });
-  }
+	getParagraph(content: string) {
+		return this.page.getByRole('listitem').getByRole('paragraph', {
+			name: content,
+		});
+	}
 
-  getRulesSection(label: string) {
-    return this.page.getByRole("list", {
-      name: label,
-    });
-  }
+	getRulesSection(label: string) {
+		return this.page.getByRole('list', {
+			name: label,
+		});
+	}
 }

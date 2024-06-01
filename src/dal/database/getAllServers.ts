@@ -1,10 +1,10 @@
-import { prisma } from "@/prisma";
+import { prisma } from '@/prisma';
 
 export const getAllServers = async () => {
-  return prisma.server.findMany({
-    select: {
-      id: true,
-      name: true,
-    },
-  });
+	return prisma.server.findMany({
+		select: {
+			id: true,
+			name: true,
+		},
+	});
 };

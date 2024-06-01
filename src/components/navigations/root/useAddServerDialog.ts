@@ -1,24 +1,24 @@
-import { useBoolean } from "@/hooks/useBoolean";
+import { useBoolean } from '@/hooks/useBoolean';
 
 export const useAddServerDialog = () => {
-  const { state, setTrue, setFalse, setOwn } = useBoolean();
+	const { state, setTrue, setFalse, setOwn } = useBoolean();
 
-  const openDialog = () => {
-    setTrue();
-  };
+	const openDialog = () => {
+		setTrue();
+	};
 
-  const closeDialog = () => {
-    setFalse();
-  };
+	const closeDialog = () => {
+		setFalse();
+	};
 
-  const setDialogOpen = (isOpen: boolean) => {
-    setOwn(isOpen);
-  };
+	const setDialogOpen = (isOpen: boolean) => {
+		setOwn(isOpen);
+	};
 
-  return {
-    open: state,
-    openDialog,
-    closeDialog,
-    setDialogOpen,
-  };
+	return {
+		open: state,
+		openDialog,
+		closeDialog,
+		setDialogOpen,
+	};
 };

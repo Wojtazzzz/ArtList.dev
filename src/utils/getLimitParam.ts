@@ -1,16 +1,16 @@
 export const getLimitParam = (
-  limit: string | null | undefined,
-  defaultValue: number,
+	limit: string | null | undefined,
+	defaultValue: number
 ) => {
-  if (!limit) {
-    return defaultValue;
-  }
+	if (!limit) {
+		return defaultValue;
+	}
 
-  const numericLimit = Number(limit);
+	const numericLimit = Number(limit);
 
-  if (isNaN(numericLimit)) {
-    return defaultValue;
-  }
+	if (isNaN(numericLimit)) {
+		return defaultValue;
+	}
 
-  return numericLimit;
+	return numericLimit;
 };

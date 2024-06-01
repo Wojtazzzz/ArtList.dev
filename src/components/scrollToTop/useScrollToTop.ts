@@ -1,36 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export const useScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+	const scrollToTop = () => {
+		window.scrollTo(0, 0);
+	};
 
-  useEffect(() => {
-    if (!window) {
-      return;
-    }
+	useEffect(() => {
+		if (!window) {
+			return;
+		}
 
-    const eventHandler = () => {
-      if (window.scrollY >= 550 && !isVisible) {
-        setIsVisible(() => true);
-      }
+		const eventHandler = () => {
+			if (window.scrollY >= 550 && !isVisible) {
+				setIsVisible(() => true);
+			} else if (window.scrollY < 550 && isVisible) {
+				setIsVisible(() => false);
+			}
+		};
 
-      if (window.scrollY < 550 && isVisible) {
-        setIsVisible(() => false);
-      }
-    };
+		window.addEventListener('scroll', eventHandler);
 
-    window.addEventListener("scroll", eventHandler);
+		return () => {
+			window.removeEventListener('scroll', eventHandler);
+		};
+	}, [isVisible]);
 
-    return () => {
-      window.removeEventListener("scroll", eventHandler);
-    };
-  }, [isVisible]);
-
-  return {
-    isVisible,
-    scrollToTop,
-  };
+	return {
+		isVisible,
+		scrollToTop,
+	};
 };

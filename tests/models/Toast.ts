@@ -1,22 +1,22 @@
-import { Locator, Page } from "@playwright/test";
+import type { Locator, Page } from '@playwright/test';
 
 export class Toast {
-  private readonly toastsContainer: Locator;
+	private readonly toastsContainer: Locator;
 
-  constructor(page: Page) {
-    this.toastsContainer = page.getByRole("region", {
-      name: "Notifications (F8)",
-    });
-  }
+	constructor(page: Page) {
+		this.toastsContainer = page.getByRole('region', {
+			name: 'Notifications (F8)',
+		});
+	}
 
-  getSpecificToast(title: string, description: string) {
-    return this.toastsContainer
-      .getByRole("status")
-      .filter({
-        hasText: title,
-      })
-      .filter({
-        hasText: description,
-      });
-  }
+	getSpecificToast(title: string, description: string) {
+		return this.toastsContainer
+			.getByRole('status')
+			.filter({
+				hasText: title,
+			})
+			.filter({
+				hasText: description,
+			});
+	}
 }

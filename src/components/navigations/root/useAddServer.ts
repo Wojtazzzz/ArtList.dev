@@ -1,47 +1,48 @@
-import { addServer, AddServerPayload } from "@/actions/addServer";
-import { useMutation } from "@tanstack/react-query";
-import { useNotification } from "@/hooks/useNotification";
+import type { AddServerPayload } from '@/actions/addServer';
+import { addServer } from '@/actions/addServer';
+import { useMutation } from '@tanstack/react-query';
+import { useNotification } from '@/hooks/useNotification';
 
 export const useAddServer = (onSuccess: () => void) => {
-  const { notify } = useNotification();
+	const { notify } = useNotification();
 
-  const { mutate, isError, reset } = useMutation({
-    mutationFn: async (data: AddServerPayload) => {
-      const response = await addServer(data);
+	const { mutate, isError, reset } = useMutation({
+		mutationFn: async (data: AddServerPayload) => {
+			const response = await addServer(data);
 
-      if (response.error) {
-        throw new Error(response.error);
-      }
-    },
-    onSuccess: () => {
-      notify({
-        title: "Serwer został dodany",
-        description: "Powinien znajdować się już na liście",
-      });
+			if (response.error) {
+				throw new Error(response.error);
+			}
+		},
+		onSuccess: () => {
+			notify({
+				title: 'Serwer został dodany',
+				description: 'Powinien znajdować się już na liście',
+			});
 
-      onSuccess();
-    },
-    onError: (error) => {
-      notify({
-        title: "Wystąpił problem",
-        description: error.message,
-      });
-    },
-  });
+			onSuccess();
+		},
+		onError: (error) => {
+			notify({
+				title: 'Wystąpił problem',
+				description: error.message,
+			});
+		},
+	});
 
-  const handleAddServer = (formData: FormData) => {
-    mutate({
-      name: String(formData.get("name")),
-    });
-  };
+	const handleAddServer = (formData: FormData) => {
+		mutate({
+			name: String(formData.get('name')),
+		});
+	};
 
-  const resetRequestState = () => {
-    reset();
-  };
+	const resetRequestState = () => {
+		reset();
+	};
 
-  return {
-    addServer: handleAddServer,
-    resetRequestState,
-    isError,
-  };
+	return {
+		addServer: handleAddServer,
+		resetRequestState,
+		isError,
+	};
 };

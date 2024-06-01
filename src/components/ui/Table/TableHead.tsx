@@ -1,10 +1,10 @@
-import { type ReactNode } from "react";
-import { TableHead as UITableHead } from "@/components/ui-library/table";
+import { type ReactNode } from 'react';
+import { TableHead as UITableHead } from '@/components/ui-library/table';
 
 type TableHeadProps = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 export const TableHead = ({ children }: TableHeadProps) => {
-  return <UITableHead>{children}</UITableHead>;
+	return <UITableHead>{children}</UITableHead>;
 };

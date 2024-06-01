@@ -5,7 +5,7 @@ module.exports = {
 	arrowParens: 'always',
 	printWidth: 80,
 	useTabs: true,
-	tabWidth: 4,
+	tabWidth: 2,
 	trailingComma: 'es5',
-	singleQuote: true
+	singleQuote: true,
 };

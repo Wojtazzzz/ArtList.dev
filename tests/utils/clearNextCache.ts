@@ -1,5 +1,5 @@
-import { API_URL } from "@/utils/env";
+import { API_URL } from '@/utils/env';
 
 export const clearNextCache = async () => {
-  await fetch(`${API_URL}/cache`);
+	await fetch(`${API_URL}/cache`);
 };

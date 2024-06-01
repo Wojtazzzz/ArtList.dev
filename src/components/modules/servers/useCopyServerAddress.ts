@@ -1,18 +1,18 @@
-import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
-import { capitalize } from "@/utils/capitalize";
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
+import { capitalize } from '@/utils/capitalize';
 
 export const useCopyServerAddress = () => {
-  const { copyText } = useCopyToClipboard();
+	const { copyText } = useCopyToClipboard();
 
-  const copyIp = async (ip: string) => {
-    await copyText({
-      text: ip,
-      title: capitalize(ip),
-      description: "Adres serwera został skopiowany do schowka",
-    });
-  };
+	const copyIp = async (ip: string) => {
+		await copyText({
+			text: ip,
+			title: capitalize(ip),
+			description: 'Adres serwera został skopiowany do schowka',
+		});
+	};
 
-  return {
-    copyIp,
-  };
+	return {
+		copyIp,
+	};
 };

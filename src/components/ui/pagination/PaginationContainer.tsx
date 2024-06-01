@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import type { ReactNode } from 'react';
 import {
-  Pagination,
-  PaginationContent,
-} from "@/components/ui-library/pagination";
+	Pagination,
+	PaginationContent,
+} from '@/components/ui-library/pagination';
 
 type PaginationProps = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 export const PaginationContainer = ({ children }: PaginationProps) => {
-  return (
-    <Pagination>
-      <PaginationContent>{children}</PaginationContent>
-    </Pagination>
-  );
+	return (
+		<Pagination>
+			<PaginationContent>{children}</PaginationContent>
+		</Pagination>
+	);
 };
