@@ -4,7 +4,13 @@ export const useScrollToTop = () => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	const scrollToTop = () => {
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			// behavior: 'smooth',
+			// there is a bug on Chrome that causes this method does not scroll to the top of the document
+			// because of the disabled=true on button
+		});
 	};
 
 	useEffect(() => {
