@@ -6,6 +6,8 @@ import { Providers } from "@/components/Providers";
 import { Footer } from "@/components/Footer";
 import { Inter } from "next/font/google";
 import { RootNavigation } from "@/components/navigations/root/RootNavigation";
+import { ScrollToTop } from "@/components/scrollToTop/ScrollToTop";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Lista serwerów Minecraft - ArtList.pl",
@@ -24,7 +26,11 @@ const inter = Inter({
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pl" className={inter.className} suppressHydrationWarning>
+    <html
+      lang="pl"
+      className={cn(inter.className, "scroll-smooth")}
+      suppressHydrationWarning
+    >
       <body>
         <Providers>
           <RootNavigation />
@@ -33,6 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
           <Footer />
 
+          <ScrollToTop />
           <Toaster />
         </Providers>
       </body>

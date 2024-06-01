@@ -6,14 +6,21 @@ import {
 import type { VariantProps } from "class-variance-authority";
 
 type ButtonProps = {
+  disabled?: boolean;
   children: ReactNode;
 } & VariantProps<typeof buttonVariants> &
   Pick<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "onClick">;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, children, ...props }: ButtonProps, ref) => {
+  ({ disabled = false, variant, children, ...props }: ButtonProps, ref) => {
     return (
-      <UIButton variant={variant} ref={ref} {...props}>
+      <UIButton
+        variant={variant}
+        disabled={disabled}
+        aria-disabled={disabled}
+        ref={ref}
+        {...props}
+      >
         {children}
       </UIButton>
     );
