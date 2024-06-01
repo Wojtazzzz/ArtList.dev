@@ -1,5 +1,5 @@
-import { getServers } from "@/infrastructure/database/getServers";
-import { getServersCount } from "@/infrastructure/database/getServersCount";
+import { getServers } from "@/dal/database/getServers";
+import { getServersCount } from "@/dal/database/getServersCount";
 import { computePaginationProperties } from "@/utils/computePaginationProperties";
 
 type FilterServers =

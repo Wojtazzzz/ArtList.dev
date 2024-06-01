@@ -1,6 +1,6 @@
-import { getServerByName } from "@/infrastructure/database/getServerByName";
-import { fetchExternalServerData } from "@/infrastructure/fetchExternalServerData";
-import { createServer } from "@/infrastructure/database/createServer";
+import { getServerByName } from "@/dal/database/getServerByName";
+import { fetchExternalServerData } from "@/dal/fetchExternalServerData";
+import { createServer } from "@/dal/database/createServer";
 import { SERVER_DATA_RESPONSE } from "@/utils/mocks/serverDataResponse";
 
 type AddServerServicePayload = {

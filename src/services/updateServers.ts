@@ -1,7 +1,7 @@
-import { getAllServers } from "@/infrastructure/database/getAllServers";
-import { fetchExternalServerData } from "@/infrastructure/fetchExternalServerData";
-import { markServerAsOffline } from "@/infrastructure/database/markServerAsOffline";
-import { updateServer } from "@/infrastructure/database/updateServer";
+import { getAllServers } from "@/dal/database/getAllServers";
+import { fetchExternalServerData } from "@/dal/fetchExternalServerData";
+import { markServerAsOffline } from "@/dal/database/markServerAsOffline";
+import { updateServer } from "@/dal/database/updateServer";
 
 export const updateServers = async () => {
   const servers = await getAllServers();
