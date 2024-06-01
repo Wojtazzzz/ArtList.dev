@@ -9,9 +9,11 @@
   ],
   "plugins": [
     "eslint-plugin-react",
-    "eslint-plugin-react-hooks"
+    "eslint-plugin-react-hooks",
+    "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/consistent-type-imports": "error",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
