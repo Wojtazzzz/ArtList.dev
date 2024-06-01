@@ -7,7 +7,7 @@ export const useScrollToTop = () => {
 		window.scrollTo({
 			top: 0,
 			left: 0,
-			// behavior: 'smooth',
+			// behavior: 'smooth', test
 			// there is a bug on Chrome that causes this method does not scroll to the top of the document
 			// because of the disabled=true on button
 		});
