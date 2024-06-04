@@ -1,0 +1,9 @@
+services:
+  next_app:
+    build: .
+    container_name: next_app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:./artlist
+      - ./artlist/node_modules
