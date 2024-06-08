@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["npm", "run", "dev:docker"]
+CMD ["pnpm", "run", "dev:docker"]
