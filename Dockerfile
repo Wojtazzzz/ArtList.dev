@@ -6,10 +6,11 @@ COPY package.json .
 COPY prisma .
 COPY .env .
 
-RUN npm install
+RUN npm install -g pnpm
+RUN pnpm install
 
 COPY . .
 
 EXPOSE 8000
 
-CMD ["npm", "run", "dev:docker"]
+CMD ["pnpm", "run", "dev:docker"]

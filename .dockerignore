@@ -2,3 +2,7 @@ node_modules
 playwright-report
 .next
 test-results
+.git
+.gitignore
+*.md
+dist
