@@ -7,8 +7,8 @@
     "start-e2e": "next dev -p 3030",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
-    "postinstall": "npx prisma init && prisma migrate dev --name init && prisma generate"
+    "dev:docker": "npx prisma db push && npm run dev",
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
