@@ -53,10 +53,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -70,10 +70,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -87,10 +87,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -101,10 +101,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'asc',
+				current_players: 'asc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -115,10 +115,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -128,10 +128,10 @@ function computeOrderBy(sort?: string): SortBy {
 			online: 'desc',
 		},
 		{
-			currentPlayers: 'desc',
+			current_players: 'desc',
 		},
 		{
-			maxPlayers: 'desc',
+			max_players: 'desc',
 		},
 	];
 }

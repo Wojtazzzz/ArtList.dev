@@ -23,13 +23,13 @@ export const getServers = async ({
 			id: true,
 			name: true,
 			version: true,
-			maxPlayers: true,
-			currentPlayers: true,
+			max_players: true,
+			current_players: true,
 			online: true,
-			motdFirstLine: true,
-			motdSecondLine: true,
+			motd_first_line: true,
+			motd_second_line: true,
 			icon: true,
-			updatedAt: true,
+			updated_at: true,
 		},
 	});
 };

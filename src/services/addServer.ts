@@ -42,11 +42,11 @@ export const addServer = async (
 	await createServer({
 		name: payload.name,
 		ip: response.data.ip,
-		currentPlayers: response.data.players.online,
-		maxPlayers: response.data.players.max,
-		motdFirstLine:
+		current_players: response.data.players.online,
+		max_players: response.data.players.max,
+		motd_first_line:
 			response.data.motd.clean.length > 0 ? response.data.motd.clean[0] : null,
-		motdSecondLine:
+		motd_second_line:
 			response.data.motd.clean.length > 1 ? response.data.motd.clean[1] : null,
 		online: true,
 		version: response.data.version,
