@@ -1,7 +1,7 @@
 'use server';
 
-import { addServer as addServerService } from '@/services/addServer';
 import { revalidatePath } from 'next/cache';
+import { API_URL } from '@/utils/env';
 
 export type AddServerPayload = {
 	name: string;
@@ -14,13 +14,22 @@ export const addServer = async ({ name }: AddServerPayload) => {
 		};
 	}
 
-	const response = await addServerService({
-		name,
+	const response = await fetch(API_URL + '/servers', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			name,
+		}),
 	});
 
-	if (!response.success) {
+	const data = await response.json();
+
+	console.log(data, response);
+	if (!data.success) {
 		return {
-			error: response.error,
+			error: data.error,
 		};
 	}
 

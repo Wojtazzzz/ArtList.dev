@@ -98,8 +98,8 @@ export function ServersTable({
 											{capitalize(server.name)}
 										</p>
 										<div className="max-w-96 overflow-hidden">
-											{server.motdFirstLine && <p>{server.motdFirstLine}</p>}
-											{server.motdSecondLine && <p>{server.motdSecondLine}</p>}
+											{server.motd_first_line && <p>{server.motd_first_line}</p>}
+											{server.motd_second_line && <p>{server.motd_second_line}</p>}
 										</div>
 									</div>
 								</div>
@@ -111,7 +111,7 @@ export function ServersTable({
 										'text-red-600': !server.online,
 									})}
 								>
-									{server.currentPlayers} / {server.maxPlayers}
+									{server.current_players} / {server.max_players}
 								</span>
 							</TableCell>
 
