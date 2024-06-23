@@ -1,6 +1,6 @@
-import { getServers } from '@/dal/database/getServers';
 import { getServersCount } from '@/dal/database/getServersCount';
 import { computePaginationProperties } from '@/utils/computePaginationProperties';
+import { API_URL } from '@/utils/env';
 
 type FilterServers =
 	| {
@@ -26,19 +26,18 @@ export const getPaginatedServers = async (
 	const { currentPage, nextPage, prevPage, lastPage, skip } =
 		await computePaginationProperties(page, limit, serversCount);
 
-	const servers = await getServers({
-		skip,
-		limit,
-		orderBy: computeOrderBy(sort),
-		filter: filterProp,
-	});
+	const response = await fetch(
+		`${API_URL}/servers?page=${page}&limit=${limit}`
+	);
+
+	const data = await response.json();
 
 	return {
 		page: currentPage,
 		nextPage,
 		prevPage,
 		lastPage,
-		servers,
+		servers: data.servers,
 	};
 };
 
