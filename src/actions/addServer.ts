@@ -19,6 +19,7 @@ export const addServer = async ({ name }: AddServerPayload) => {
 		headers: {
 			'Content-Type': 'application/json',
 		},
+		cache: 'no-cache',
 		body: JSON.stringify({
 			name,
 		}),
@@ -26,7 +27,6 @@ export const addServer = async ({ name }: AddServerPayload) => {
 
 	const data = await response.json();
 
-	console.log(data, response);
 	if (!data.success) {
 		return {
 			error: data.error,
