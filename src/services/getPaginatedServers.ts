@@ -26,9 +26,20 @@ export const getPaginatedServers = async (
 	const { currentPage, nextPage, prevPage, lastPage, skip } =
 		await computePaginationProperties(page, limit, serversCount);
 
-	const response = await fetch(
-		`${API_URL}/servers?page=${page}&limit=${limit}`
-	);
+	const params = new URLSearchParams();
+
+	params.append('page', String(page));
+	params.append('limit', String(limit));
+
+	if (filter?.name && filter?.name.length > 0) {
+		params.append('name', String(filter.name));
+	}
+
+	if (sort) {
+		params.append('order', String(sort));
+	}
+
+	const response = await fetch(`${API_URL}/servers?${params.toString()}`);
 
 	const data = await response.json();
 
