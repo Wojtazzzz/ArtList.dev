@@ -1,6 +1,6 @@
-import { getServers } from '@/dal/database/getServers';
 import { getServersCount } from '@/dal/database/getServersCount';
 import { computePaginationProperties } from '@/utils/computePaginationProperties';
+import { API_URL } from '@/utils/env';
 
 type FilterServers =
 	| {
@@ -26,19 +26,29 @@ export const getPaginatedServers = async (
 	const { currentPage, nextPage, prevPage, lastPage, skip } =
 		await computePaginationProperties(page, limit, serversCount);
 
-	const servers = await getServers({
-		skip,
-		limit,
-		orderBy: computeOrderBy(sort),
-		filter: filterProp,
-	});
+	const params = new URLSearchParams();
+
+	params.append('page', String(page));
+	params.append('limit', String(limit));
+
+	if (filter?.name && filter?.name.length > 0) {
+		params.append('name', String(filter.name));
+	}
+
+	if (sort) {
+		params.append('order', String(sort));
+	}
+
+	const response = await fetch(`${API_URL}/servers?${params.toString()}`);
+
+	const data = await response.json();
 
 	return {
 		page: currentPage,
 		nextPage,
 		prevPage,
 		lastPage,
-		servers,
+		servers: data.servers,
 	};
 };
 
@@ -53,10 +63,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -70,10 +80,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -87,10 +97,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -101,10 +111,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'asc',
+				current_players: 'asc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -115,10 +125,10 @@ function computeOrderBy(sort?: string): SortBy {
 				online: 'desc',
 			},
 			{
-				currentPlayers: 'desc',
+				current_players: 'desc',
 			},
 			{
-				maxPlayers: 'desc',
+				max_players: 'desc',
 			},
 		];
 	}
@@ -128,10 +138,10 @@ function computeOrderBy(sort?: string): SortBy {
 			online: 'desc',
 		},
 		{
-			currentPlayers: 'desc',
+			current_players: 'desc',
 		},
 		{
-			maxPlayers: 'desc',
+			max_players: 'desc',
 		},
 	];
 }
