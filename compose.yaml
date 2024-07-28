@@ -1,18 +1,18 @@
 services:
-#  nest-api:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: nest-api
-#    networks:
-#      - nest-app
-#    restart: always
-#    ports:
-#      - 3000:3000
-#    depends_on:
-#      - postgres
-#    env_file:
-#      - .env
+  #  nest-api:
+  #    build:
+  #      context: .
+  #      dockerfile: Dockerfile
+  #    container_name: nest-api
+  #    networks:
+  #      - nest-app
+  #    restart: always
+  #    ports:
+  #      - 3000:3000
+  #    depends_on:
+  #      - postgres
+  #    env_file:
+  #      - .env
 
   postgres:
     image: postgres

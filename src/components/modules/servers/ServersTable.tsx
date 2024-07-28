@@ -98,8 +98,12 @@ export function ServersTable({
 											{capitalize(server.name)}
 										</p>
 										<div className="max-w-96 overflow-hidden">
-											{server.motd_first_line && <p>{server.motd_first_line}</p>}
-											{server.motd_second_line && <p>{server.motd_second_line}</p>}
+											{server.motd_first_line && (
+												<p>{server.motd_first_line}</p>
+											)}
+											{server.motd_second_line && (
+												<p>{server.motd_second_line}</p>
+											)}
 										</div>
 									</div>
 								</div>
