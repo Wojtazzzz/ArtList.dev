@@ -27,9 +27,11 @@ export const addServer = async ({ name }: AddServerPayload) => {
 
 	const data = await response.json();
 
-	if (!data.success) {
+	if (!response.ok) {
 		return {
-			error: data.error,
+			error:
+				data?.message ??
+				'Coś poszło nie tak. Proszę spróbować ponownie później.',
 		};
 	}
 
