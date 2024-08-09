@@ -4,7 +4,7 @@ import { ArrowUpDown } from 'lucide-react';
 import { type Server } from '@/utils/schema';
 import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
 import Image from 'next/image';
-import { capitalize } from '@/utils/capitalize';
+import { capitalize } from '@/utils/functions';
 import { cn } from '@/lib/utils';
 import { useServersSort } from '@/components/modules/servers/useServersSort';
 import { CopyButton } from '@/components/ui/CopyButton';

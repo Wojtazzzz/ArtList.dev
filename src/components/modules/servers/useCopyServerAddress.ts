@@ -1,5 +1,5 @@
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { capitalize } from '@/utils/capitalize';
+import { capitalize } from '@/utils/functions';
 
 export const useCopyServerAddress = () => {
 	const { copyText } = useCopyToClipboard();
