@@ -1,11 +1,20 @@
 import { API_URL } from '@/utils/env';
 
-export const fetchData = async (path: string) => {
+type RequestCache =
+	| 'default'
+	| 'force-cache'
+	| 'no-cache'
+	| 'no-store'
+	| 'only-if-cached'
+	| 'reload';
+
+export const fetchData = async (path: string, cache: RequestCache) => {
 	const response = await fetch(API_URL + path, {
 		method: 'GET',
 		headers: {
 			accept: 'application/json',
 		},
+		cache,
 	});
 
 	if (!response.ok) {

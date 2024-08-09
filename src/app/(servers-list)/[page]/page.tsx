@@ -7,7 +7,7 @@ import { buildParams } from '@/utils/functions';
 export const revalidate = 1200;
 
 export async function generateStaticParams() {
-	const serversCount = await fetchData('/servers/count');
+	const serversCount = await fetchData('/servers/count', 'force-cache');
 
 	return Array.from({
 		length: Math.ceil(serversCount / SERVERS_LIMIT_PER_PAGE),
@@ -23,7 +23,8 @@ const fetchServersPage = async (pageParam: string) => {
 	});
 
 	const { page, lastPage, prevPage, nextPage, data } = await fetchData(
-		`/servers?${params}`
+		`/servers?${params}`,
+		'force-cache'
 	);
 
 	return {
