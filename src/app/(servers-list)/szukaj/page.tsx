@@ -3,6 +3,7 @@ import { ServersTable } from '@/components/modules/servers/ServersTable';
 import { DynamicPagination } from '@/components/modules/servers/paginations/DynamicPagination';
 import { Suspense } from 'react';
 import { fetchData } from '@/utils/clients';
+import { buildParams } from '@/utils/functions';
 
 type SearchParams = {
 	searchParams: {
@@ -13,21 +14,15 @@ type SearchParams = {
 };
 
 const fetchServers = async (searchParams: SearchParams['searchParams']) => {
-	const params = new URLSearchParams();
-
-	params.append('page', String(searchParams?.page ?? 1));
-	params.append('limit', String(SERVERS_LIMIT_PER_PAGE));
-
-	if (searchParams?.sort) {
-		params.append('order', String(searchParams.sort));
-	}
-
-	if (searchParams?.name) {
-		params.append('name', String(searchParams.name));
-	}
+	const params = buildParams({
+		page: searchParams?.page ?? 1,
+		limit: SERVERS_LIMIT_PER_PAGE,
+		order: searchParams?.sort,
+		name: searchParams?.name,
+	});
 
 	const { page, lastPage, prevPage, nextPage, data } = await fetchData(
-		`/servers?${params.toString()}`
+		`/servers?${params}`
 	);
 
 	return {

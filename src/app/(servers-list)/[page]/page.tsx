@@ -2,6 +2,7 @@ import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
 import { ServersTable } from '@/components/modules/servers/ServersTable';
 import { StaticPagination } from '@/components/modules/servers/paginations/StaticPagination';
 import { fetchData } from '@/utils/clients';
+import { buildParams } from '@/utils/functions';
 
 export const revalidate = 1200;
 
@@ -16,13 +17,13 @@ export async function generateStaticParams() {
 }
 
 const fetchServersPage = async (pageParam: string) => {
-	const params = new URLSearchParams();
-
-	params.append('page', pageParam);
-	params.append('limit', String(SERVERS_LIMIT_PER_PAGE));
+	const params = buildParams({
+		page: pageParam,
+		limit: SERVERS_LIMIT_PER_PAGE,
+	});
 
 	const { page, lastPage, prevPage, nextPage, data } = await fetchData(
-		`/servers?${params.toString()}`
+		`/servers?${params}`
 	);
 
 	return {
