@@ -8,9 +8,6 @@ export const fetchData = async (path: string) => {
 		},
 	});
 
-	console.log('OK: ', API_URL + path);
-	console.log('OK: ', response);
-
 	if (!response.ok) {
 		throw new Error('Fetch failed.');
 	}
