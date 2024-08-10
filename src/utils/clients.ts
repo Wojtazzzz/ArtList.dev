@@ -8,13 +8,20 @@ type RequestCache =
 	| 'only-if-cached'
 	| 'reload';
 
-export const fetchData = async (path: string, cache: RequestCache) => {
+export const fetchData = async (
+	path: string,
+	cache: RequestCache,
+	revalidate: false | number
+) => {
 	const response = await fetch(API_URL + path, {
 		method: 'GET',
 		headers: {
 			accept: 'application/json',
 		},
 		cache,
+		next: {
+			revalidate,
+		},
 	});
 
 	if (!response.ok) {

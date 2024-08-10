@@ -23,7 +23,8 @@ const fetchServers = async (searchParams: SearchParams['searchParams']) => {
 
 	const { page, lastPage, prevPage, nextPage, data } = await fetchData(
 		`/servers?${params}`,
-		'no-store'
+		'no-store',
+		0
 	);
 
 	return {
