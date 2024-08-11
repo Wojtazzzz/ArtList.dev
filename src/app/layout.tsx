@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer';
 import { Inter } from 'next/font/google';
 import { RootNavigation } from '@/components/navigations/root/RootNavigation';
 import { ScrollToTop } from '@/components/scrollToTop/ScrollToTop';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/functions';
 
 export const metadata: Metadata = {
 	title: 'Lista serwerów Minecraft - ArtList.pl',

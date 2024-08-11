@@ -3,7 +3,7 @@
 import { useScrollToTop } from '@/components/scrollToTop/useScrollToTop';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/functions';
 
 export const ScrollToTop = () => {
 	const { isVisible, scrollToTop } = useScrollToTop();
