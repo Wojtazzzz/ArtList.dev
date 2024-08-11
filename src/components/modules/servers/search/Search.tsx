@@ -1,19 +1,23 @@
 'use client';
 
-import { Input } from '@/components/ui-library/input';
 import { useSearch } from '@/components/modules/servers/search/useSearch';
+import { Label } from '@/components/ui/Label';
+import { Input } from '@/components/ui/Input';
 
 export const Search = () => {
 	const { value, onChangeValue } = useSearch();
 
 	return (
-		<div>
+		<Label>
+			<span className="sr-only">Wyszukaj serwer po nazwie</span>
+
 			<Input
+				type="search"
+				name="name"
 				placeholder="Wyszukaj po nazwie"
 				value={value}
 				onChange={onChangeValue}
-				className="max-w-sm"
 			/>
-		</div>
+		</Label>
 	);
 };
