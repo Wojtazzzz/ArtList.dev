@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSearchParams } from '@/hooks/useSearchParams';
 import { useDebouncedCallback } from 'use-debounce';
+import { buildParams } from '@/utils/functions';
 
 export const useSearch = () => {
-	const { getSearchParam, filterSearchParams } = useSearchParams();
-	const [value, setValue] = useState(getSearchParam('name') ?? '');
+	const { paramsObject, getParam } = useSearchParams();
+	const [value, setValue] = useState(getParam('name') ?? '');
 	const router = useRouter();
 
 	const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +16,12 @@ export const useSearch = () => {
 	};
 
 	const pushParams = useDebouncedCallback((name) => {
-		router.push(`/szukaj?name=${name}&${filterSearchParams(['name'])}`);
+		const params = buildParams({
+			...paramsObject,
+			name,
+		});
+
+		router.push(`/szukaj?${params}`);
 	}, 300);
 
 	return {

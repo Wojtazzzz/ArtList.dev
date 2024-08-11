@@ -6,6 +6,7 @@ import { PaginationEllipsis } from '@/components/ui/pagination/PaginationEllipsi
 import { PaginationNext } from '@/components/ui/pagination/PaginationNext';
 import { PaginationContainer } from '@/components/ui/pagination/PaginationContainer';
 import { useSearchParams } from '@/hooks/useSearchParams';
+import { buildParams } from '@/utils/functions';
 
 type DynamicPaginationProps = {
 	page: number;
@@ -20,21 +21,19 @@ export const DynamicPagination = ({
 	nextPage,
 	lastPage,
 }: DynamicPaginationProps) => {
-	const { filterSearchParams } = useSearchParams();
-
-	const currentSearchParams = filterSearchParams(['page']);
+	const { paramsObject } = useSearchParams();
 
 	return (
 		<PaginationContainer>
 			{prevPage && (
 				<PaginationPrevious
-					prevPageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
+					prevPageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: prevPage })}`}
 				/>
 			)}
 
 			{page - 2 > 0 && (
 				<PaginationItem
-					pageLink={`/szukaj?page=${page - 2}&${currentSearchParams}`}
+					pageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: page - 2 })}`}
 				>
 					{page - 2}
 				</PaginationItem>
@@ -42,14 +41,14 @@ export const DynamicPagination = ({
 
 			{prevPage && (
 				<PaginationItem
-					pageLink={`/szukaj?page=${prevPage}&${currentSearchParams}`}
+					pageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: prevPage })}`}
 				>
 					{prevPage}
 				</PaginationItem>
 			)}
 
 			<PaginationItem
-				pageLink={`/szukaj?page=${page}&${currentSearchParams}`}
+				pageLink={`/szukaj?page=${buildParams({ ...paramsObject, page })}`}
 				isActive
 			>
 				{page}
@@ -57,7 +56,7 @@ export const DynamicPagination = ({
 
 			{nextPage && (
 				<PaginationItem
-					pageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
+					pageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: nextPage })}`}
 				>
 					{nextPage}
 				</PaginationItem>
@@ -65,7 +64,7 @@ export const DynamicPagination = ({
 
 			{lastPage >= page + 2 && (
 				<PaginationItem
-					pageLink={`/szukaj?page=${page + 2}&${currentSearchParams}`}
+					pageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: page + 2 })}`}
 				>
 					{page + 2}
 				</PaginationItem>
@@ -75,7 +74,7 @@ export const DynamicPagination = ({
 
 			{nextPage && (
 				<PaginationNext
-					nextPageLink={`/szukaj?page=${nextPage}&${currentSearchParams}`}
+					nextPageLink={`/szukaj?page=${buildParams({ ...paramsObject, page: nextPage })}`}
 				/>
 			)}
 		</PaginationContainer>
