@@ -9,8 +9,8 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui-library/label';
-import { Input } from '@/components/ui-library/input';
+import { Label } from '@/components/ui/Label';
+import { Input } from '@/components/ui/Input';
 import { FormStatusButton } from '@/components/ui/FormStatusButton';
 import { useAddServer } from '@/components/navigations/root/useAddServer';
 import { useAddServerDialog } from '@/components/navigations/root/useAddServerDialog';
@@ -36,16 +36,17 @@ export const AddServerDialog = () => {
 						</DialogDescription>
 					</DialogHeader>
 
-					<div className="mt-5 flex items-center gap-4">
-						<Label htmlFor="server-name" className="text-right">
-							Nazwa
+					<div className="mt-10">
+						<Label>
+							<span className="mb-3 block cursor-pointer">Nazwa serwera</span>
+
+							<Input
+								type="text"
+								name="name"
+								isInvalid={isError}
+								placeholder="Hypixel.net"
+							/>
 						</Label>
-						<Input
-							id="server-name"
-							name="name"
-							className="col-span-3"
-							aria-invalid={isError}
-						/>
 					</div>
 
 					<div className="mt-5">
