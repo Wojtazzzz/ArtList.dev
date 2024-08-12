@@ -139,7 +139,7 @@ TODO
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### Contributors:
+## Contributors:
 
 <a href="https://github.com/Wojtazzzz/ArtList.dev/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=wojtazzzz/ArtList.dev" alt="contrib.rocks image" />
