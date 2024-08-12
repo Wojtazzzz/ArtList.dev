@@ -1,29 +1,177 @@
-# ArtList.pl - Minecraft Server List
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-ArtList.pl is a web application that allows players to share and discover Minecraft servers. It is community-driven, meaning that servers are added by players themselves.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Features
+[//]: # (  <a href="./public/logo.svg">)
 
-- Browse through a list of Minecraft servers submitted by the community.
-- Filter servers by various criteria, such as server version, game mode, and number of players.
-- Submit your own Minecraft server to the list, and help others discover it.
+[//]: # (    <img src="images/logo.png" alt="Logo" width="80" height="80">)
 
-## Getting Started
+[//]: # (  </a>)
 
-To get started with ArtList.pl, simply navigate to the website at [ArtList.pl](https://artlist-opal.vercel.app/). From there, you can browse through the list of servers, filter them by criteria that are important to you, and even submit your own server to be added to the list.
+<h2 align="center">ArtList.pl</h3>
 
+  <p align="center">
+    An awesome Minecraft Servers list!
+    <br />
+    <a href="https://artlist.dev/"><strong>Explore the project »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Wojtazzzz/ArtList.dev/compare">Contribute</a>
+    ·
+    <a href="https://github.com/Wojtazzzz/ArtList.dev/compare">Request Feature</a>
+    ·
+    <a href="https://github.com/Wojtazzzz/ArtList.dev/issues/new">Report Bug</a>
+  </p>
+</div>
+
+
+[//]: # (<!-- ABOUT THE PROJECT -->)
+
+[//]: # (## About The Project)
+
+[//]: # ()
+[//]: # ([![Product Name Screen Shot][product-screenshot]]&#40;https://example.com&#41;)
+
+[//]: # ()
+[//]: # (There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.)
+
+[//]: # ()
+[//]: # (Here's why:)
+
+[//]: # (* Your time should be focused on creating something amazing. A project that solves a problem and helps others)
+
+[//]: # (* You shouldn't be doing the same tasks over and over like creating a README from scratch)
+
+[//]: # (* You should implement DRY principles to the rest of your life :smile:)
+
+[//]: # ()
+[//]: # (Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!)
+
+[//]: # ()
+[//]: # (Use the `BLANK_README.md` to get started.)
+
+[//]: # ()
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
+
+
+### Built with
+- Backend:
+  - [PHP](https://www.php.net/)
+  - [Symfony](https://symfony.com/)
+- Frontend:
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Next.js](https://nextjs.org/)
+  - [React](https://react.dev/)
+  - [Tailwind](https://tailwindcss.com/)
+  - [Shadcn](https://ui.shadcn.com/)
+- Others:
+  - [Playwright](https://playwright.dev/)
+  - [Docker](https://www.docker.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
 ## Contributing
 
-ArtList.pl is a community-driven project, and contributions are always welcome. If you'd like to contribute, please do so by submitting your own Minecraft server to the list, or by contributing to the source code on GitHub. Pull requests are welcome!
+This is an example of setting up project locally. Follow these simple steps.
 
+TODO
+
+### Prerequisites
+
+[//]: # (This is an example of how to list things you need to use the software and how to install them.)
+
+[//]: # (* npm)
+
+[//]: # (  ```sh)
+
+[//]: # (  npm install npm@latest -g)
+
+[//]: # (  ```)
+
+### Local installation
+
+[//]: # (_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._)
+
+[//]: # ()
+[//]: # (1. Get a free API Key at [https://example.com]&#40;https://example.com&#41;)
+
+[//]: # (2. Clone the repo)
+
+[//]: # (   ```sh)
+
+[//]: # (   git clone https://github.com/github_username/repo_name.git)
+
+[//]: # (   ```)
+
+[//]: # (3. Install NPM packages)
+
+[//]: # (   ```sh)
+
+[//]: # (   npm install)
+
+[//]: # (   ```)
+
+[//]: # (4. Enter your API in `config.js`)
+
+[//]: # (   ```js)
+
+[//]: # (   const API_KEY = 'ENTER YOUR API';)
+
+[//]: # (   ```)
+
+[//]: # (5. Change git remote url to avoid accidental pushes to base project)
+
+[//]: # (   ```sh)
+
+[//]: # (   git remote set-url origin github_username/repo_name)
+
+[//]: # (   git remote -v # confirm the changes)
+
+[//]: # (   ```)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Contributors:
+
+<a href="https://github.com/Wojtazzzz/ArtList.dev/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wojtazzzz/ArtList.dev" alt="contrib.rocks image" />
+</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
 ## License
+MIT License.
 
-ArtList.pl is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
 
-## Credits
 
-ArtList.pl was created by Wojtazz. Special thanks to the Minecraft community for contributing servers to the list.
 
-## Readme
-
-Readme was created by [OpenAI](https://chat.openai.com/).
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Symfony.com]: https://img.shields.io/badge/Symfony-18202a?style=for-the-badge&logo=symfony&logoColor=white
+[Symfony-url]: https://symfony.com/
