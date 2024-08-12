@@ -158,16 +158,16 @@ MIT License.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wojtazzzz/ArtList.dev.svg?style=for-the-badge
+[contributors-url]: https://github.com/wojtazzzz/ArtList.dev/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wojtazzzz/ArtList.dev.svg?style=for-the-badge
+[forks-url]: https://github.com/wojtazzzz/ArtList.dev/network/members
+[stars-shield]: https://img.shields.io/github/stars/wojtazzzz/ArtList.dev.svg?style=for-the-badge
+[stars-url]: https://github.com/wojtazzzz/ArtList.dev/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wojtazzzz/ArtList.dev.svg?style=for-the-badge
+[issues-url]: https://github.com/wojtazzzz/ArtList.dev/issues
+[license-shield]: https://img.shields.io/github/license/wojtazzzz/ArtList.dev.svg?style=for-the-badge
+[license-url]: https://github.com/wojtazzzz/ArtList.dev/blob/main/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
