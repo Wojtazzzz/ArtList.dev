@@ -3,6 +3,7 @@ import { ServersTable } from '@/components/modules/servers/ServersTable';
 import { StaticPagination } from '@/components/modules/servers/paginations/StaticPagination';
 import { fetchData } from '@/utils/clients';
 import { buildParams } from '@/utils/functions';
+import { Servers } from '@/components/modules/servers/Servers';
 
 export async function generateStaticParams() {
 	const serversCount = await fetchData('/servers/count', 0);
@@ -47,7 +48,7 @@ export default async function ServersPaginatedPage({
 
 	return (
 		<div className="space-y-6">
-			<ServersTable servers={response.servers} page={response.page} />
+			<Servers servers={response.servers} page={response.page} />
 
 			<StaticPagination
 				lastPage={response.lastPage}

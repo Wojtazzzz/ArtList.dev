@@ -8,16 +8,19 @@ export const Search = () => {
 	const { value, onChangeValue } = useSearch();
 
 	return (
-		<Label>
-			<span className="sr-only">Wyszukaj serwer po nazwie</span>
+		<form role="search">
+			<Label>
+				<span className="sr-only">Wyszukaj serwer po nazwie</span>
 
-			<Input
-				type="search"
-				name="name"
-				placeholder="Wyszukaj po nazwie"
-				value={value}
-				onChange={onChangeValue}
-			/>
-		</Label>
+				<Input
+					type="search"
+					name="name"
+					placeholder="Wyszukaj po nazwie"
+					spellCheck={false}
+					value={value}
+					onChange={onChangeValue}
+				/>
+			</Label>
+		</form>
 	);
 };

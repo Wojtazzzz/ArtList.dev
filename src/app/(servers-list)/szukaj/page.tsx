@@ -4,6 +4,8 @@ import { DynamicPagination } from '@/components/modules/servers/paginations/Dyna
 import { Suspense } from 'react';
 import { fetchData } from '@/utils/clients';
 import { buildParams } from '@/utils/functions';
+import { Server } from 'lucide-react';
+import { Servers } from '@/components/modules/servers/Servers';
 
 type SearchParams = {
 	searchParams: {
@@ -40,7 +42,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
 
 	return (
 		<div className="space-y-6">
-			<ServersTable
+			<Servers
 				servers={response.servers}
 				page={response.page}
 				defaultSort={searchParams.sort ?? '-players'}

@@ -11,6 +11,7 @@ type InputProps = {
 	autocomplete?: string;
 	placeholder?: string;
 	isInvalid?: boolean;
+	spellCheck?: boolean;
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -22,6 +23,7 @@ export const Input = ({
 	autocomplete,
 	placeholder,
 	isInvalid,
+	spellCheck,
 	onChange,
 }: InputProps) => {
 	return (
@@ -32,6 +34,7 @@ export const Input = ({
 			value={value}
 			className="w-full"
 			aria-invalid={isInvalid}
+			spellCheck={spellCheck}
 			placeholder={placeholder}
 			autoComplete={autocomplete}
 			onChange={onChange}

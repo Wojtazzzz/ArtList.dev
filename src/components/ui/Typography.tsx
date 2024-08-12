@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+import { cn } from '@/utils/functions';
 
 type TypographyH1Props = {
 	children: ReactNode;
@@ -16,13 +17,23 @@ export function TypographyH1({ children, ...props }: TypographyH1Props) {
 }
 
 type TypographyH2Props = {
+	srOnly?: boolean;
 	children: ReactNode;
 } & Pick<HTMLAttributes<HTMLHeadingElement>, 'id'>;
 
-export function TypographyH2({ children, ...props }: TypographyH2Props) {
+export function TypographyH2({
+	srOnly,
+	children,
+	...props
+}: TypographyH2Props) {
 	return (
 		<h2
-			className="scroll-m-20 border-b pb-2 font-semibold tracking-tight first:mt-0 dark:text-white"
+			className={cn(
+				'scroll-m-20 border-b pb-2 font-semibold tracking-tight first:mt-0 dark:text-white',
+				{
+					'sr-only': srOnly,
+				}
+			)}
 			{...props}
 		>
 			{children}
