@@ -1,8 +1,8 @@
 'use client';
 
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
+import type { ChartConfig } from '@/components/ui-library/chart';
 import {
-	ChartConfig,
 	ChartContainer,
 	ChartTooltip,
 	ChartTooltipContent,
