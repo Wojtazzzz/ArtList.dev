@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 }
 
 const fetchServer = async (name: string) => {
-	return await fetchData(`/servers/${name}`, 6);
+	return await fetchData(`/servers/${name}`, 0);
 };
 
 type ServerPageParams = {
