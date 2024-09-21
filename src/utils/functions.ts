@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import moment from 'moment';
 
 export const capitalize = (text: string) => {
 	if (text.length <= 0) {
@@ -27,4 +28,8 @@ export const buildParams = (
 	}
 
 	return searchParams.toString();
+};
+
+export const formatDate = (date: string, format: string) => {
+	return moment(new Date(date).toISOString()).format(format);
 };

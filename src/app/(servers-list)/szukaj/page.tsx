@@ -1,10 +1,8 @@
 import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
-import { ServersTable } from '@/components/modules/servers/ServersTable';
 import { DynamicPagination } from '@/components/modules/servers/paginations/DynamicPagination';
 import { Suspense } from 'react';
 import { fetchData } from '@/utils/clients';
 import { buildParams } from '@/utils/functions';
-import { Server } from 'lucide-react';
 import { Servers } from '@/components/modules/servers/Servers';
 
 type SearchParams = {

@@ -1,5 +1,4 @@
 import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
-import { ServersTable } from '@/components/modules/servers/ServersTable';
 import { StaticPagination } from '@/components/modules/servers/paginations/StaticPagination';
 import { fetchData } from '@/utils/clients';
 import { buildParams } from '@/utils/functions';

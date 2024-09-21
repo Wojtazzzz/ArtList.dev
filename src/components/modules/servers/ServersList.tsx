@@ -8,7 +8,7 @@ import { capitalize } from '@/utils/functions';
 import { cn } from '@/utils/functions';
 import { useServersSort } from '@/components/modules/servers/useServersSort';
 import { CopyButton } from '@/components/ui/CopyButton';
-import { useCopyServerAddress } from '@/components/modules/servers/useCopyServerAddress';
+import { useCopyServerAddress } from '@/hooks/useCopyServerAddress';
 import { Table } from '@/components/ui/Table/Table';
 import { TableCaption } from '@/components/ui/Table/TableCaption';
 import { TableHeader } from '@/components/ui/Table/TableHeader';
