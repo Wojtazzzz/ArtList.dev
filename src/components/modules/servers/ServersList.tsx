@@ -10,7 +10,6 @@ import { Link } from '@/components/ui/Link';
 type ServersListProps = {
 	servers: Server[];
 	page: number;
-	defaultSort?: string;
 };
 
 export function ServersList({ servers, page }: ServersListProps) {
