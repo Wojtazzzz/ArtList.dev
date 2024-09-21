@@ -28,11 +28,7 @@ export const Servers = ({ servers, page, defaultSort }: ServersProps) => {
 				/>
 			</div>
 			<div className="block md:hidden">
-				<ServersList
-					servers={servers}
-					page={page}
-					defaultSort={defaultSort ?? '-players'}
-				/>
+				<ServersList servers={servers} page={page} />
 			</div>
 		</>
 	);
