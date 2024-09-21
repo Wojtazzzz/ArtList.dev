@@ -7,6 +7,8 @@ import { Chart } from '@/components/Chart';
 import { capitalize, cn } from '@/utils/functions';
 import { CardDescription } from '@/components/ui/card/CardDescription';
 import { CopyServerAddress } from '@/components/modules/server/CopyServerAddress';
+import { GoBackButton } from '@/components/modules/server/GoBackButton';
+import { TypographyH2 } from '@/components/ui/Typography';
 
 type Server = {
 	id: number;
@@ -46,9 +48,13 @@ export default async function ServersPaginatedPage({
 
 	return (
 		<div className="space-y-6">
+			<GoBackButton />
+
 			<Card>
 				<CardHeader>
-					<CardTitle>{capitalize(server.name)}</CardTitle>
+					<CardTitle>
+						<TypographyH2>{capitalize(server.name)}</TypographyH2>
+					</CardTitle>
 					<CardDescription>
 						<span className="block">{server.motdFirstLine}</span>
 						<span className="block">{server.motdSecondLine}</span>
@@ -85,7 +91,7 @@ export default async function ServersPaginatedPage({
 			<Card>
 				<CardHeader>
 					<CardTitle>
-						Statystyka aktywnych graczy z ostatnich 12 godzin
+						<TypographyH2>Aktywni gracze z ostatnich 12 godzin</TypographyH2>
 					</CardTitle>
 				</CardHeader>
 				<CardContent>

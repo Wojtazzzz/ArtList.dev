@@ -17,6 +17,7 @@ import { TableBodyRow } from '@/components/ui/Table/TableBodyRow';
 import { TableBody } from '@/components/ui/Table/TableBody';
 import { TableCell } from '@/components/ui/Table/TableCell';
 import { TableHead } from '@/components/ui/Table/TableHead';
+import { Link } from '@/components/ui/Link';
 
 type ServersTableProps = {
 	servers: Server[];
@@ -81,28 +82,32 @@ export function ServersTable({
 							</TableCell>
 
 							<TableCell>
-								<div className="flex gap-x-1">
-									<div className="my-auto mr-3.5 h-full w-[58px]">
-										{server.icon && (
-											<Image
-												src={server.icon}
-												alt="Logo serwera"
-												width="58"
-												height="58"
-											/>
-										)}
-									</div>
+								<Link href={`/server/${server.name}`}>
+									<div className="flex gap-x-1">
+										<div className="my-auto mr-3.5 h-full w-[58px]">
+											{server.icon && (
+												<Image
+													src={server.icon}
+													alt="Logo serwera"
+													width="58"
+													height="58"
+												/>
+											)}
+										</div>
 
-									<div>
-										<p className="mb-1 text-base font-medium">
-											{capitalize(server.name)}
-										</p>
-										<div className="max-w-96 overflow-hidden">
-											{server.motdFirstLine && <p>{server.motdFirstLine}</p>}
-											{server.motdSecondLine && <p>{server.motdSecondLine}</p>}
+										<div>
+											<p className="mb-1 text-base font-medium">
+												{capitalize(server.name)}
+											</p>
+											<div className="max-w-96 overflow-hidden">
+												{server.motdFirstLine && <p>{server.motdFirstLine}</p>}
+												{server.motdSecondLine && (
+													<p>{server.motdSecondLine}</p>
+												)}
+											</div>
 										</div>
 									</div>
-								</div>
+								</Link>
 							</TableCell>
 
 							<TableCell>
