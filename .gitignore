@@ -42,5 +42,3 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-
-update_servers.sh
