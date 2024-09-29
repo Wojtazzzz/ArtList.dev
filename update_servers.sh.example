@@ -1,7 +1,0 @@
-# this file is executed during servers auto-update process by cron job
-# on production server should be with name "update_servers.sh" and with filled CRON_SECRET
-
-curl --location --request PUT 'https://artlistapi.bieda.it/servers' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer CRON_SECRET' \
---data '{}'
