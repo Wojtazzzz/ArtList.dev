@@ -33,8 +33,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			className={cn(inter.className, 'scroll-smooth')}
 			suppressHydrationWarning
 		>
-			<GoogleAdsense />
-
 			<body>
 				<Providers>
 					<RootNavigation />
@@ -46,6 +44,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 					<ScrollToTop />
 					<Toaster />
 				</Providers>
+
+				<GoogleAdsense />
 			</body>
 		</html>
 	);
