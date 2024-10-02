@@ -1,5 +1,8 @@
 {
 	"compilerOptions": {
+		"types": [
+			"./node_modules/network-information-types"
+		],
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,

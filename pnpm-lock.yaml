@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@prisma/client':
-        specifier: ^5.13.0
-        version: 5.13.0(prisma@5.13.0)
       '@radix-ui/react-checkbox':
         specifier: ^1.0.4
         version: 1.0.4(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -47,9 +44,6 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
-      log-to-file:
-        specifier: ^3.0.3
-        version: 3.0.3
       lucide-react:
         specifier: ^0.378.0
         version: 0.378.0(react@18.2.0)
@@ -147,9 +141,6 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.5.14
         version: 0.5.14(prettier@3.2.5)
-      prisma:
-        specifier: ^5.13.0
-        version: 5.13.0
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -324,30 +315,6 @@ packages:
     resolution: {integrity: sha512-UKF4XsBfy+u3MFWEH44hva1Q8Da28G6RFtR2+5saw+jgAFQV5yYnB1fu68Mz7fO+5GJF3wgwAIs0UelU8TxFrA==}
     engines: {node: '>=18'}
     hasBin: true
-
-  '@prisma/client@5.13.0':
-    resolution: {integrity: sha512-uYdfpPncbZ/syJyiYBwGZS8Gt1PTNoErNYMuqHDa2r30rNSFtgTA/LXsSk55R7pdRTMi5pHkeP9B14K6nHmwkg==}
-    engines: {node: '>=16.13'}
-    peerDependencies:
-      prisma: '*'
-    peerDependenciesMeta:
-      prisma:
-        optional: true
-
-  '@prisma/debug@5.13.0':
-    resolution: {integrity: sha512-699iqlEvzyCj9ETrXhs8o8wQc/eVW+FigSsHpiskSFydhjVuwTJEfj/nIYqTaWFYuxiWQRfm3r01meuW97SZaQ==}
-
-  '@prisma/engines-version@5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b':
-    resolution: {integrity: sha512-AyUuhahTINGn8auyqYdmxsN+qn0mw3eg+uhkp8zwknXYIqoT3bChG4RqNY/nfDkPvzWAPBa9mrDyBeOnWSgO6A==}
-
-  '@prisma/engines@5.13.0':
-    resolution: {integrity: sha512-hIFLm4H1boj6CBZx55P4xKby9jgDTeDG0Jj3iXtwaaHmlD5JmiDkZhh8+DYWkTGchu+rRF36AVROLnk0oaqhHw==}
-
-  '@prisma/fetch-engine@5.13.0':
-    resolution: {integrity: sha512-Yh4W+t6YKyqgcSEB3odBXt7QyVSm0OQlBSldQF2SNXtmOgMX8D7PF/fvH6E6qBCpjB/yeJLy/FfwfFijoHI6sA==}
-
-  '@prisma/get-platform@5.13.0':
-    resolution: {integrity: sha512-B/WrQwYTzwr7qCLifQzYOmQhZcFmIFhR81xC45gweInSUn2hTEbfKUPd2keAog+y5WI5xLAFNJ3wkXplvSVkSw==}
 
   '@radix-ui/number@1.0.1':
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
@@ -1746,9 +1713,6 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  log-to-file@3.0.3:
-    resolution: {integrity: sha512-z0abDIBuQURbq2bojlyUdk9P38Hy5o8CQUp+7LUd7DP/4gv/7de+KAnExAxG4LY1voR3CxiwgawQbnLtFUesPA==}
-
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -2071,11 +2035,6 @@ packages:
   prettier@3.2.5:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
-    hasBin: true
-
-  prisma@5.13.0:
-    resolution: {integrity: sha512-kGtcJaElNRAdAGsCNykFSZ7dBKpL14Cbs+VaQ8cECxQlRPDjBlMHNFYeYt0SKovAVy2Y65JXQwB3A5+zIQwnTg==}
-    engines: {node: '>=16.13'}
     hasBin: true
 
   prop-types@15.8.1:
@@ -2647,31 +2606,6 @@ snapshots:
   '@playwright/test@1.45.3':
     dependencies:
       playwright: 1.45.3
-
-  '@prisma/client@5.13.0(prisma@5.13.0)':
-    optionalDependencies:
-      prisma: 5.13.0
-
-  '@prisma/debug@5.13.0': {}
-
-  '@prisma/engines-version@5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b': {}
-
-  '@prisma/engines@5.13.0':
-    dependencies:
-      '@prisma/debug': 5.13.0
-      '@prisma/engines-version': 5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b
-      '@prisma/fetch-engine': 5.13.0
-      '@prisma/get-platform': 5.13.0
-
-  '@prisma/fetch-engine@5.13.0':
-    dependencies:
-      '@prisma/debug': 5.13.0
-      '@prisma/engines-version': 5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b
-      '@prisma/get-platform': 5.13.0
-
-  '@prisma/get-platform@5.13.0':
-    dependencies:
-      '@prisma/debug': 5.13.0
 
   '@radix-ui/number@1.0.1':
     dependencies:
@@ -3753,7 +3687,7 @@ snapshots:
       debug: 4.3.4
       enhanced-resolve: 5.16.0
       eslint: 8.57.0
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0))(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.8.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.3
@@ -3765,7 +3699,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0))(eslint@8.57.0):
+  eslint-module-utils@2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -4305,8 +4239,6 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  log-to-file@3.0.3: {}
-
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
@@ -4562,10 +4494,6 @@ snapshots:
       prettier: 3.2.5
 
   prettier@3.2.5: {}
-
-  prisma@5.13.0:
-    dependencies:
-      '@prisma/engines': 5.13.0
 
   prop-types@15.8.1:
     dependencies:
