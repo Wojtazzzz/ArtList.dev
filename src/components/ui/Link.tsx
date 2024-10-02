@@ -31,6 +31,7 @@ export const Link = ({
 
 	return (
 		<NextLink
+			{...props}
 			href={href}
 			target={target}
 			rel={variant === 'external' ? 'noopener noreferrer' : undefined}
