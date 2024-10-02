@@ -20,10 +20,10 @@ export const Link = ({
 }: LinksProps) => {
 	const router = useRouter();
 
-	const hasFastInternet =
-		!navigator.connection || navigator.connection.effectiveType === '4g';
-
 	const prefetch = () => {
+		const hasFastInternet =
+			!navigator.connection || navigator.connection.effectiveType === '4g';
+
 		if (hasFastInternet) {
 			void router.prefetch(href.toString());
 		}
