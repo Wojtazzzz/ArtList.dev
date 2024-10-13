@@ -91,6 +91,7 @@ export function ServersTable({
 													alt="Logo serwera"
 													width="58"
 													height="58"
+													priority={index <= 8}
 												/>
 											)}
 										</div>
