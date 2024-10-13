@@ -1,12 +1,18 @@
-import Script from 'next/script';
+// import Script from 'next/script';
 import { ADSENSE_CLIENT_KEY } from '@/utils/env';
 
 export const GoogleAdsense = () => {
-	return (
-		<Script
-			async
-			src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_KEY}`}
-			strategy="afterInteractive"
-		/>
-	);
+	return null;
+	// return (
+	// <Script
+	// 	async
+	// 	src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_KEY}`}
+	// 	strategy="afterInteractive"
+	// />
+	// <script
+	// 	async
+	// 	src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_KEY}`}
+	// 	crossOrigin="anonymous"
+	// ></script>
+	// );
 };

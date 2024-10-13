@@ -84,9 +84,6 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.2.3
         version: 14.2.3
-      '@playwright/test':
-        specifier: ^1.45.3
-        version: 1.45.3
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.3)
@@ -2606,6 +2603,7 @@ snapshots:
   '@playwright/test@1.45.3':
     dependencies:
       playwright: 1.45.3
+    optional: true
 
   '@radix-ui/number@1.0.1':
     dependencies:
@@ -4425,13 +4423,15 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  playwright-core@1.45.3: {}
+  playwright-core@1.45.3:
+    optional: true
 
   playwright@1.45.3:
     dependencies:
       playwright-core: 1.45.3
     optionalDependencies:
       fsevents: 2.3.2
+    optional: true
 
   possible-typed-array-names@1.0.0: {}
 

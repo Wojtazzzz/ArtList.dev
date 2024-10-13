@@ -31,13 +31,13 @@ export function ServersList({ servers, page }: ServersListProps) {
 									{(Math.max(1, page) - 1) * SERVERS_LIMIT_PER_PAGE +
 										(index + 1)}
 								</div>
-								<div className="my-auto h-full w-[64px]">
+								<div className="my-auto h-full w-[96px]">
 									{server.icon && (
 										<Image
 											src={server.icon}
 											alt="Logo serwera"
-											width="64"
-											height="64"
+											width="96"
+											height="96"
 										/>
 									)}
 								</div>
