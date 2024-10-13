@@ -32,14 +32,14 @@ export function ServersList({ servers, page }: ServersListProps) {
 										(index + 1)}
 								</div>
 								<div className="my-auto h-full w-[96px]">
-									{server.icon && (
-										<Image
-											src={server.icon}
-											alt="Logo serwera"
-											width="96"
-											height="96"
-										/>
-									)}
+									{/*{server.icon && (*/}
+									{/*	<Image*/}
+									{/*		src={server.icon}*/}
+									{/*		alt="Logo serwera"*/}
+									{/*		width="96"*/}
+									{/*		height="96"*/}
+									{/*	/>*/}
+									{/*)}*/}
 								</div>
 
 								<TypographyH3>
