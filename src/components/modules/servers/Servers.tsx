@@ -14,11 +14,11 @@ export const Servers = ({ servers, page, defaultSort }: ServersProps) => {
 		<>
 			<TypographyH2 srOnly>Lista serwerów</TypographyH2>
 
-			<TypographyP>
-				<span className="text-sm">
-					Kliknij w nazwę serwera, aby wyświetlić szczegóły.
-				</span>
-			</TypographyP>
+			{/*<TypographyP>*/}
+			{/*	<span className="text-sm">*/}
+			{/*		Kliknij w nazwę serwera, aby wyświetlić szczegóły.*/}
+			{/*	</span>*/}
+			{/*</TypographyP>*/}
 
 			<div className="hidden md:block">
 				<ServersTable
