@@ -15,19 +15,19 @@ export default async function sitemap() {
 
 	return [
 		{
-			url: APP_URL,
+			url: APP_URL.toLowerCase(),
 			lastModified: new Date(),
 			changeFrequency: 'hourly',
 			priority: 1.0,
 		},
 		...(await getServers()).map((server: { name: string }) => ({
-			url: `${APP_URL}/server/${server.name}`,
+			url: `${APP_URL}/server/${server.name}`.toLowerCase(),
 			lastModified: new Date(),
 			changeFrequency: 'hourly',
 			priority: 0.8,
 		})),
 		{
-			url: `${APP_URL}/regulamin`,
+			url: `${APP_URL}/regulamin`.toLowerCase(),
 			lastModified: new Date(),
 			changeFrequency: 'yearly',
 			priority: 0.5,
