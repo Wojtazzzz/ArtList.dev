@@ -45,7 +45,7 @@ export default function ServersListLayout({
 						<a
 							href="https://help.minecraft.net/"
 							target="_blank"
-							rel="nofollow noopener noreferrer"
+							rel="noreferrer"
 							className="underline hover:text-gray-300"
 						>
 							centrum pomocy Minecraft
@@ -71,7 +71,7 @@ export default function ServersListLayout({
 						<a
 							href="https://www.minecraft.net/"
 							target="_blank"
-							rel="nofollow noopener noreferrer"
+							rel="noreferrer"
 							className="underline hover:text-gray-300"
 						>
 							cyfrowym świecie Minecrafta
@@ -99,7 +99,7 @@ export default function ServersListLayout({
 						<a
 							href="https://minecraft.fandom.com/wiki/Minecraft_Wiki"
 							target="_blank"
-							rel="nofollow noopener noreferrer"
+							rel="noreferrer"
 							className="underline hover:text-gray-300"
 						>
 							Minecraft Wiki

@@ -24,7 +24,7 @@ export function ServersList({ servers, page }: ServersListProps) {
 					key={server.id}
 					className="border-b py-4 odd:bg-muted/40 hover:odd:bg-muted dark:odd:bg-muted/25 dark:hover:bg-muted/10"
 				>
-					<Link href={`/server/${server.name}`}>
+					<Link href={`/server/${server.name.toLowerCase()}`}>
 						<article className="space-y-5 px-2.5">
 							<header className="flex items-center space-x-4">
 								<div className="font-medium">

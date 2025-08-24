@@ -83,7 +83,7 @@ export function ServersTable({
 							</TableCell>
 
 							<TableCell>
-								<Link href={`/server/${server.name}`}>
+								<Link href={`/server/${server.name.toLowerCase()}`}>
 									<div className="flex gap-x-1">
 										<div className="my-auto mr-3.5 h-full w-[58px]">
 											{server.icon && (
