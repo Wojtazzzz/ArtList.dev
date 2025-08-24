@@ -22,7 +22,7 @@ jobs:
         run: |
           ssh -p ${{ secrets.SERVER_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}     << 'EOF'
             cd /var/www/artlist || exit
-            git pull origin master
+            git pull origin main
             pnpm install
             pnpm run build
             pm2 restart artlist
