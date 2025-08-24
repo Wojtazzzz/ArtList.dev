@@ -20,7 +20,12 @@ export const RootNavigation = () => {
 							<Logo size="base" />
 
 							<div className="self-center whitespace-nowrap text-xl">
-								<TypographyH1>ArtList <span className="sr-only sm:not-sr-only">- lista serwerów Minecraft</span></TypographyH1>
+								<TypographyH1>
+									ArtList{' '}
+									<span className="sr-only sm:not-sr-only">
+										- lista serwerów Minecraft
+									</span>
+								</TypographyH1>
 							</div>
 						</div>
 					</Link>
