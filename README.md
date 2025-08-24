@@ -1,25 +1,4 @@
-<div align="center">
-  
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-</div>
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-
-[//]: # (  <a href="./public/logo.svg">)
-
-[//]: # (    <img src="images/logo.png" alt="Logo" width="80" height="80">)
-
-[//]: # (  </a>)
-
 <h2 align="center">ArtList.pl</h3>
-
   <p align="center">
     An awesome Minecraft Servers list!
     <br />
