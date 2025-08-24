@@ -1,11 +1,3 @@
-name: Node.js CI
-
-on:
-  push:
-    branches: ['main']
-  pull_request:
-    branches: ['main']
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,30 +6,32 @@ jobs:
       matrix:
         node-version: [20.x, 22.x]
 
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
+      # 1. Node.js + cache
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
 
+      # 2. PNPM musi być zainstalowany PRZED użyciem cache
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: latest
+
+      # 3. Teraz cache działa, bo pnpm istnieje
+      - name: Cache pnpm
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm run build --if-present
-
-#      - name: Test
-#        run: pnpm test
