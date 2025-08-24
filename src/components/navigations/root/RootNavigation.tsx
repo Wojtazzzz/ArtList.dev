@@ -22,8 +22,6 @@ export const RootNavigation = () => {
 							<div className="self-center whitespace-nowrap text-2xl font-semibold">
 								<TypographyH1>ArtList</TypographyH1>
 							</div>
-
-							<span>(beta)</span>
 						</div>
 					</Link>
 
