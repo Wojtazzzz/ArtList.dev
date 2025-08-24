@@ -27,7 +27,7 @@ export default async function sitemap() {
 			priority: 0.8,
 		})),
 		{
-			url: APP_URL,
+			url: `${APP_URL}/regulamin`,
 			lastModified: new Date(),
 			changeFrequency: 'yearly',
 			priority: 0.5,
