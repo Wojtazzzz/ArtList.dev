@@ -39,7 +39,7 @@ export default async function StatutePage() {
 	return (
 		<Container>
 			{rules.map((section, sectionIndex) => (
-				<section className="prose mx-auto !max-w-[100ch]" key={sectionIndex}>
+				<section className="prose !min-w-full mx-auto" key={sectionIndex}>
 					<TypographyH2 id="statute-title">
 						<span className="text-3xl font-bold">{section.header}</span>
 					</TypographyH2>
