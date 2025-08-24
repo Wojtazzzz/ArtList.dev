@@ -12,9 +12,9 @@ import Script from 'next/script';
 import { GoogleAdsense } from '@/components/GoogleAdsense';
 
 export const metadata: Metadata = {
-	title: 'Lista serwerów Minecraft - ArtList.pl',
+	title: 'Lista serwerów Minecraft | ArtList.pl',
 	description:
-		'Odkryj świat serwerów Minecraft! Znajdź idealny serwer do gry lub zareklamuj własny.',
+		'ArtList – aktualna lista serwerów Minecraft. Sprawdź popularne serwery Minecraft i dołącz do aktywnych społeczności graczy już dziś!',
 };
 
 type RootLayoutProps = Readonly<{
