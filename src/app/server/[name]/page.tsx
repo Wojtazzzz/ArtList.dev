@@ -8,7 +8,7 @@ import { capitalize, cn } from '@/utils/functions';
 import { CardDescription } from '@/components/ui/card/CardDescription';
 import { CopyServerAddress } from '@/components/modules/server/CopyServerAddress';
 import { GoBackButton } from '@/components/modules/server/GoBackButton';
-import { TypographyH2 } from '@/components/ui/Typography';
+import { TypographyH2, TypographyH3 } from '@/components/ui/Typography';
 
 type Server = {
 	id: number;
@@ -91,7 +91,7 @@ export default async function ServersPaginatedPage({
 			<Card>
 				<CardHeader>
 					<CardTitle>
-						<TypographyH2>Aktywni gracze z ostatnich 12 godzin</TypographyH2>
+						<TypographyH3>Aktywni gracze z ostatnich 12 godzin</TypographyH3>
 					</CardTitle>
 				</CardHeader>
 				<CardContent>
