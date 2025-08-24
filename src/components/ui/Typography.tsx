@@ -77,7 +77,7 @@ type TypographyPProps = {
 
 export function TypographyP({ children }: TypographyPProps) {
 	return (
-		<p className="leading-7 dark:text-white [&:not(:first-child)]:mt-6">
+		<p className="leading-7 dark:text-white [&:not(:first-child)]:mt-3">
 			{children}
 		</p>
 	);

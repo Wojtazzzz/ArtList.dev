@@ -18,6 +18,7 @@ import { TableBody } from '@/components/ui/Table/TableBody';
 import { TableCell } from '@/components/ui/Table/TableCell';
 import { TableHead } from '@/components/ui/Table/TableHead';
 import { Link } from '@/components/ui/Link';
+import { TypographyH3 } from '@/components/ui/Typography';
 
 type ServersTableProps = {
 	servers: Server[];
@@ -97,9 +98,11 @@ export function ServersTable({
 										</div>
 
 										<div>
-											<p className="mb-1 text-base font-medium">
-												{capitalize(server.name)}
-											</p>
+											<TypographyH3>
+												<span className="mb-1 text-base font-medium">
+													{capitalize(server.name)}
+												</span>
+											</TypographyH3>
 											<div className="max-w-96 overflow-hidden">
 												{server.motdFirstLine && <p>{server.motdFirstLine}</p>}
 												{server.motdSecondLine && (

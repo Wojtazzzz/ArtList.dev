@@ -19,8 +19,8 @@ export const RootNavigation = () => {
 						<div className="flex items-center space-x-1.5 pr-1.5">
 							<Logo size="base" />
 
-							<div className="self-center whitespace-nowrap text-2xl font-semibold">
-								<TypographyH1>ArtList</TypographyH1>
+							<div className="self-center whitespace-nowrap text-xl">
+								<TypographyH1>ArtList <span className="sr-only sm:not-sr-only">- lista serwerów Minecraft</span></TypographyH1>
 							</div>
 						</div>
 					</Link>
