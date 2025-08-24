@@ -1,4 +1,4 @@
-name: Deploy Next.js App
+name: Deploy on production
 
 on:
   push:
