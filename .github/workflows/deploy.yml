@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}     << 'EOF'
+          ssh -p ${{ secrets.SERVER_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}     << 'EOF'
             cd /var/www/artlist || exit
             git pull origin master
             pnpm install
