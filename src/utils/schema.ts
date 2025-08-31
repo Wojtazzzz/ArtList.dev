@@ -16,6 +16,7 @@ const serversSchema = z.object({
 			maxPlayers: z.number(),
 			online: z.boolean(),
 			icon: z.string().nullable(),
+			iconUrl: z.string().nullable(),
 		})
 	),
 });

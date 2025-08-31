@@ -2,7 +2,7 @@
 
 import { ArrowUpDown } from 'lucide-react';
 import { type Server } from '@/utils/schema';
-import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
+import { API_URL, SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
 import Image from 'next/image';
 import { capitalize } from '@/utils/functions';
 import { cn } from '@/utils/functions';
@@ -86,7 +86,15 @@ export function ServersTable({
 								<Link href={`/server/${server.name.toLowerCase()}`}>
 									<div className="flex gap-x-1">
 										<div className="my-auto mr-3.5 h-full w-[58px]">
-											{server.icon && (
+											{server.iconUrl ? (
+												<Image
+													src={`${API_URL}/servers/${server.iconUrl}`}
+													alt="Logo serwera"
+													width="58"
+													height="58"
+													priority={index <= 8}
+												/>
+											) : server.icon ? (
 												<Image
 													src={server.icon}
 													alt="Logo serwera"
@@ -94,7 +102,7 @@ export function ServersTable({
 													height="58"
 													priority={index <= 8}
 												/>
-											)}
+											) : null}
 										</div>
 
 										<div>
