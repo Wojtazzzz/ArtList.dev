@@ -8,11 +8,10 @@ import { Inter } from 'next/font/google';
 import { RootNavigation } from '@/components/navigations/root/RootNavigation';
 import { ScrollToTop } from '@/components/scrollToTop/ScrollToTop';
 import { cn } from '@/utils/functions';
-import Script from 'next/script';
 import { GoogleAdsense } from '@/components/GoogleAdsense';
 
 export const metadata: Metadata = {
-	title: 'Lista serwerów Minecraft | ArtList.pl',
+	title: 'Lista serwerów Minecraft | ArtList.dev',
 	description:
 		'ArtList – aktualna lista serwerów Minecraft. Sprawdź popularne serwery Minecraft i dołącz do aktywnych społeczności graczy już dziś!',
 };

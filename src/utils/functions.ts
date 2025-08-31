@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import moment from 'moment';
+import { APP_URL } from '@/utils/env';
 
 export const capitalize = (text: string) => {
 	if (text.length <= 0) {
@@ -32,4 +33,8 @@ export const buildParams = (
 
 export const formatDate = (date: string, format: string) => {
 	return moment(new Date(date).toISOString()).format(format);
+};
+
+export const getCanonical = (pathname: string) => {
+	return `${APP_URL.replace(/\/$/, '')}/${pathname.replace(/^\//, '')}`.toLowerCase();
 };

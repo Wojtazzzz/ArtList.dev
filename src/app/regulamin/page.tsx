@@ -3,9 +3,13 @@ import type { Metadata } from 'next';
 import { TypographyH2, TypographyP } from '@/components/ui/Typography';
 import type { ReactNode } from 'react';
 import { Link } from '@/components/ui/Link';
+import { getCanonical } from '@/utils/functions';
 
 export const metadata: Metadata = {
-	title: 'Regulamin serwisu - ArtList.pl',
+	title: 'Regulamin serwisu - ArtList.dev',
+	alternates: {
+		canonical: getCanonical('/regulamin'),
+	},
 };
 
 type Rules = {
@@ -17,7 +21,7 @@ const rules = [
 	{
 		header: 'Regulamin Serwisu',
 		paragraphs: [
-			'Aplikacja ArtList.pl służy do dzielenia się adresami serwerów do gry Minecraft.',
+			'Aplikacja ArtList.dev służy do dzielenia się adresami serwerów do gry Minecraft.',
 			'Za treści niezwiązane z tematyką witryny uważane są wszelkie reklamy czy linki do innych stron o podobnej tematyce (listy serwerów/hostingi itd.) bez uprzedniej zgody administratora serwisu.',
 			'Dodanie serwera do listy jest w pełni darmowe i nie wymaga rejestracji konta.',
 			'W serwisie nie wolno umieszczać treści powszechnie uważanych za wulgarne, treści naruszających prawa autorskie oraz materiałów pornograficznych.',

@@ -32,7 +32,7 @@ export const Link = ({
 	return (
 		<NextLink
 			{...props}
-			href={href}
+			href={typeof href === 'string' ? href.toLowerCase() : href}
 			target={target}
 			rel={variant === 'external' ? 'noopener noreferrer' : undefined}
 			prefetch={false}

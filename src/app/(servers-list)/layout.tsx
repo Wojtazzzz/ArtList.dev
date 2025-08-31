@@ -88,7 +88,7 @@ export default function ServersListLayout({
 					</TypographyH3>
 					<p>
 						Na stronie{' '}
-						<Link href="https://artlist.dev/">
+						<Link href="/">
 							<span className="underline hover:text-gray-300">ArtList.dev</span>
 						</Link>{' '}
 						każdy serwer posiada własny profil, na którym możesz sprawdzić{' '}

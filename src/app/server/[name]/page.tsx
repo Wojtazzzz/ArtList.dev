@@ -4,7 +4,7 @@ import { CardHeader } from '@/components/ui/card/CardHeader';
 import { CardContent } from '@/components/ui/card/CardContent';
 import { CardTitle } from '@/components/ui/card/CardTitle';
 import { Chart } from '@/components/modules/server/PlayersHistoryChart';
-import { capitalize, cn } from '@/utils/functions';
+import { capitalize, cn, getCanonical } from '@/utils/functions';
 import { CardDescription } from '@/components/ui/card/CardDescription';
 import { CopyServerAddress } from '@/components/modules/server/CopyServerAddress';
 import { GoBackButton } from '@/components/modules/server/GoBackButton';
@@ -22,6 +22,15 @@ type Server = {
 		value: number;
 	}[];
 };
+
+export async function generateMetadata({ params }: ServerPageParams) {
+	return {
+		title: `Serwer ${params.name} | ArtList.dev`,
+		alternates: {
+			canonical: getCanonical(`/server/${params.name}`),
+		},
+	};
+}
 
 export async function generateStaticParams() {
 	const servers = await fetchData('/servers?page=1&limit=9999990', 0);

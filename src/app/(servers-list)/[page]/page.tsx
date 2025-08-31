@@ -1,8 +1,16 @@
 import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
 import { StaticPagination } from '@/components/modules/servers/paginations/StaticPagination';
 import { fetchData } from '@/utils/clients';
-import { buildParams } from '@/utils/functions';
+import { buildParams, getCanonical } from '@/utils/functions';
 import { Servers } from '@/components/modules/servers/Servers';
+
+export async function generateMetadata({ params }: ServersPaginatedPageParams) {
+	return {
+		alternates: {
+			canonical: getCanonical(`/${params.page}`),
+		},
+	};
+}
 
 export async function generateStaticParams() {
 	const serversCount = await fetchData('/servers/count', 0);
