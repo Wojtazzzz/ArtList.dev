@@ -1,7 +1,7 @@
 'use client';
 
 import { type Server } from '@/utils/schema';
-import { SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
+import { API_URL, SERVERS_LIMIT_PER_PAGE } from '@/utils/env';
 import Image from 'next/image';
 import { cn } from '@/utils/functions';
 import { TypographyH3 } from '@/components/ui/Typography';
@@ -32,7 +32,15 @@ export function ServersList({ servers, page }: ServersListProps) {
 										(index + 1)}
 								</div>
 								<div className="my-auto h-full w-[96px]">
-									{server.icon && (
+									{server.iconUrl ? (
+										<Image
+											src={`${API_URL}/servers/${server.iconUrl}`}
+											alt="Logo serwera"
+											width="64"
+											height="64"
+											priority={index <= 8}
+										/>
+									) : server.icon ? (
 										<Image
 											src={server.icon}
 											alt="Logo serwera"
@@ -40,7 +48,7 @@ export function ServersList({ servers, page }: ServersListProps) {
 											height="64"
 											priority={index <= 8}
 										/>
-									)}
+									) : null}
 								</div>
 
 								<TypographyH3>
