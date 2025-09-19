@@ -32,7 +32,7 @@ export function Chart({ data }: ChartProps) {
 				accessibilityLayer
 				data={data.map((stat) => ({
 					date: formatDate(stat.date, 'YYYY.M.D H:00'),
-					value: stat.value,
+					value: Math.max(0, Number(stat.value)),
 				}))}
 				margin={{
 					left: 12,
