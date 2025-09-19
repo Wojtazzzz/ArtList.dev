@@ -7,8 +7,9 @@ import { Chart } from '@/components/modules/server/PlayersHistoryChart';
 import { capitalize, cn, getCanonical } from '@/utils/functions';
 import { CardDescription } from '@/components/ui/card/CardDescription';
 import { CopyServerAddress } from '@/components/modules/server/CopyServerAddress';
-import { GoBackButton } from '@/components/modules/server/GoBackButton';
 import { TypographyH2, TypographyH3 } from '@/components/ui/Typography';
+import { Undo2 } from 'lucide-react';
+import { Link } from '@/components/ui/Link';
 
 type Server = {
 	id: number;
@@ -57,7 +58,15 @@ export default async function ServersPaginatedPage({
 
 	return (
 		<div className="space-y-6">
-			<GoBackButton />
+			<Link
+				href="/"
+				className="text-primary underline-offset-4 hover:underline"
+			>
+				<span className="flex items-center gap-x-2 font-medium">
+					<Undo2 size={20} />
+					Powrót
+				</span>
+			</Link>
 
 			<Card>
 				<CardHeader>
