@@ -10,6 +10,10 @@ type ServersProps = {
 };
 
 export const Servers = ({ servers, page, defaultSort }: ServersProps) => {
+	if (servers.length <= 0) {
+		return <div className="h-24 text-center">Brak serwerów.</div>;
+	}
+
 	return (
 		<>
 			<hgroup>
