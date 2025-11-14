@@ -6,6 +6,7 @@ import { NavigationListItem } from '@/components/ui/navigation/NavigationListIte
 import { TypographyH1 } from '@/components/ui/Typography';
 import { Container } from '@/components/ui/Container';
 import { AddServerDialog } from '@/components/navigations/root/AddServerDialog';
+import { RandomServerButton } from '@/components/navigations/root/RandomServerButton';
 import { ChangeTheme } from '@/components/ChangeTheme';
 import { Logo } from '@/components/ui/Logo';
 import { Link } from '@/components/ui/Link';
@@ -31,6 +32,11 @@ export const RootNavigation = () => {
 					</Link>
 
 					<NavigationList>
+						<NavigationListItem>
+							<div className="px-1 md:px-2">
+								<RandomServerButton />
+							</div>
+						</NavigationListItem>
 						<NavigationListItem>
 							<div className="px-1 md:px-2">
 								<AddServerDialog />
