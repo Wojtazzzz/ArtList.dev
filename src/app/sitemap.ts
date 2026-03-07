@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { fetchData } from '@/utils/clients';
 import { APP_URL } from '@/utils/env';
 
-export const revalidate = 60 * 30; // 30 minutes
+export const revalidate = 1800; // 30 minutes
 
 export default async function sitemap() {
 	async function getServers() {
